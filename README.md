@@ -53,4 +53,6 @@ to get the features for IEMOCAP and AVEC dataset.
 
 ### Citation
 
-Please cite the paper `arXiv:1811.00405` if you find this code useful in your work.
+Please cite the following paper if you find this code useful in your work.
+
+`DialogueRNN: An Attentive RNN for Emotion Detection in Conversations. N. Majumder, S. Poria, D. Hazarika, R. Mihalcea, E. Cambria, and G. Alexander. AAAI (2019), Honolulu, Hawaii, USA`
