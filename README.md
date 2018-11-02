@@ -28,8 +28,8 @@ dialogue generation.
 
 ### Execution
 
-1. _IEMOCAP_ dataset: train_IEMOCAP.py
-2. _AVEC_ dataset: train_AVEC.py
+1. _IEMOCAP_ dataset: `python train_IEMOCAP.py`
+2. _AVEC_ dataset: `python train_AVEC.py`
 
 ### Dataset Feature
 
