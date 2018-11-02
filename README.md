@@ -47,4 +47,5 @@ dialogue generation.
 
 ### Citation
 
-Please cite the paper `arXiv:1811.00405` if you find this code useful in your work.
+Please cite the paper `N. Majumder, S. Poria, D. Hazarika, R. Mihalcea, E. Cambria, and G. Alexander. \DialogueRNN: An
+Attentive RNN for Emotion Detection in Conversations". In: AAAI. Vol. 1. 2019.` if you find this code useful in your work.
