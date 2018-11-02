@@ -31,6 +31,12 @@ dialogue generation.
 1. _IEMOCAP_ dataset: train_IEMOCAP.py
 2. _AVEC_ dataset: train_AVEC.py
 
+### Dataset Feature
+
+Please use this
+[link](https://drive.google.com/file/d/19-KVno1Ki63h78hm48FjJQHKSZV84rPo/view?usp=sharing)
+to get the features for IEMOCAP and AVEC dataset.
+
 ### Command-Line Arguments
 
 -  `--no-cuda`: Does not use GPU
@@ -47,5 +53,4 @@ dialogue generation.
 
 ### Citation
 
-Please cite the paper `N. Majumder, S. Poria, D. Hazarika, R. Mihalcea, E. Cambria, and G. Alexander. DialogueRNN: An
-Attentive RNN for Emotion Detection in Conversations". In: AAAI. Vol. 1. 2019.` if you find this code useful in your work.
+Please cite the paper `arXiv:1811.00405` if you find this code useful in your work.
