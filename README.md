@@ -31,11 +31,9 @@ dialogue generation.
 1. _IEMOCAP_ dataset: `python train_IEMOCAP.py`
 2. _AVEC_ dataset: `python train_AVEC.py`
 
-### Dataset Feature
+### Dataset Features
 
-Please use this
-[link](https://drive.google.com/file/d/19-KVno1Ki63h78hm48FjJQHKSZV84rPo/view?usp=sharing)
-to get the features for IEMOCAP and AVEC dataset.
+Please extract the file `DialogueRNN_features.zip`.
 
 ### Command-Line Arguments
 
