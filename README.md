@@ -33,17 +33,17 @@ dialogue generation.
 
 ### Command-Line Arguments
 
-  `--no-cuda`: Does not use GPU
-  `--lr`: Learning rate
-  `--l2`: L2 regularization weight
-  `--rec-dropout`: Recurrent dropout
-  `--dropout`: Dropout
-  `--batch-size`: Batch size
-  `--epochs`: Number of epochs
-  `--class-weight`: class weight (not applicable for AVEC)
-  `--active-listener`: Explicit lisnener mode
-  `--attention`: Attention type
-  `--tensorboard`: Enables tensorboard log
+-  `--no-cuda`: Does not use GPU
+-  `--lr`: Learning rate
+-  `--l2`: L2 regularization weight
+-  `--rec-dropout`: Recurrent dropout
+-  `--dropout`: Dropout
+-  `--batch-size`: Batch size
+-  `--epochs`: Number of epochs
+-  `--class-weight`: class weight (not applicable for AVEC)
+-  `--active-listener`: Explicit lisnener mode
+-  `--attention`: Attention type
+-  `--tensorboard`: Enables tensorboard log
 
 ### Citation
 
