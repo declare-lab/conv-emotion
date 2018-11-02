@@ -5,6 +5,8 @@ This repository contains implementations for three conversational emotion detect
 - ICON (tensorflow)
 - DialogueRNN (PyTorch)
 
+Unline other emotion detection models, these techniques consider the party-states and inter-party dependencies for modeling conversational context relevant to emotion recognition. The primary purpose of all these techniques are to pretrain an emotion detection model for empathetic dialogue generation.
+
 ## CMN
 
 ## ICON
