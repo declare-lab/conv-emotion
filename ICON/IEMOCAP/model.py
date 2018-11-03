@@ -7,7 +7,7 @@ from sklearn.cross_validation import train_test_split
 
 
 
-class uniGRUModel:
+class ICON:
 
     def __init__(self, CONFIG, session = None):
         
@@ -21,7 +21,7 @@ class uniGRUModel:
         self._nonlin = CONFIG.nonlin
         self._nonlin_func = CONFIG.nonlin_func
         self._init = tf.random_normal_initializer(stddev=0.01, seed=1227)
-        self._name = "uniGRUModel"
+        self._name = "ICON"
 
         ## inputs to receive from the dataset
         self._build_inputs()
@@ -40,14 +40,14 @@ class uniGRUModel:
         cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=tf.cast(self._labels, tf.float32), name="cross_entropy")
         cross_entropy_sum = tf.reduce_mean(cross_entropy, keepdims=False, name="cross_entropy_sum")
 
-        print '\n ---- TRAINABLE VARIABLES ---- \n'
+        print('\n ---- TRAINABLE VARIABLES ---- \n')
         tvars = tf.trainable_variables()
         reg_loss=[]
         for tvar in tvars:
-            print tvar.name
+            print(tvar.name)
             if "bias" not in tvar.name:
                 reg_loss.append(tf.nn.l2_loss(tvar))
-        print '----------- \n'
+        print('----------- \n')
 
         # loss op
         self.regularization_loss = tf.reduce_mean(reg_loss)
@@ -214,7 +214,7 @@ class uniGRUModel:
 
             with tf.variable_scope("globalGRU"):                 
 
-                for hop in xrange(self._hops):
+                for hop in range(self._hops):
 
 
                     # def GlobalGRU(rnn, inputs, mask):

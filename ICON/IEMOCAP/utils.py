@@ -1,32 +1,20 @@
 import numpy as np
 import pandas as pd
-import cPickle
+import pickle
 from sklearn import cross_validation, metrics
 
-TEXT_EMBEDDINGS = "../../data/text/embeddings.pkl"
-VIDEO_EMBEDDINGS = "../../data/video/IEMOCAP_video_features.pickle"
-AUDIO_EMBEDDINGS = "../../data/audio/IEMOCAP_audio_features.pickle"
-# AUDIO_EMBEDDINGS = "../../data/audio/IEMOCAP_audio_feature_selection.pickle"
+TEXT_EMBEDDINGS = "./IEMOCAP/data/text/IEMOCAP_text_embeddings.pickle"
+VIDEO_EMBEDDINGS = "./IEMOCAP/data/video/IEMOCAP_video_features.pickle"
+AUDIO_EMBEDDINGS = "./IEMOCAP/data/audio/IEMOCAP_audio_features.pickle"
 
-trainID = cPickle.load(open("../../data/trainID.pkl",'r'))
-testID = cPickle.load(open("../../data/testID.pkl",'r'))
-# Split trainID to trainID and valID
-# valID = []
-# newtrainID = []
-# for ID in trainID:
-# 	if int(ID[4]) == 4:
-# 		valID.append(ID)
-# 	else:
-# 		newtrainID.append(ID)
-# trainID = newtrainID[:]
-# valID,_ = cross_validation.train_test_split(testID, test_size=.4, random_state=1227)
-valID = testID
+trainID = pickle.load(open("./IEMOCAP/data/trainID.pkl",'rb'), encoding="latin1")
+testID = pickle.load(open("./IEMOCAP/data/testID.pkl",'rb'), encoding="latin1")
+valID,_ = cross_validation.train_test_split(testID, test_size=.4, random_state=1227)
+# valID = testID
 
-
-transcripts, labels, own_historyID, other_historyID, own_historyID_rank, other_historyID_rank = cPickle.load(open("../../data/dataset.pkl",'r'))
+transcripts, labels, own_historyID, other_historyID, own_historyID_rank, other_historyID_rank = pickle.load(open("./IEMOCAP/data/dataset.pkl",'rb'), encoding="latin1")
 
 label_idx = {'hap':0, 'sad':1, 'neu':2, 'ang':3, 'exc':4, 'fru':5}
-
 
 
 def oneHot(trainLabels, valLabels, testLabels):
@@ -49,18 +37,18 @@ def oneHot(trainLabels, valLabels, testLabels):
 
 def updateDictText(text_transcripts_emb, text_own_history_emb, text_other_history_emb, text_emb):
 
-	for ID, value in text_transcripts_emb.iteritems():
+	for ID, value in text_transcripts_emb.items():
 		if ID in text_emb.keys():
 			text_transcripts_emb[ID] = text_emb[ID]
 	# updating the context faeturs
-	for ID, value in text_own_history_emb.iteritems():
+	for ID, value in text_own_history_emb.items():
 		ids = own_historyID[ID]
 		for idx, iD in enumerate(ids):
 			if iD in text_emb.keys():
 				text_own_history_emb[ID][idx]= text_emb[iD]
 
 	# updating the context faeturs
-	for ID, value in text_other_history_emb.iteritems():
+	for ID, value in text_other_history_emb.items():
 		ids = other_historyID[ID]
 		for idx, iD in enumerate(ids):
 			if iD in text_emb.keys():
@@ -78,22 +66,23 @@ def loadData(FLAGS):
 	trainLabels, valLabels, testLabels = oneHot(trainLabels, valLabels, testLabels)
 
 	## Loading Text features
-	text_transcripts_emb, text_own_history_emb, text_other_history_emb = cPickle.load( open(TEXT_EMBEDDINGS, 'rb'))
+	text_transcripts_emb, text_own_history_emb, text_other_history_emb = pickle.load( open(TEXT_EMBEDDINGS, 'rb'), encoding="latin1")
 	if FLAGS.context:
 		print("loading contextual features")
-		text_emb = cPickle.load(open("../../data/text/text_context.pickle", 'rb'))
+		text_emb = pickle.load(open("./IEMOCAP/data/text/IEMOCAP_text_context.pickle", 'rb'), encoding="latin1")
 		text_transcripts_emb, text_own_history_emb, text_other_history_emb = updateDictText(text_transcripts_emb, text_own_history_emb, text_other_history_emb, text_emb)
 
 	## Loading Audio features
-	audio_emb = cPickle.load(open(AUDIO_EMBEDDINGS, 'rb'))
+	audio_emb = pickle.load(open(AUDIO_EMBEDDINGS, 'rb'), encoding="latin1")
 	if FLAGS.context:
-		audio_emb_context = cPickle.load(open("../../data/audio/audio_context.pickle", 'rb'))
+		audio_emb_context = pickle.load(open("./IEMOCAP/data/audio/IEMOCAP_audio_context.pickle", 'rb'), encoding="latin1")
 		for ID in audio_emb.keys():
 			if ID in audio_emb_context.keys():
 				audio_emb[ID] = audio_emb_context[ID]
+	
 	## Loading Video features 
-	video_emb = cPickle.load(open(VIDEO_EMBEDDINGS, 'rb'))
-	# video_emb_context = cPickle.load(open("../../data/video/video_context.pickle", 'rb'))
+	video_emb = pickle.load(open(VIDEO_EMBEDDINGS, 'rb'), encoding="latin1")
+	# video_emb_context = pickle.load(open("./IEMOCAP/data/video/IEMOCAP_video_context.pickle", 'rb'), encoding="latin1")
 	# for ID in video_emb.keys():
 	# 	if ID in video_emb_context.keys():
 	# 		video_emb[ID] = video_emb_context[ID]
