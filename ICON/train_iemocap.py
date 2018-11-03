@@ -77,7 +77,6 @@ def main():
 
 			model = ICON(FLAGS, sess)
 
-
 			max_val_accuracy = 0
 			max_test_acc= 0
 			min_val_loss = 100000
@@ -117,8 +116,7 @@ def main():
 
 					cost_t = model.batch_fit(histOwn, histOther, histOwnMask, histOtherMask, mask, query, answers, lr, FLAGS.dropout_keep_prob, training_mode=True)
 					total_cost += cost_t
-
-				# print(total_cost)
+					
 
 				if t % FLAGS.evaluation_interval == 0:
 

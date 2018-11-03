@@ -89,18 +89,23 @@ class ICON:
         # Dropout Probability
         self._dropout = tf.placeholder(tf.float32, [], name="dropout_keep_rate")
 
-        # 
+        # Training mode 
         self._training = tf.placeholder(tf.bool, [], name="training_testing_mode")
 
     def _build_vars(self):
 
         with tf.variable_scope(self._name):
 
-            # with tf.variable_scope("input"):
+            with tf.variable_scope("localGRU"):
+                # GRUs for per-person local input modeling
+                self.localGRUOwn = tf.contrib.rnn.GRUCell(num_units=self._embedding_size, reuse = tf.AUTO_REUSE, name='localGRUOwn')
+                self.localGRUOther = tf.contrib.rnn.GRUCell(num_units=self._embedding_size, reuse = tf.AUTO_REUSE, name='localGRUOther')
 
-            #     # Input Projection Matrix
-            #     self.inputProj = tf.get_variable("inputProj", shape=([self._input_dim, self._embedding_size]), trainable=True, initializer=self._init)
-            #     self.inputProjBias = tf.get_variable("inputProjBias", shape=([1, self._embedding_size]), trainable=True, initializer=self._init)
+            with tf.variable_scope("globalGRU"):
+                self.globalGRU = tf.contrib.rnn.GRUCell(num_units=self._embedding_size, reuse = tf.AUTO_REUSE, name='globalGRU')
+
+            with tf.variable_scope("memoryGRU"):
+                self.memoryGRU = tf.contrib.rnn.GRUCell(num_units=self._embedding_size, reuse = tf.AUTO_REUSE, name='memoryGRU')
 
             with tf.variable_scope("output"):
 
@@ -108,27 +113,12 @@ class ICON:
                 self.outputProj = tf.get_variable("outProj", shape=([self._embedding_size, self._class_size]), trainable=True, initializer=self._init)
                 self.outputProjBias = tf.get_variable("outputProjBias", shape=([1, self._class_size]), trainable=True, initializer=self._init)
             
-            with tf.variable_scope("localGRU"):
-
-                # GRUs for per-person local input modeling
-                self.localGRUOwn = tf.contrib.rnn.GRUCell(num_units=self._embedding_size, reuse = tf.AUTO_REUSE, name='localGRUOwn')
-                self.localGRUOther = tf.contrib.rnn.GRUCell(num_units=self._embedding_size, reuse = tf.AUTO_REUSE, name='localGRUOther')
-
-            with tf.variable_scope("globalGRU"):
-
-                self.globalGRU = tf.contrib.rnn.GRUCell(num_units=self._embedding_size, reuse = tf.AUTO_REUSE, name='globalGRU')
-
-            with tf.variable_scope("memoryGRU"):
-
-                self.memoryGRU = tf.contrib.rnn.GRUCell(num_units=self._embedding_size, reuse = tf.AUTO_REUSE, name='memoryGRU')
-            
 
     def _inference(self, histories_own, histories_other, queries):
 
         with tf.variable_scope(self._name):
 
             with tf.variable_scope("input"):
-                # q = tf.add(tf.matmul(queries, self.inputProj), self.inputProjBias) # (batch_size, embedding_size) 
                 
                 q = tf.contrib.layers.fully_connected(
                     queries,
@@ -142,8 +132,8 @@ class ICON:
                     trainable=True,
                     scope="input"
                 )
-                # q = tf.layers.batch_normalization(q, training=self._training, trainable = True, axis = 1, reuse = tf.AUTO_REUSE, name='batch_norm')
-                # q = tf.nn.dropout(q, keep_prob = self._dropout, name = "input_dropout")
+
+            # SIM Module
             with tf.variable_scope("localGRU"):
 
                 
@@ -186,29 +176,7 @@ class ICON:
                 otherHistoryRNNOutput = tf.nn.dropout(otherHistoryRNNOutput, keep_prob = self._dropout, name = "other_rnn_dropout")
 
 
-
-                # ownRNNOutput, _ = tf.nn.dynamic_rnn(self.localGRUOwn, histories_own, dtype=tf.float32)
-                # rnnOutputs = []
-                # for i in range(self._timesteps):
-                #     localMask = tf.squeeze(self._histories_own_mask[:,tf.constant(i)]) # batch_size
-                #     localOutput = tf.squeeze(ownRNNOutput[:,tf.constant(i),:]) # batch_size * dim
-                #     outputVector = tf.where(localMask, localOutput, tf.zeros((self._batch_size,self._embedding_size), dtype=np.float32))
-                #     rnnOutputs.append(outputVector[:,tf.newaxis,:])
-                # ownHistoryRNNOutput = tf.concat(rnnOutputs, axis=1)
-                # ownHistoryRNNOutput = tf.nn.dropout(ownHistoryRNNOutput, keep_prob = self._dropout, name = "own_rnn_dropout")
-
-
-
-                # otherRNNOutput, _ = tf.nn.dynamic_rnn(self.localGRUOther, histories_other, dtype=tf.float32)
-                # rnnOutputs = []
-                # for i in range(self._timesteps):
-                #     localMask = tf.squeeze(self._histories_other_mask[:,tf.constant(i)]) # batch_size
-                #     localOutput = tf.squeeze(otherRNNOutput[:,tf.constant(i),:]) # batch_size * dim
-                #     outputVector = tf.where(localMask, localOutput, tf.zeros((self._batch_size,self._embedding_size), dtype=np.float32))
-                #     rnnOutputs.append(outputVector[:,tf.newaxis,:])
-                # otherHistoryRNNOutput = tf.concat(rnnOutputs, axis=1)
-                # otherHistoryRNNOutput = tf.nn.dropout(otherHistoryRNNOutput, keep_prob = self._dropout, name = "own_rnn_dropout")
-
+            # DGIM Module
             globalGRUInput = ownHistoryRNNOutput + otherHistoryRNNOutput
             globalGRUInput = tf.nn.tanh(globalGRUInput)
 
@@ -216,41 +184,13 @@ class ICON:
 
                 for hop in range(self._hops):
 
-
-                    # def GlobalGRU(rnn, inputs, mask):
-
-                    #     hidden_vector = rnn.zero_state(self._batch_size, tf.float32)
-                    #     rnnOutput=[]
-                    #     for i in range(self._timesteps):
-                    #         localMask = tf.squeeze(mask[:,tf.constant(i)]) # batch_size
-                    #         localInput = tf.squeeze(inputs[:,tf.constant(i),:]) # batch_size * dim
-                    #         # making masked input 0 ( not required as GRU computation is anyways skipped if mask for the timestamp is present)
-                    #         # localInput = tf.where(localMask, localInput, tf.zeros( (self._batch_size,self._embedding_size), dtype=np.float32)) # batch_size * dim
-                    #         prev_hidden_vector = hidden_vector
-                    #         hidden_vector,_= rnn(localInput, hidden_vector) # batch_size * dim
-                    #         # Skipping gru computation for masked values
-                    #         # hidden_vector = tf.where(localMask, hidden_vector, prev_hidden_vector) # batch_size * dim
-                    #         # making masked output 0
-                    #         # output_vector = tf.where(localMask, hidden_vector, tf.zeros( (self._batch_size,self._embedding_size), dtype=np.float32)) # batch_size * dim
-                    #         output_vector = hidden_vector
-                    #         rnnOutput.append(output_vector[:,tf.newaxis,:])
-                    #     rnn_outputs = tf.concat(rnnOutput, axis=1)
-                    #     # rnn_outputs = tf.nn.dropout(rnn_outputs, keep_prob = self._dropout, name = "global_rnn_dropout")
-                    #     return rnn_outputs
-
-                    
-
-
-
                     # Memory Update
                     if hop == 0:
                         rnn_input = globalGRUInput
                         rnn_cell = self.globalGRU
-                        # rnn_outputs = GlobalGRU(self.globalGRU, globalGRUInput, self._mask)
                     else:
                         rnn_input = rnn_outputs
                         rnn_cell = self.memoryGRU
-                        # rnn_outputs = GlobalGRU(self.memoryGRU, rnn_outputs, self._mask)
 
                     rnn_outputs, final_state = tf.nn.dynamic_rnn(rnn_cell, rnn_input, dtype=tf.float32)
 
@@ -273,36 +213,9 @@ class ICON:
                     weighted = tf.squeeze(tf.matmul(attScore[:,tf.newaxis,:], rnn_outputs)) # (batch, 1, time)  X (batch, time, dim) == (batch, dim)
                     q = tf.nn.tanh(q + weighted)
 
-                    # if i == 0:
-                    #     input_rnn_outputs, final_state = tf.nn.dynamic_rnn(self.globalGRU, globalGRUInput, dtype=tf.float32)
-                    #     output_rnn_outputs, final_state = tf.nn.dynamic_rnn(self.memoryGRU, input_rnn_outputs, dtype=tf.float32)
-                    # else:
-                    #     input_rnn_outputs = output_rnn_outputs
-                    #     output_rnn_outputs, final_state = tf.nn.dynamic_rnn(self.memoryGRU, input_rnn_outputs, dtype=tf.float32)
-
-                    # # Attentional Read operation from rnn_output memories
-                    # attScore = tf.nn.tanh(tf.squeeze(tf.matmul(q[:,tf.newaxis,:], tf.transpose(input_rnn_outputs,[0,2,1]))))  # (batch, 1, dim)  X (batch, dim, time) == (batch, 1, time) -> (batch, time)
-                    # attScore = tf.where( self._mask, attScore, tf.constant( -10000 , shape= [self._batch_size, self._timesteps], dtype= tf.float32))
-                    # softmax_output = attScore = tf.nn.softmax(attScore) # (batch, time)
-                    # attScore = tf.nn.dropout(attScore, keep_prob = self._dropout, name='ttScore_dropout')
-                    # attScore = tf.where( self._mask, attScore, tf.zeros(tf.shape(attScore), dtype= tf.float32))
-                    # weighted = tf.squeeze(tf.matmul(attScore[:,tf.newaxis,:], output_rnn_outputs)) # (batch, 1, time)  X (batch, time, dim) == (batch, dim)
-                    # q = tf.nn.tanh(q + weighted)
 
             with tf.variable_scope("output"):
 
-                # return tf.contrib.layers.fully_connected(
-                #     q,
-                #     self._class_size,
-                #     activation_fn=None,
-                #     normalizer_fn=None,
-                #     normalizer_params=None,
-                #     weights_initializer=tf.contrib.layers.xavier_initializer(uniform=False, seed=1227),
-                #     weights_regularizer=tf.contrib.layers.l2_regularizer(0.001),
-                #     biases_initializer=tf.zeros_initializer(),
-                #     trainable=True,
-                #     scope="output"
-                # )
                 return tf.add(tf.matmul(q, self.outputProj), self.outputProjBias)
 
 
@@ -322,6 +235,7 @@ class ICON:
         '''
         Predicts answers as one-hot encoding.
         Returns:
+            loss: floating-point number, the loss computed for the batch
             answers: Tensor (None, class size)
         '''
         feed_dict = {self._histories_own: histories_own, self._histories_other: histories_other, self._queries: queries, self._labels: labels,\
