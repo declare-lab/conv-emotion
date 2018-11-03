@@ -27,6 +27,10 @@ Unline other emotion detection models, these techniques consider the party-state
 - scikit_learn==0.20.0
 
 ### Execution
+1. `cd ICON`
+
+2. Unzip the data as follows:  
+    - `unzip ./IEMOCAP/data.zip -d ./IEMOCAP/`
 
 ## DialogueRNN: An Attentive RNN for Emotion Detection in Conversations
 
