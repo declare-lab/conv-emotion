@@ -30,7 +30,8 @@ Unline other emotion detection models, these techniques consider the party-state
 1. `cd ICON`
 
 2. Unzip the data as follows:  
-    - `unzip ./IEMOCAP/data.zip -d ./IEMOCAP/`
+    - Download the features for IEMOCAP using this [link](https://drive.google.com/file/d/1zWCN2oMdibFkOkgwMG2m02uZmSmynw8c/view?usp=sharing).
+    - Unzip the folder and place it in the location: `/ICON/IEMOCAP/data/`. Sample command to achieve this: `unzip ./IEMOCAP/data.zip -d ./IEMOCAP/`
 
 ## DialogueRNN: An Attentive RNN for Emotion Detection in Conversations
 
