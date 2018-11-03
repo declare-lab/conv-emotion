@@ -63,7 +63,7 @@ Interactive COnversational memory Network (ICON) is a multimodal emotion detecti
     - `python train_iemocap.py` for IEMOCAP
 
 ### Citation
-`ICON: Interactive Conversational Memory Networkfor Multimodal Emotion Detection. D. Hazarika, S. Poria,, R. Mihalcea, E. Cambria, and R. Zimmermann.EMNLP (2018), Brussels, Belgium`
+`ICON: Interactive Conversational Memory Networkfor Multimodal Emotion Detection. D. Hazarika, S. Poria, R. Mihalcea, E. Cambria, and R. Zimmermann. EMNLP (2018), Brussels, Belgium`
 
 ## DialogueRNN: An Attentive RNN for Emotion Detection in Conversations
 
