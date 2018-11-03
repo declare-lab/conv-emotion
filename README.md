@@ -32,6 +32,11 @@ Unline other emotion detection models, these techniques consider the party-state
 2. Unzip the data as follows:  
     - Download the features for IEMOCAP using this [link](https://drive.google.com/file/d/1zWCN2oMdibFkOkgwMG2m02uZmSmynw8c/view?usp=sharing).
     - Unzip the folder and place it in the location: `/ICON/IEMOCAP/data/`. Sample command to achieve this: `unzip ./IEMOCAP/data.zip -d ./IEMOCAP/`
+3. Train the ICON model:
+    - `python train_iemocap.py` for IEMOCAP
+
+### Citation
+`ICON: Interactive Conversational Memory Networkfor Multimodal Emotion Detection. D. Hazarika, S. Poria,, R. Mihalcea, E. Cambria, and R. Zimmermann.EMNLP (2018), Brussels, Belgium`
 
 ## DialogueRNN: An Attentive RNN for Emotion Detection in Conversations
 
