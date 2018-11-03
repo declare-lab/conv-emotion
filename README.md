@@ -20,6 +20,12 @@ Unline other emotion detection models, these techniques consider the party-state
 
 ### Requirements
 
+- python 3.6.5
+- pandas==0.23.3
+- tensorflow==1.9.0
+- numpy==1.15.0
+- scikit_learn==0.20.0
+
 ### Execution
 
 ## DialogueRNN: An Attentive RNN for Emotion Detection in Conversations
