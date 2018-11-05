@@ -128,14 +128,14 @@ dialogue generation.
 - TensorFlow (optional; required for tensorboard)
 - tensorboardX (optional; required for tensorboard)
 
+### Dataset Features
+
+Please extract the file `DialogueRNN_features.zip`.
+
 ### Execution
 
 1. _IEMOCAP_ dataset: `python train_IEMOCAP.py`
 2. _AVEC_ dataset: `python train_AVEC.py`
-
-### Dataset Features
-
-Please extract the file `DialogueRNN_features.zip`.
 
 ### Command-Line Arguments
 
@@ -150,6 +150,7 @@ Please extract the file `DialogueRNN_features.zip`.
 -  `--active-listener`: Explicit lisnener mode
 -  `--attention`: Attention type
 -  `--tensorboard`: Enables tensorboard log
+-  `--attribute`: Attribute 1 to 4 (only for AVEC)
 
 ### Citation
 
