@@ -11,11 +11,13 @@ Unlike other emotion detection models, these techniques consider the party-state
 ## Data Format
 
 These networks expect emotion/sentiment label and speaker info for each utterance present in a dialogue. However, the code can be adpated to perform tasks where only the preceding utterances are available, without their corresponding labels, as context and goal is to label only the present/target utterance. For example, the *context* is
-```Party 1: I hate my girlfriend
+```
+Party 1: I hate my girlfriend
 Party 2: you got a girlfriend?
 ```
 the *target* is
-```Party 1: yes (angry)
+```
+Party 1: yes (angry)
 ```
 where the target emotion is _angry_.
 Moreover, this code can also be molded to train the network in an end-to-end manner. We will soon push these useful changes. 
