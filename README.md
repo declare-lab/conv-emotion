@@ -7,6 +7,10 @@ This repository contains implementations for three conversational emotion detect
 
 Unlike other emotion detection models, these techniques consider the party-states and inter-party dependencies for modeling conversational context relevant to emotion recognition. The primary purpose of all these techniques are to pretrain an emotion detection model for empathetic dialogue generation.
 
+## Data Format
+
+The networks expect emotion/sentiment label and speaker info for each utterance present in a dialogue. However, the code can be adpated to perform tasks where only the previous utterances are available without corresponding labels as context and goal is to label the present utterance. This code can also be trained end-to-end manner. We will soon push these desired changes. 
+
 ## CMN
 [_CMN_](http://aclweb.org/anthology/N18-1193) is a neural framework for emotion detection in dyadic conversations. It leverages mutlimodal signals from text, audio and visual modalities. It specifically incorporates speaker-specific dependencies into its architecture for context modeling. Summaries are then generated from this context using multi-hop memory networks.
 
