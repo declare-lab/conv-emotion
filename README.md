@@ -78,14 +78,7 @@ Poria, S., Cambria, E., Hazarika, D., Majumder, N., Zadeh, A. and Morency, L.P.,
 Please cite the following paper if you find this code useful in your work.
 
 ```
-@inproceedings{hazarika2018conversational,  
-    title={Conversational Memory Network for Emotion Recognition in Dyadic Dialogue Videos},   
-    author={Hazarika, Devamanyu and Poria, Soujanya and Zadeh, Amir and Cambria, Erik and Morency, Louis-Philippe and Zimmermann, Roger},   
-    booktitle={Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers)},   
-    volume={1},   
-    pages={2122--2132},   
-    year={2018}   
-}
+Hazarika, D., Poria, S., Zadeh, A., Cambria, E., Morency, L.P. and Zimmermann, R., 2018. Conversational Memory Network for Emotion Recognition in Dyadic Dialogue Videos. In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers) (Vol. 1, pp. 2122-2132).
 ```
 ## ICON
 
