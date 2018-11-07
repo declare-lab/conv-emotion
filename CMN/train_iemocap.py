@@ -20,7 +20,7 @@ session_conf = tf.ConfigProto(
       gpu_options=tf.GPUOptions(per_process_gpu_memory_fraction=0.7))
 
 # Select appropriate config from the file config.py
-tf.flags.DEFINE_string("mode", "all", "which modality")
+tf.flags.DEFINE_string("mode", "text", "which modality")
 tf.flags.DEFINE_boolean("context", False, "which kind of features to choose")
 tf.flags.DEFINE_string("nonlin_func", "tf.nn.tanh", "type of nonlinearity")
 tf.flags.DEFINE_float("learning_rate", 0.001, "Learning rate for SGD.")
@@ -94,10 +94,10 @@ def main():
 				lr = FLAGS.learning_rate / anneal
 
 				# Shuffling the batches in each epoch
-				np.random.shuffle(batches)
+				# np.random.shuffle(batches)
 
 				total_cost = 0.0
-				for start, end in evalTrainBatches:
+				for start, end in batches:
 					histOwn = trainOwnHistory[start:end]
 					histOther = trainOtherHistory[start:end]
 					histOwnMask = trainOwnHistoryMask[start:end]
@@ -124,7 +124,7 @@ def main():
 					## Training evaluation
 
 					train_preds = []
-					for start, end in batches:
+					for start, end in evalTrainBatches:
 						histOwn = trainOwnHistory[start:end]
 						histOther = trainOtherHistory[start:end]
 						histOwnMask = trainOwnHistoryMask[start:end]
