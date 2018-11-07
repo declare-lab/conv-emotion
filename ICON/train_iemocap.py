@@ -150,6 +150,24 @@ def main():
 					print(total_cost, train_acc)
 
 					
+
+					def evaluation(n_data, ownHistory, otherHistory, ownHistoryMask, otherHistoryMask, queries, labels):
+						batches = zip(range(0, n_data, FLAGS.batch_size), range(FLAGS.batch_size, n_data+FLAGS.batch_size, FLAGS.batch_size))
+						batches = [(start, end) for start, end in batches]
+						preds=[]
+						loss=0.0
+
+						for start, end in batches:
+							histOwn, histOther = ownHistory[start:end], otherHistory[start:end]
+							histOwnMask, histOtherMask = ownHistoryMask[start:end], otherHistoryMask[start:end]
+							mask = (histOwnMask + histOtherMask).astype(np.bool)
+							query, answers = queries[start:end], labels[start:end]
+
+							print(histOwn.shape, histOther.shape, histOwnMask.shape, histOtherMask.shape, mask.shape, query.shape, answers.shape)
+							exit()
+
+					evaluation(n_val, valOwnHistory,  valOtherHistory, valOwnHistoryMask, valOtherHistoryMask, valQueries, valLabels)
+
 					## Validation evaluation
 
 					# Creating batches for validation

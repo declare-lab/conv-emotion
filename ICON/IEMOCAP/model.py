@@ -31,7 +31,7 @@ class ICON:
 
         
 
-        ## optimizer for training
+        ## optimizer choices for training
         # self._opt = tf.train.GradientDescentOptimizer(learning_rate=self._lr)
         self._opt = tf.train.AdamOptimizer(learning_rate=self._lr)
 
@@ -61,8 +61,6 @@ class ICON:
 
         # predict ops
         self.predict_op = predict_op = tf.argmax(logits, 1, name="predict_op")
-        # self.predict_proba_op = predict_proba_op = tf.nn.softmax(logits, name="predict_proba_op")
-        # self.predict_log_proba_op = predict_log_proba_op = tf.log(predict_proba_op, name="predict_log_proba_op")
 
         self._sess = session
         self._sess.run(tf.global_variables_initializer())
@@ -89,7 +87,7 @@ class ICON:
         # Dropout Probability
         self._dropout = tf.placeholder(tf.float32, [], name="dropout_keep_rate")
 
-        # Training mode 
+        # Training mode
         self._training = tf.placeholder(tf.bool, [], name="training_testing_mode")
 
     def _build_vars(self):
