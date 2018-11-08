@@ -197,3 +197,13 @@ class DataHelper:
             wordIndex, embeddingsIndex, embeddingMatrix = pickle.load(open("./tmp/embeddings.p", "rb"))
         
         return embeddingMatrix
+
+
+    def prepare_history(self, data, mode, maxlen):
+        data = pad_sequences(data, maxlen) # (batch, maxlen)
+        pads = np.zeros(data.shape, dtype=np.float32) # (batch, maxlen)
+        if mode == "own":
+            data = np.stack((data, pads), axis=1)
+        else:
+            data = np.stack((pads, data), axis=1)
+        return data # (batch, 2, maxlen)

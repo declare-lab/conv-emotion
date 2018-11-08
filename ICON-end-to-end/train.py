@@ -28,15 +28,14 @@ session_conf = tf.ConfigProto(
       gpu_options=tf.GPUOptions(per_process_gpu_memory_fraction=0.7))
 
 
-
-
-
-
 def pad_batch(data, remainder_length, dtype):
-    return np.concatenate((data, np.zeros((remainder_length,data.shape[1]), dtype=dtype)), axis=0)
+    new_shape = list(data.shape)
+    new_shape[0]=remainder_length
+    new_shape = tuple(new_shape)
+    return np.concatenate((data, np.zeros(new_shape, dtype=dtype)), axis=0)
 
 
-def train_model(config, dataQueries, labels, embeddingMatrix, batches):
+def train_model(config, dataQueries, dataOwnHistories, dataOtherHistories, labels, embeddingMatrix, batches):
 
     print("Training model on entire data")
 
@@ -62,30 +61,38 @@ def train_model(config, dataQueries, labels, embeddingMatrix, batches):
                 total_cost = 0.0
                 for start, end in batches:
                     query = dataQueries[start:end]
+                    ownHistory = dataOwnHistories[start:end]
+                    otherHistory = dataOtherHistories[start:end]
                     answers = labels[start:end]
                     
                     if query.shape[0] < config["batch_size"]:
                         remainder_length = config["batch_size"]-query.shape[0]
                         query = pad_batch(query, remainder_length, np.float32)
+                        ownHistory = pad_batch(ownHistory, remainder_length, np.float32)
+                        otherHistory = pad_batch(otherHistory, remainder_length, np.float32)
                         answers = pad_batch(answers, remainder_length, np.float32)
 
-                    cost_t = model.batch_fit(query, answers)
+                    cost_t = model.batch_fit(query, ownHistory, otherHistory, answers)
                     total_cost += cost_t
                 print(total_cost)
-
             return model
 
-def predict_model(config, model, dataQueries, batches):
+def predict_model(config, model, dataQueries, dataOwnHistories, dataOtherHistories, batches):
 
     preds=[]
     for start, end in batches:
         query = dataQueries[start:end]
+        ownHistory = dataOwnHistories[start:end]
+        otherHistory = dataOtherHistories[start:end]
+
         
         if query.shape[0] < config["batch_size"]:
             remainder_length = config["batch_size"]-query.shape[0]
             query = pad_batch(query, remainder_length, np.float32)
+            ownHistory = pad_batch(ownHistory, remainder_length, np.float32)
+            otherHistory = pad_batch(otherHistory, remainder_length, np.float32)
 
-        preds += list(model.predict(query))
+        preds += list(model.predict(query, ownHistory, otherHistory))
 
     return preds[:len(dataQueries)]
 
@@ -136,16 +143,17 @@ def main():
 
     # Prepare training data
     dataQueries = pad_sequences(trainQueriesSequences, maxlen=config["max_sequence_length"])
-    dataOwnHstories = pad_sequences(trainOwnHistoriesSequences, maxlen=config["max_sequence_length"])
-    dataOtherHistories = pad_sequences(trainOtherHistoriesSequences, maxlen=config["max_sequence_length"])
+
+    dataOwnHistories = datahelper.prepare_history(trainOwnHistoriesSequences, mode="own", maxlen=config["max_sequence_length"])
+    dataOtherHistories = datahelper.prepare_history(trainOtherHistoriesSequences, mode="other", maxlen=config["max_sequence_length"])
     labels = to_categorical(np.asarray(labels))
-    print("Shape of training data tensor: ", dataQueries.shape, dataOwnHstories.shape, dataOtherHistories.shape)
+    print("Shape of training data tensor: ", dataQueries.shape, dataOwnHistories.shape, dataOtherHistories.shape)
     print("Shape of label tensor: ", labels.shape)
         
     # Randomize data
     np.random.shuffle(trainIndices)
     dataQueries = dataQueries[trainIndices]
-    dataOwnHstories = dataOwnHstories[trainIndices]
+    dataOwnHistories = dataOwnHistories[trainIndices]
     dataOtherHistories = dataOtherHistories[trainIndices]
     labels = labels[trainIndices]
     
@@ -154,7 +162,7 @@ def main():
     batches = zip(range(0, n_train, config["batch_size"]), range(config["batch_size"], n_train+config["batch_size"], config["batch_size"]))
     batches = [(start, end) for start, end in batches]
 
-    model = train_model(config, dataQueries, labels, embeddingMatrix, batches)
+    model = train_model(config, dataQueries, dataOwnHistories, dataOtherHistories, labels, embeddingMatrix, batches)
 
 
 
@@ -165,14 +173,14 @@ def main():
 
     # Preparing test data
     testQueries = pad_sequences(testQueriesSequences, maxlen=config["max_sequence_length"])
-    testOwnHstories = pad_sequences(testOwnHistoriesSequences, maxlen=config["max_sequence_length"])
-    testOtherHistories = pad_sequences(testOtherHistoriesSequences, maxlen=config["max_sequence_length"])
+    testOwnHistories = datahelper.prepare_history(testOwnHistoriesSequences, mode="own", maxlen=config["max_sequence_length"])
+    testOtherHistories = datahelper.prepare_history(testOtherHistoriesSequences, mode="other", maxlen=config["max_sequence_length"])
 
     ## Calculating testing batch sizes
     batches = zip(range(0, n_test, config["batch_size"]), range(config["batch_size"], n_test+config["batch_size"], config["batch_size"]))
     batches = [(start, end) for start, end in batches]
 
-    predictions = predict_model(config, model, testQueries, batches)
+    predictions = predict_model(config, model, testQueries, testOwnHistories, testOtherHistories, batches)
 
     with io.open(config["solution_path"], "w", encoding="utf8") as fout:
         fout.write('\t'.join(["id", "turn1", "turn2", "turn3", "label"]) + '\n')        

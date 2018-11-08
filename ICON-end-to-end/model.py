@@ -68,7 +68,12 @@ class ICON:
 
     def _build_inputs(self):
 
+        # input queries
         self._input_queries = tf.placeholder(tf.int32, [self._batch_size, self._sequence_length], name="input_queries")
+
+        # histories
+        self._own_histories = tf.placeholder(tf.int32, [self._batch_size, self._timesteps, self._sequence_length], name="own_histories")
+        self._other_histories = tf.placeholder(tf.int32, [self._batch_size, self._timesteps, self._sequence_length], name="other_histories")
 
         # True Labels
         self._labels = tf.placeholder(tf.int32, [self._batch_size, self._class_size], name="labels")
@@ -79,75 +84,140 @@ class ICON:
 
             with tf.variable_scope("CNN"):
                 self.embedding_matrix = tf.Variable(self._embedding_matrix, name="embedding_matrix", dtype=tf.float32)
+                self.conv_final_W = tf.get_variable(
+                        "conv_final_W", 
+                        shape=[self._num_filters_total, self._embedding_size],
+                        initializer=tf.contrib.layers.xavier_initializer())
+                self.conv_final_b = tf.Variable(tf.constant(0.1, shape=[self._embedding_size]), name="conv_final_b")
 
             with tf.variable_scope("output"):
                 self.output_W = tf.get_variable(
                     "output_W",
-                    shape=[self._num_filters_total, self._class_size],
+                    shape=[self._embedding_size, self._class_size],
                     initializer=tf.contrib.layers.xavier_initializer())
                 self.output_b = tf.Variable(tf.constant(0.1, shape=[self._class_size]), name="output_b")
 
+            with tf.variable_scope("SIM"):
+                self.rnn_own_history= tf.contrib.rnn.GRUCell(num_units=self._embedding_size, reuse = tf.AUTO_REUSE, name='rnn_own_history')
+                self.rnn_other_history= tf.contrib.rnn.GRUCell(num_units=self._embedding_size, reuse = tf.AUTO_REUSE, name='rnn_other_history')
 
-    def _convolution(self, input_to_conv, scope):
+            with tf.variable_scope("DGIM"):
+                self.rnn_dgim= tf.contrib.rnn.GRUCell(num_units=self._embedding_size, reuse = tf.AUTO_REUSE, name='rnn_dgim')
 
-        with tf.variable_scope(scope):
+            with tf.variable_scope("MemoryNet"):
+                self.rnn_memory= tf.contrib.rnn.GRUCell(num_units=self._embedding_size, reuse = tf.AUTO_REUSE, name='rnn_memory')
 
-            # Create a convolution + maxpool layer for each filter size
-            pooled_outputs = []
-            for idx, filter_size in enumerate(self._filter_sizes):
-                with tf.variable_scope("conv-maxpool-%s" % filter_size):
-                    
-                    # Convolution Layer
-                    filter_shape = [filter_size, self._embedding_size, 1, self._num_filters]
-                    W = tf.Variable(tf.truncated_normal(filter_shape, stddev=0.1), name="W")
-                    b = tf.Variable(tf.constant(0.1, shape=[self._num_filters]), name="b")
-                    conv = tf.nn.conv2d(
-                        input_to_conv,
-                        W,
-                        strides=[1, 1, 1, 1],
-                        padding="VALID",
-                        name="conv")
+    def _convolution(self, input_to_conv):
 
-                    # Apply nonlinearity
-                    h = tf.nn.relu(tf.nn.bias_add(conv, b), name="relu")
-                    
-                    # Maxpooling over the outputs
-                    pooled = tf.nn.max_pool(
-                        h,
-                        ksize=[1, self._sequence_length - filter_size + 1, 1, 1],
-                        strides=[1, 1, 1, 1],
-                        padding='VALID',
-                        name="pool")
-                    pooled_outputs.append(pooled)
+        # Create a convolution + maxpool layer for each filter size
+        pooled_outputs = []
+        for idx, filter_size in enumerate(self._filter_sizes):
+            with tf.variable_scope("conv-maxpool-%s" % filter_size):
+                
+                # Convolution Layer
+                filter_shape = [filter_size, self._embedding_size, 1, self._num_filters]
+                W = tf.get_variable("W", initializer=tf.truncated_normal(filter_shape, stddev=0.1))
+                b = tf.get_variable("b", initializer=tf.constant(0.1, shape=[self._num_filters]))
+                conv = tf.nn.conv2d(
+                    input_to_conv,
+                    W,
+                    strides=[1, 1, 1, 1],
+                    padding="VALID",
+                    name="conv")
 
-            # Combine all the pooled features
-            self.h_pool = tf.concat(pooled_outputs, 3)
-            self.h_pool_flat = tf.reshape(self.h_pool, [-1, self._num_filters_total], name="h_pool_flat")
-            return self.h_pool_flat
+                # Apply nonlinearity
+                h = tf.nn.relu(tf.nn.bias_add(conv, b), name="relu")
+                
+                # Maxpooling over the outputs
+                pooled = tf.nn.max_pool(
+                    h,
+                    ksize=[1, self._sequence_length - filter_size + 1, 1, 1],
+                    strides=[1, 1, 1, 1],
+                    padding='VALID',
+                    name="pool")
+                pooled_outputs.append(pooled)
+
+        # Combine all the pooled features
+        self.h_pool = tf.concat(pooled_outputs, 3)
+        self.h_pool_flat = tf.reshape(self.h_pool, [-1, self._num_filters_total], name="h_pool_flat")
+
+        return tf.nn.xw_plus_b(self.h_pool_flat, self.conv_final_W, self.conv_final_b, name="conv_dense")
 
 
     def _inference(self):
 
-        with tf.variable_scope(self._name):
+        with tf.variable_scope(self._name, reuse=tf.AUTO_REUSE):
 
-            with tf.variable_scope("CNN"):
+            with tf.variable_scope("CNN", reuse=tf.AUTO_REUSE):
 
+                # feature extraction for queries
                 embedded_words_queries = tf.expand_dims(tf.nn.embedding_lookup(self.embedding_matrix, self._input_queries), -1) # (batch, sequence_length, embedding_dim, 1)
-                queries_conv_output = self._convolution(embedded_words_queries, scope="queries") # (batch, _num_filters_total)
+                queries = queries_conv_output = self._convolution(embedded_words_queries) # (batch, _num_filters_total)
+
+                # feature extraction for ownHistory
+                own_history_conv_output=[]
+                for i in range(self._timesteps):
+                    local_history = tf.squeeze(self._own_histories[:,tf.constant(i)]) # (batch, sequence_length)
+                    embedded_local_history = tf.expand_dims(tf.nn.embedding_lookup(self.embedding_matrix, local_history), -1) # (batch, sequence_length, embedding_dim, 1)
+                    own_history_conv_output.append(self._convolution(embedded_local_history)[:,tf.newaxis,:]) # (batch, 1, _num_filters_total)
+                own_history_conv_output = tf.concat(own_history_conv_output, axis=1) # (batch, timesteps, _num_filters_total)
+
+                # feature extraction for otherHistory
+                other_history_conv_output=[]
+                for i in range(self._timesteps):
+                    local_history = tf.squeeze(self._other_histories[:,tf.constant(i)]) # (batch, sequence_length)
+                    embedded_local_history = tf.expand_dims(tf.nn.embedding_lookup(self.embedding_matrix, local_history), -1) # (batch, sequence_length, embedding_dim, 1)
+                    other_history_conv_output.append(self._convolution(embedded_local_history)[:,tf.newaxis,:]) # (batch, 1, _num_filters_total)
+                other_history_conv_output = tf.concat(other_history_conv_output, axis=1) # (batch, timesteps, _num_filters_total)
+
+
+                # SIM on histories
+                rnn_own_history, _ = tf.nn.dynamic_rnn(self.rnn_own_history, own_history_conv_output, dtype=tf.float32)
+                rnn_other_history, _ = tf.nn.dynamic_rnn(self.rnn_other_history, other_history_conv_output, dtype=tf.float32)
+
+                print(rnn_own_history.get_shape())
+
+                # DGIM on histories
+                dgim_input = (rnn_own_history + rnn_other_history)
+
+
+            with tf.variable_scope("DGIM"):
+
+                for hop in range(self._hops):
+
+                    # Memory Update
+                    if hop == 0:
+                        rnn_input = dgim_input
+                        rnn_cell = self.rnn_dgim
+                    else:
+                        rnn_input = rnn_outputs
+                        rnn_cell = self.rnn_memory
+
+                    # Memory write of previous hop == memory input of current hop
+                    rnn_outputs, _ = tf.nn.dynamic_rnn(rnn_cell, rnn_input, dtype=tf.float32)
+
+
+                    # Attentional Read operation from rnn_output memories
+                    attScore = tf.nn.tanh(tf.squeeze(tf.matmul(queries[:,tf.newaxis,:], tf.transpose(rnn_outputs,[0,2,1]))))  # (batch, 1, _num_filters_total)  X (batch, _num_filters_total, timesteps) == (batch, 1, timesteps) -> (batch, time)
+                    attScore = tf.nn.softmax(attScore) # (batch, time)
+                    weighted = tf.squeeze(tf.matmul(attScore[:,tf.newaxis,:], rnn_outputs)) # (batch, 1, timesteps)  X (batch, timesteps, _num_filters_total) == (batch, _num_filters_total)
+                    queries = tf.nn.tanh(queries + weighted)
+
+                
 
             with tf.variable_scope("output"):
                 
-                return tf.nn.xw_plus_b(queries_conv_output, self.output_W, self.output_b, name="output_scores")
+                return tf.nn.xw_plus_b(queries, self.output_W, self.output_b, name="output_scores")
 
 
-    def batch_fit(self, queries, labels):
+    def batch_fit(self, queries, ownHistory, otherHistory, labels):
 
-        feed_dict = {self._input_queries: queries, self._labels: labels}
+        feed_dict = {self._input_queries: queries, self._own_histories: ownHistory, self._other_histories: otherHistory, self._labels: labels}
         loss, _ = self._sess.run([self.loss_op, self.train_op], feed_dict=feed_dict)
         return loss
 
-    def predict(self, queries):
+    def predict(self, queries, ownHistory, otherHistory,):
 
-        feed_dict = {self._input_queries: queries}
+        feed_dict = {self._input_queries: queries, self._own_histories: ownHistory, self._other_histories: otherHistory}
         return self._sess.run(self.predict_op, feed_dict=feed_dict)
 
