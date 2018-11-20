@@ -1,5 +1,9 @@
 # Emotion Recognition in Conversations
 
+### Updates
+
+End-to-end version of ICON and DialogueRNN have been released.
+
 This repository contains implementations for three conversational emotion detection methods, namely:
 - bc-LSTM (keras)
 - CMN (tensorflow)
