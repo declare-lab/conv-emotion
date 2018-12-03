@@ -198,7 +198,7 @@ if __name__ == '__main__':
         if args.tensorboard:
             writer.add_scalar('test: accuracy/loss',test_acc/test_loss,e)
             writer.add_scalar('train: accuracy/loss',train_acc/train_loss,e)
-        print('epoch {} train_loss {} train_acc {} test_fscore{} valid_loss {} valid_acc {} val_fscore{} test_loss {} test_acc {} test_fscore {} time {}'.\
+        print('epoch {} train_loss {} train_acc {} train_fscore{} valid_loss {} valid_acc {} val_fscore{} test_loss {} test_acc {} test_fscore {} time {}'.\
                 format(e+1, train_loss, train_acc, train_fscore, valid_loss, valid_acc, val_fscore,\
                         test_loss, test_acc, test_fscore, round(time.time()-start_time,2)))
     if args.tensorboard:
