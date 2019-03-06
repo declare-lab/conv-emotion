@@ -159,7 +159,7 @@ if __name__ == '__main__':
                            weight_decay=args.l2)
 
     train_loader, valid_loader, test_loader =\
-            get_AVEC_loaders('./avecFeatures/AVEC_features_{}.pkl'.format(args.attribute),
+            get_AVEC_loaders('./AVEC_features/AVEC_features_{}.pkl'.format(args.attribute),
                                 valid=0.0,
                                 batch_size=batch_size,
                                 num_workers=2)
