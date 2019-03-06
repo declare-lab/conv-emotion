@@ -204,7 +204,7 @@ class BiModel(nn.Module):
         self.D_h       = D_h
         self.n_classes = n_classes
         self.dropout   = nn.Dropout(dropout)
-        self.dropout_rec = nn.Dropout(dropout_rec)
+        self.dropout_rec = nn.Dropout(dropout+0.15)
         self.dialog_rnn_f = DialogueRNN(D_m, D_g, D_p, D_e,listener_state,
                                     context_attention, D_a, dropout_rec)
         self.dialog_rnn_r = DialogueRNN(D_m, D_g, D_p, D_e,listener_state,
