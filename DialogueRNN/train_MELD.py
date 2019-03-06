@@ -118,7 +118,7 @@ if tensorboard:
 writer = SummaryWriter()
 
 
-data_path = '/content/gdrive/My Drive/Colab_Files/'
+data_path = '/MELD_features/'
 batch_size = 30
 n_classes  = 3
 n_epochs   = 100
@@ -156,7 +156,7 @@ optimizer = optim.Adam(model.parameters(),
                        weight_decay=l2)
 
 train_loader, valid_loader, test_loader =\
-        get_MELD_loaders(data_path + 'MELD_features.pkl',
+        get_MELD_loaders(data_path + 'MELD_features_raw.pkl',
                             valid=0.0,
                             batch_size=batch_size,
                             num_workers=0)
