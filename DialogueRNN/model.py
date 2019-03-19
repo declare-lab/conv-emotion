@@ -263,7 +263,7 @@ class BiE2EModel(nn.Module):
     def __init__(self, D_emb, D_m, D_g, D_p, D_e, D_h,
                  n_classes=7, listener_state=False, context_attention='simple', D_a=100, dropout_rec=0.5,
                  dropout=0.5):
-        super(E2EModel, self).__init__()
+        super(BiE2EModel, self).__init__()
 
         self.D_emb     = D_emb
         self.D_m       = D_m
@@ -286,6 +286,20 @@ class BiE2EModel(nn.Module):
         self.smax_fc    = nn.Linear(D_h, n_classes)
 
         self.matchatt = MatchingAttention(2*D_e,2*D_e,att_type='general2')
+    def _reverse_seq(self, X, mask):
+        """
+        X -> seq_len, batch, dim
+        mask -> batch, seq_len
+        """
+        X_ = X.transpose(0,1)
+        mask_sum = torch.sum(mask, 1).int()
+
+        xfs = []
+        for x, c in zip(X_, mask_sum):
+            xf = torch.flip(x[:c], [0])
+            xfs.append(xf)
+
+        return pad_sequence(xfs)
 
     def forward(self, data, word_embeddings, att2=False):
 
