@@ -97,7 +97,7 @@ def train_or_eval_model(model, loss_function, dataloader, epoch, optimizer=None,
 
     avg_loss = round(np.sum(losses)/np.sum(masks),4)
     avg_accuracy = round(accuracy_score(labels,preds,sample_weight=masks)*100,2)
-    avg_fscore = round(f1_score(labels,preds,sample_weight=masks,average='weighted')*100,2)
+    avg_fscore = round(f1_score(labels,preds,sample_weight=masks,average='micro', labels=[0,2,3,4,5,6])*100,2)
     return avg_loss, avg_accuracy, labels, preds, masks,avg_fscore, [alphas, alphas_f, alphas_b, vids]
 
 
@@ -209,7 +209,7 @@ if __name__ == '__main__':
         writer.close()
 
     print('Test performance..')
-    print('Loss {} accuracy {}'.format(best_loss,
-                                     round(accuracy_score(best_label,best_pred,sample_weight=best_mask)*100,2)))
-    print(classification_report(best_label,best_pred,sample_weight=best_mask,digits=4))
+    print('Loss {} F1-score {}'.format(best_loss,
+                                     round(f1_score(best_label,best_pred,sample_weight=best_mask,labels=[0,2,3,4,5,6])*100,2)))
+    print(classification_report(best_label,best_pred,sample_weight=best_mask,labels=[0,2,3,4,5,6],digits=4))
     print(confusion_matrix(best_label,best_pred,sample_weight=best_mask))
