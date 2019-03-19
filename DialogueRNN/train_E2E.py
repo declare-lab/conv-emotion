@@ -119,8 +119,8 @@ def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None
             return float('nan'), float('nan'), [], [], float('nan')
 
         avg_loss = round(np.sum(losses)/np.sum(masks),4)
-        avg_accuracy = round(accuracy_score(labels,preds)*100,2)
-        avg_fscore = round(f1_score(labels,preds,average='micro')*100,2)
+        avg_accuracy = round(accuracy_score(labels,preds,labels=[1,2,3])*100,2)
+        avg_fscore = round(f1_score(labels,preds,labels=[1,2,3],average='micro')*100,2)
         return avg_loss, avg_accuracy, labels, preds, avg_fscore
     else:
         preds  = np.concatenate(preds)
@@ -167,7 +167,7 @@ if __name__ == '__main__':
         writer = SummaryWriter()
 
     batch_size = args.batch_size
-    n_classes  = 6
+    n_classes  = 4
     cuda       = args.cuda
     n_epochs   = args.epochs
 
@@ -219,6 +219,8 @@ if __name__ == '__main__':
         if best_loss == None or best_loss > valid_loss:
             best_loss, best_f1, best_pred, best_test_pred, best_test_label =\
                     valid_loss, test_fscore, test_pred+1, test_pred, test_label
+            best_valid_f1, best_pred, best_valid_pred, best_valid_label =\
+                    val_fscore, valid_pred+1, valid_pred, valid_label
 
         if args.tensorboard:
             writer.add_scalar('test: accuracy/loss',test_acc/test_loss,e)
@@ -229,10 +231,15 @@ if __name__ == '__main__':
     if args.tensorboard:
         writer.close()
 
-    print('Test performance..')
+    print('Valid performance..')
     print('Loss {} fscore {}'.format(best_loss, round(best_f1,2)))
-    print(classification_report(best_test_label,best_test_pred,digits=4))
+    print(classification_report(best_test_label,best_test_pred,digits=4, labels=[1,2,3]))
     print(confusion_matrix(best_test_label,best_test_pred))
+
+    print('Test performance..')
+    print('Loss {} fscore {}'.format(best_loss, round(best_valid_f1,2)))
+    print(classification_report(best_valid_label,best_valid_pred,digits=4,labels=[1,2,3]))
+    print(confusion_matrix(best_valid_label,best_valid_pred))
     #with open('./semeval19_emocon/test.txt','w') as f:
     #    f.write('id\tturn1\tturn2\tturn3\tlabel\n')
     #    for id, label in zip(best_ids, best_pred):
