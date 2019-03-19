@@ -20,8 +20,13 @@ from torchtext import data
 from torchtext.data import TabularDataset
 from torchtext.data import BucketIterator, Pipeline
 
+from keras.utils import to_categorical
+
 import spacy
 spacy_en = spacy.load('en')
+
+label2emotion = {0:"others", 1:"happy", 2: "sad", 3:"angry"}
+emotion2label = {"others":0, "happy":1, "sad":2, "angry":3}
 
 def tokenizer(text):
     return [token.text for token in spacy_en.tokenizer(text)]
@@ -78,6 +83,7 @@ def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None
     labels = []
     masks = []
     alphas, alphas_f, alphas_b, vids = [], [], [], []
+    embeddings.requires_grad = True
     # assert not train or optimizer!=None
     if train:
         model.train()
@@ -126,9 +132,11 @@ def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None
         preds  = np.concatenate(preds)
         masks  = np.concatenate(masks)
         return masks, preds
-def get_metrics(discretePredictions, ground):
-
-	truePositives = np.sum(discretePredictions*ground, axis=0)
+def get_metrics(discretePredictions, ground,n_classes=4):
+    
+    discretePredictions = to_categorical(discretePredictions)
+    ground = to_categorical(ground)
+    truePositives = np.sum(discretePredictions*ground, axis=0)
     falsePositives = np.sum(np.clip(discretePredictions - ground, 0, 1), axis=0)
     falseNegatives = np.sum(np.clip(ground-discretePredictions, 0, 1), axis=0)
     
@@ -139,8 +147,9 @@ def get_metrics(discretePredictions, ground):
     # ------------- Macro level calculation ---------------
     macroPrecision = 0
     macroRecall = 0
+    accuracy = np.mean(discretePredictions==ground)
     # We ignore the "Others" class during the calculation of Precision, Recall and F1
-    for c in range(1, NUM_CLASSES):
+    for c in range(1, n_classes):
         precision = truePositives[c] / (truePositives[c] + falsePositives[c])
         macroPrecision += precision
         recall = truePositives[c] / (truePositives[c] + falseNegatives[c])
@@ -166,9 +175,6 @@ def get_metrics(discretePredictions, ground):
     microF1 = ( 2 * microRecall * microPrecision ) / (microPrecision + microRecall) if (microPrecision+microRecall) > 0 else 0
     # -----------------------------------------------------
     
-    predictions = predictions.argmax(axis=1)
-    ground = ground.argmax(axis=1)
-    accuracy = np.mean(predictions==ground)
     
     print("Accuracy : %.4f, Micro Precision : %.4f, Micro Recall : %.4f, Micro F1 : %.4f" % (accuracy, microPrecision, microRecall, microF1))
     return accuracy, microPrecision, microRecall, microF1
@@ -190,7 +196,7 @@ if __name__ == '__main__':
                         help='batch size')
     parser.add_argument('--epochs', type=int, default=15, metavar='E',
                         help='number of epochs')
-    parser.add_argument('--class-weight', action='store_true', default=False,
+    parser.add_argument('--class-weight', action='store_true', default=True,
                         help='class weight')
     parser.add_argument('--active-listener', action='store_true', default=False,
                         help='active listener')
@@ -241,15 +247,18 @@ if __name__ == '__main__':
                                         1/0.127711,
                                         1/0.252668,
                                         ])
-    loss_function = nn.NLLLoss(reduction='sum')
-    optimizer = optim.Adam(model.parameters(),
-                           lr=args.lr,
-                           weight_decay=args.l2)
+    loss_function = nn.NLLLoss()
+    #optimizer = optim.Adam(model.parameters(),
+    #                       lr=args.lr,
+    #                       weight_decay=args.l2)
 
     train_loader, valid_loader, test_loader, embeddings, id2label =\
             get_E2E_loaders('./semeval19_emocon',
                             valid=0.1,
                             batch_size=batch_size)
+    optimizer = optim.Adam([x for x in model.parameters()]+[embeddings],
+                           lr=args.lr,
+                           weight_decay=args.l2)
 
     best_loss, best_f1, best_pred, best_val_pred, best_val_label, best_ids =\
             None, None, None, None, None, None
