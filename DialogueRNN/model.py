@@ -319,6 +319,8 @@ class BiE2EModel(nn.Module):
         qmask = torch.FloatTensor([[1,0],[0,1],[1,0]]).type(T1.type())
         qmask = qmask.unsqueeze(1).expand(-1, T1.size(1), -1)
 
+        umask = torch.FloatTensor([1,1,1])
+
         emotions_f, alpha_f = self.dialog_rnn_f(U, qmask) # seq_len, batch, D_e
         emotions_f = self.dropout_rec(emotions_f)
         rev_U = self._reverse_seq(U, umask)
