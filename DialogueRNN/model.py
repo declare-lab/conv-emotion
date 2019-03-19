@@ -283,7 +283,7 @@ class BiE2EModel(nn.Module):
         self.linear1     = nn.Linear(2*D_e, 2*D_h)
         #self.linear2     = nn.Linear(D_h, D_h)
         #self.linear3     = nn.Linear(D_h, D_h)
-        self.smax_fc    = nn.Linear(D_h, n_classes)
+        self.smax_fc    = nn.Linear(2*D_h, n_classes)
 
         self.matchatt = MatchingAttention(2*D_e,2*D_e,att_type='general2')
     def _reverse_seq(self, X, mask):
@@ -319,7 +319,8 @@ class BiE2EModel(nn.Module):
         qmask = torch.FloatTensor([[1,0],[0,1],[1,0]]).type(T1.type())
         qmask = qmask.unsqueeze(1).expand(-1, T1.size(1), -1)
 
-        umask = torch.FloatTensor([1,1,1])
+        umask = torch.FloatTensor([1,1,1]).type(T1.type())
+        umask = umask.expand(-1, T1.size(1))
 
         emotions_f, alpha_f = self.dialog_rnn_f(U, qmask) # seq_len, batch, D_e
         emotions_f = self.dropout_rec(emotions_f)
@@ -333,21 +334,14 @@ class BiE2EModel(nn.Module):
 
         #emotions = emotions.unsqueeze(1)
         if att2:
-            att_emotions = []
-            alpha = []
-            for t in emotions:
-                att_em, alpha_ = self.matchatt(emotions,t,mask=umask)
-                att_emotions.append(att_em.unsqueeze(0))
-                alpha.append(alpha_[:,0,:])
-            att_emotions = torch.cat(att_emotions,dim=0)
-            hidden = F.relu(self.linear(att_emotions))
+            att_emotion, _ = self.matchatt(emotions,emotions[-1])
+            hidden = F.relu(self.linear1(att_emotion))
         else:
-            hidden = F.relu(self.linear(emotions))
+            hidden = F.relu(self.linear1(emotions[-1]))
         #hidden = F.relu(self.linear2(hidden))
         #hidden = F.relu(self.linear3(hidden))
         hidden = self.dropout(hidden)
         log_prob = F.log_softmax(self.smax_fc(hidden), -1) # batch, n_classes
-        return log_prob
 class E2EModel(nn.Module):
 
     def __init__(self, D_emb, D_m, D_g, D_p, D_e, D_h,
