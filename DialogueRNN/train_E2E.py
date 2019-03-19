@@ -120,35 +120,71 @@ def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None
 
         avg_loss = round(np.sum(losses)/np.sum(masks),4)
         avg_accuracy = round(accuracy_score(labels,preds)*100,2)
-        avg_fscore = get_metrics(labels,preds)
+        _,_,_,avg_fscore = get_metrics(labels,preds)
         return avg_loss, avg_accuracy, labels, preds, avg_fscore
     else:
         preds  = np.concatenate(preds)
         masks  = np.concatenate(masks)
         return masks, preds
-def get_metrics(labels, preds):
-    cm = confusion_matrix(labels, preds)
-    tp = cm[1][1] + cm[2][2] + cm[3][3]
-    fp = cm[0][1] + cm[2][1] + cm[3][1] + cm[0][2] + cm[1][2] + cm[3][2] + cm[0][3] + cm[1][3] + cm[2][3]
-    fn = cm[1][0] + cm[1][2] + cm[1][3] + cm[2][0] + cm[2][1] + cm[2][3] + cm[3][0] + cm[3][1] + cm[3][2]
-    if tp+fp >0 and tp+fn >0:
-        precision = float(tp) / float((tp + fp))
-        recall = float(tp) / float((tp + fn))
-        f1 = float((2.0 * precision * recall) / (precision + recall))
-    return f1
+def get_metrics(discretePredictions, ground):
+
+	truePositives = np.sum(discretePredictions*ground, axis=0)
+    falsePositives = np.sum(np.clip(discretePredictions - ground, 0, 1), axis=0)
+    falseNegatives = np.sum(np.clip(ground-discretePredictions, 0, 1), axis=0)
+    
+    print("True Positives per class : ", truePositives)
+    print("False Positives per class : ", falsePositives)
+    print("False Negatives per class : ", falseNegatives)
+    
+    # ------------- Macro level calculation ---------------
+    macroPrecision = 0
+    macroRecall = 0
+    # We ignore the "Others" class during the calculation of Precision, Recall and F1
+    for c in range(1, NUM_CLASSES):
+        precision = truePositives[c] / (truePositives[c] + falsePositives[c])
+        macroPrecision += precision
+        recall = truePositives[c] / (truePositives[c] + falseNegatives[c])
+        macroRecall += recall
+        f1 = ( 2 * recall * precision ) / (precision + recall) if (precision+recall) > 0 else 0
+        print("Class %s : Precision : %.3f, Recall : %.3f, F1 : %.3f" % (label2emotion[c], precision, recall, f1))
+    
+    macroPrecision /= 3
+    macroRecall /= 3
+    macroF1 = (2 * macroRecall * macroPrecision ) / (macroPrecision + macroRecall) if (macroPrecision+macroRecall) > 0 else 0
+    print("Ignoring the Others class, Macro Precision : %.4f, Macro Recall : %.4f, Macro F1 : %.4f" % (macroPrecision, macroRecall, macroF1))   
+    
+    # ------------- Micro level calculation ---------------
+    truePositives = truePositives[1:].sum()
+    falsePositives = falsePositives[1:].sum()
+    falseNegatives = falseNegatives[1:].sum()    
+    
+    print("Ignoring the Others class, Micro TP : %d, FP : %d, FN : %d" % (truePositives, falsePositives, falseNegatives))
+    
+    microPrecision = truePositives / (truePositives + falsePositives)
+    microRecall = truePositives / (truePositives + falseNegatives)
+    
+    microF1 = ( 2 * microRecall * microPrecision ) / (microPrecision + microRecall) if (microPrecision+microRecall) > 0 else 0
+    # -----------------------------------------------------
+    
+    predictions = predictions.argmax(axis=1)
+    ground = ground.argmax(axis=1)
+    accuracy = np.mean(predictions==ground)
+    
+    print("Accuracy : %.4f, Micro Precision : %.4f, Micro Recall : %.4f, Micro F1 : %.4f" % (accuracy, microPrecision, microRecall, microF1))
+    return accuracy, microPrecision, microRecall, microF1
 
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--no-cuda', action='store_true', default=False,
                         help='does not use GPU')
-    parser.add_argument('--lr', type=float, default=0.0001, metavar='LR',
+    parser.add_argument('--lr', type=float, default=0.005, metavar='LR',
                         help='learning rate')
     parser.add_argument('--l2', type=float, default=0.00001, metavar='L2',
                         help='L2 regularization weight')
     parser.add_argument('--rec-dropout', type=float, default=0.1,
                         metavar='rec_dropout', help='rec_dropout rate')
-    parser.add_argument('--dropout', type=float, default=0.5, metavar='dropout',
+    parser.add_argument('--dropout', type=float, default=0.1, metavar='dropout',
                         help='dropout rate')
     parser.add_argument('--batch-size', type=int, default=30, metavar='BS',
                         help='batch size')
