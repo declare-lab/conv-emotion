@@ -119,7 +119,7 @@ def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None
             return float('nan'), float('nan'), [], [], float('nan')
 
         avg_loss = round(np.sum(losses)/np.sum(masks),4)
-        avg_accuracy = round(accuracy_score(labels,preds,labels=[1,2,3])*100,2)
+        avg_accuracy = round(accuracy_score(labels,preds)*100,2)
         avg_fscore = round(f1_score(labels,preds,labels=[1,2,3],average='micro')*100,2)
         return avg_loss, avg_accuracy, labels, preds, avg_fscore
     else:
