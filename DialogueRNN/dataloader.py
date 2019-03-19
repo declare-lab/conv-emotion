@@ -92,7 +92,7 @@ class MELDDataset(Dataset):
         return [pad_sequence(dat[i]) if i<3 else pad_sequence(dat[i], True) if i<5 else dat[i].tolist() for i in dat]
 
 
-    class DailyDialogueDataset(Dataset):
+class DailyDialogueDataset(Dataset):
 
     def __init__(self, split, path):
         

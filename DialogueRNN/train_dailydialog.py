@@ -157,7 +157,7 @@ if __name__ == '__main__':
     
     kernel_sizes = [3,4,5]
     
-    glv_pretrained = np.load(open('data/dailydialog/glv_embedding_matrix', 'rb'))
+    glv_pretrained = np.load(open('dailydialog/glv_embedding_matrix', 'rb'))
     vocab_size, embedding_dim = glv_pretrained.shape
     
     model = DailyDialogueModel(D_m, D_g, D_p, D_e, D_h, vocab_size=20000, n_classes=7, 
@@ -186,7 +186,7 @@ if __name__ == '__main__':
                            weight_decay=args.l2)
     
 
-    train_loader, valid_loader, test_loader = get_DailyDialogue_loaders('data/dailydialog/daily_dialogue.pkl', 
+    train_loader, valid_loader, test_loader = get_DailyDialogue_loaders('dailydialog/daily_dialogue.pkl', 
                                                                         batch_size=batch_size, num_workers=0)
     
     best_loss, best_label, best_pred, best_mask = None, None, None, None
