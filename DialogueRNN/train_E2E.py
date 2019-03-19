@@ -39,14 +39,18 @@ def get_E2E_loaders(path, valid=0.1, batch_size=32):
               ('turn3', utterance),
               ('label', label)]
 
-    train, valid = data.TabularDataset('{}/train.txt'.format(path),
+    train = data.TabularDataset('{}/train.txt'.format(path),
                                 format='tsv',
                                 fields=fields,
-                                skip_header=True).split(1-valid)
-
-    test = data.TabularDataset('{}/devwithoutlabels.txt'.format(path),
+                                skip_header=True)
+    train = data.TabularDataset('{}/valid.txt'.format(path),
                                 format='tsv',
-                                fields=fields[:-1],
+                                fields=fields,
+                                skip_header=True)
+
+    test = data.TabularDataset('{}/test.txt'.format(path),
+                                format='tsv',
+                                fields=fields,
                                 skip_header=True)
 
     utterance.build_vocab(train, valid, test, vectors='glove.840B.300d')
@@ -68,7 +72,7 @@ def get_E2E_loaders(path, valid=0.1, batch_size=32):
             utterance.vocab.vectors if not args.cuda else utterance.vocab.vectors.cuda(),\
             label.vocab.itos
 
-def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None, optimizer=None, train=False, valid=False):
+def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None, optimizer=None, train=False, valid=False, test=False):
     losses = []
     preds = []
     labels = []
@@ -106,7 +110,7 @@ def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None
             #         writer.add_histogram(param[0], param[1].grad, epoch)
             optimizer.step()
 
-    if train or valid:
+    if train or valid or test:
         if preds!=[]:
             # import ipdb;ipdb.set_trace()
             preds  = np.concatenate(preds)
@@ -116,7 +120,7 @@ def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None
 
         avg_loss = round(np.sum(losses)/np.sum(masks),4)
         avg_accuracy = round(accuracy_score(labels,preds)*100,2)
-        avg_fscore = round(f1_score(labels,preds,average='weighted')*100,2)
+        avg_fscore = round(f1_score(labels,preds,average='micro')*100,2)
         return avg_loss, avg_accuracy, labels, preds, avg_fscore
     else:
         preds  = np.concatenate(preds)
@@ -141,7 +145,7 @@ if __name__ == '__main__':
                         help='batch size')
     parser.add_argument('--epochs', type=int, default=15, metavar='E',
                         help='number of epochs')
-    parser.add_argument('--class-weight', action='store_true', default=True,
+    parser.add_argument('--class-weight', action='store_true', default=False,
                         help='class weight')
     parser.add_argument('--active-listener', action='store_true', default=False,
                         help='active listener')
@@ -208,30 +212,30 @@ if __name__ == '__main__':
     for e in range(n_epochs):
         start_time = time.time()
         train_loss, train_acc, _,_,train_fscore = train_or_eval_model(model, embeddings,
-                                               train_loader, e, loss_function, optimizer, True)
+                                               train_loader, e, loss_function, optimizer, train=True)
         valid_loss, valid_acc, valid_label, valid_pred, val_fscore = train_or_eval_model(model, embeddings, valid_loader, e, loss_function, valid=True)
-        ids, test_pred = train_or_eval_model(model, embeddings, test_loader, e)
+        test_loss, test_acc, test_label, test_pred, test_fscore = train_or_eval_model(model, embeddings, test_loader, e, loss_function, test=True)
 
         if best_loss == None or best_loss > valid_loss:
-            best_loss, best_f1, best_pred, best_val_pred, best_val_label, best_ids =\
-                    valid_loss, val_fscore, test_pred+1, valid_pred, valid_label, ids
+            best_loss, best_f1, best_pred, best_test_pred, best_test_label =\
+                    valid_loss, test_fscore, test_pred+1, test_pred, test_label
 
         if args.tensorboard:
             writer.add_scalar('test: accuracy/loss',test_acc/test_loss,e)
             writer.add_scalar('train: accuracy/loss',train_acc/train_loss,e)
-        print('epoch {} train_loss {} train_acc {} test_fscore {} valid_loss {} valid_acc {} val_fscore {} time {}'.\
-                format(e+1, train_loss, train_acc, train_fscore, valid_loss, valid_acc, val_fscore,\
+        print('epoch {} train_loss {} train_acc {} train_fscore {} valid_loss {} valid_acc {} val_fscore {} test_loss {} test_acc {} test_fscore {} time {}'.\
+                format(e+1, train_loss, train_acc, train_fscore, valid_loss, valid_acc, val_fscore, test_loss, test_acc, test_fscore, \
                         round(time.time()-start_time,2)))
     if args.tensorboard:
         writer.close()
 
     print('Test performance..')
     print('Loss {} fscore {}'.format(best_loss, round(best_f1,2)))
-    print(classification_report(best_val_label,best_val_pred,digits=4))
-    print(confusion_matrix(best_val_label,best_val_pred))
-    with open('./semeval19_emocon/test.txt','w') as f:
-        f.write('id\tturn1\tturn2\tturn3\tlabel\n')
-        for id, label in zip(best_ids, best_pred):
-            f.write('{}\tdummy1\tdummy2\tdummy3\t{}\n'.format(id, id2label[label]))
+    print(classification_report(best_test_label,best_test_pred,digits=4))
+    print(confusion_matrix(best_test_label,best_test_pred))
+    #with open('./semeval19_emocon/test.txt','w') as f:
+    #    f.write('id\tturn1\tturn2\tturn3\tlabel\n')
+    #    for id, label in zip(best_ids, best_pred):
+    #        f.write('{}\tdummy1\tdummy2\tdummy3\t{}\n'.format(id, id2label[label]))
     # with open('best_attention.p','wb') as f:
     #     pickle.dump(best_attn+[best_label,best_pred,best_mask],f)
