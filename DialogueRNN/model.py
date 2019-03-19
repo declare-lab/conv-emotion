@@ -258,6 +258,80 @@ class BiModel(nn.Module):
         log_prob = F.log_softmax(self.smax_fc(hidden), 2) # seq_len, batch, n_classes
         return log_prob, alpha, alpha_f, alpha_b
 
+class BiE2EModel(nn.Module):
+
+    def __init__(self, D_emb, D_m, D_g, D_p, D_e, D_h,
+                 n_classes=7, listener_state=False, context_attention='simple', D_a=100, dropout_rec=0.5,
+                 dropout=0.5):
+        super(E2EModel, self).__init__()
+
+        self.D_emb     = D_emb
+        self.D_m       = D_m
+        self.D_g       = D_g
+        self.D_p       = D_p
+        self.D_e       = D_e
+        self.D_h       = D_h
+        self.n_classes = n_classes
+        self.dropout   = nn.Dropout(dropout)
+        #self.dropout_rec = nn.Dropout(0.2)
+        self.dropout_rec = nn.Dropout(dropout)
+        self.turn_rnn = nn.GRU(D_emb, D_m)
+        self.dialog_rnn_f = DialogueRNN(D_m, D_g, D_p, D_e,listener_state,
+                                    context_attention, D_a, dropout_rec)
+        self.dialog_rnn_r = DialogueRNN(D_m, D_g, D_p, D_e,listener_state,
+                                    context_attention, D_a, dropout_rec)
+        self.linear1     = nn.Linear(2*D_e, 2*D_h)
+        #self.linear2     = nn.Linear(D_h, D_h)
+        #self.linear3     = nn.Linear(D_h, D_h)
+        self.smax_fc    = nn.Linear(D_h, n_classes)
+
+        self.matchatt = MatchingAttention(2*D_e,2*D_e,att_type='general2')
+
+    def forward(self, data, word_embeddings, att2=False):
+
+        T1 = word_embeddings[data.turn1] # seq_len, batch, D_emb
+        T2 = word_embeddings[data.turn2] # seq_len, batch, D_emb
+        T3 = word_embeddings[data.turn3] # seq_len, batch, D_emb
+
+        T1_, h_out1 = self.turn_rnn(T1,
+                                    torch.zeros(1, T1.size(1), self.D_m).type(T1.type()))
+        T2_, h_out2 = self.turn_rnn(T2,
+                                    torch.zeros(1, T1.size(1), self.D_m).type(T1.type()))
+        T3_, h_out3 = self.turn_rnn(T3,
+                                    torch.zeros(1, T1.size(1), self.D_m).type(T1.type()))
+
+        U = torch.cat([h_out1, h_out2, h_out3], 0) # 3, batch, D_m
+
+        qmask = torch.FloatTensor([[1,0],[0,1],[1,0]]).type(T1.type())
+        qmask = qmask.unsqueeze(1).expand(-1, T1.size(1), -1)
+
+        emotions_f, alpha_f = self.dialog_rnn_f(U, qmask) # seq_len, batch, D_e
+        emotions_f = self.dropout_rec(emotions_f)
+        rev_U = self._reverse_seq(U, umask)
+        emotions_b, alpha_b = self.dialog_rnn_r(rev_U, qmask)
+        emotions_b = self._reverse_seq(emotions_b, umask)
+        emotions_b = self.dropout_rec(emotions_b)
+        emotions = torch.cat([emotions_f,emotions_b],dim=-1)
+        #print(emotions)
+        emotions = self.dropout_rec(emotions)
+
+        #emotions = emotions.unsqueeze(1)
+        if att2:
+            att_emotions = []
+            alpha = []
+            for t in emotions:
+                att_em, alpha_ = self.matchatt(emotions,t,mask=umask)
+                att_emotions.append(att_em.unsqueeze(0))
+                alpha.append(alpha_[:,0,:])
+            att_emotions = torch.cat(att_emotions,dim=0)
+            hidden = F.relu(self.linear(att_emotions))
+        else:
+            hidden = F.relu(self.linear(emotions))
+        #hidden = F.relu(self.linear2(hidden))
+        #hidden = F.relu(self.linear3(hidden))
+        hidden = self.dropout(hidden)
+        log_prob = F.log_softmax(self.smax_fc(hidden), -1) # batch, n_classes
+        return log_prob
 class E2EModel(nn.Module):
 
     def __init__(self, D_emb, D_m, D_g, D_p, D_e, D_h,
@@ -318,7 +392,6 @@ class E2EModel(nn.Module):
         hidden = self.dropout(hidden)
         log_prob = F.log_softmax(self.smax_fc(hidden), -1) # batch, n_classes
         return log_prob
-
 class Model(nn.Module):
 
     def __init__(self, D_m, D_g, D_p, D_e, D_h,

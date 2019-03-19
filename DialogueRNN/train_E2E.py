@@ -14,7 +14,7 @@ import pickle
 from sklearn.metrics import f1_score, confusion_matrix, accuracy_score,\
                         classification_report, precision_recall_fscore_support
 
-from model import E2EModel
+from model import BiE2EModel
 
 from torchtext import data
 from torchtext.data import TabularDataset
@@ -180,7 +180,7 @@ if __name__ == '__main__':
 
     D_a = 100 # concat attention
 
-    model = E2EModel(D_emb, D_m, D_g, D_p, D_e, D_h,
+    model = BiE2EModel(D_emb, D_m, D_g, D_p, D_e, D_h,
                      n_classes=n_classes,
                      listener_state=args.active_listener,
                      context_attention=args.attention,
