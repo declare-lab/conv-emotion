@@ -43,7 +43,7 @@ def get_E2E_loaders(path, valid=0.1, batch_size=32):
                                 format='tsv',
                                 fields=fields,
                                 skip_header=True)
-    train = data.TabularDataset('{}/valid.txt'.format(path),
+    valid = data.TabularDataset('{}/valid.txt'.format(path),
                                 format='tsv',
                                 fields=fields,
                                 skip_header=True)
