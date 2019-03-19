@@ -238,7 +238,8 @@ class BiModel(nn.Module):
         emotions_f, alpha_f = self.dialog_rnn_f(U, qmask) # seq_len, batch, D_e
         emotions_f = self.dropout_rec(emotions_f)
         rev_U = self._reverse_seq(U, umask)
-        emotions_b, alpha_b = self.dialog_rnn_r(rev_U, qmask)
+        rev_qmask = self._reverse_seq(qmask, umask)
+        emotions_b, alpha_b = self.dialog_rnn_r(rev_U, rev_qmask)
         emotions_b = self._reverse_seq(emotions_b, umask)
         emotions_b = self.dropout_rec(emotions_b)
         emotions = torch.cat([emotions_f,emotions_b],dim=-1)
@@ -319,13 +320,14 @@ class BiE2EModel(nn.Module):
         qmask = torch.FloatTensor([[1,0],[0,1],[1,0]]).type(T1.type())
         qmask = qmask.unsqueeze(1).expand(-1, T1.size(1), -1)
 
-        umask = torch.FloatTensor([1,1,1]).type(T1.type())
-        umask = umask.expand(-1, T1.size(1))
+        umask = torch.FloatTensor([[1,1,1]]).type(T1.type())
+        umask = umask.expand( T1.size(1),-1)
 
         emotions_f, alpha_f = self.dialog_rnn_f(U, qmask) # seq_len, batch, D_e
         emotions_f = self.dropout_rec(emotions_f)
         rev_U = self._reverse_seq(U, umask)
-        emotions_b, alpha_b = self.dialog_rnn_r(rev_U, qmask)
+        rev_qmask = self._reverse_seq(qmask, umask)
+        emotions_b, alpha_b = self.dialog_rnn_r(rev_U, rev_qmask)
         emotions_b = self._reverse_seq(emotions_b, umask)
         emotions_b = self.dropout_rec(emotions_b)
         emotions = torch.cat([emotions_f,emotions_b],dim=-1)
@@ -342,6 +344,8 @@ class BiE2EModel(nn.Module):
         #hidden = F.relu(self.linear3(hidden))
         hidden = self.dropout(hidden)
         log_prob = F.log_softmax(self.smax_fc(hidden), -1) # batch, n_classes
+        return log_prob
+
 class E2EModel(nn.Module):
 
     def __init__(self, D_emb, D_m, D_g, D_p, D_e, D_h,
