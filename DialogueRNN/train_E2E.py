@@ -90,14 +90,14 @@ def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None
         log_prob = model(data, embeddings) # batch, n_classes
         lp_ = log_prob # batch, n_classes
         # import ipdb;ipdb.set_trace()
-        if train or valid:
+        if train or valid or test:
             labels_ = data.label # batch
             loss = loss_function(lp_, labels_)
             losses.append(loss.item())
 
         pred_ = torch.argmax(lp_,1) # batch
         preds.append(pred_.data.cpu().numpy())
-        if train or valid:
+        if train or valid or test:
             labels.append(labels_.data.cpu().numpy())
             masks.append(data.turn1.size(1))
         else:
