@@ -120,13 +120,23 @@ def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None
 
         avg_loss = round(np.sum(losses)/np.sum(masks),4)
         avg_accuracy = round(accuracy_score(labels,preds)*100,2)
-        avg_fscore = round(f1_score(labels,preds,labels=[1,2,3],average='micro')*100,2)
+        avg_fscore = get_metrics(labels,preds)
         return avg_loss, avg_accuracy, labels, preds, avg_fscore
     else:
         preds  = np.concatenate(preds)
         masks  = np.concatenate(masks)
         return masks, preds
-
+def get_metrics(labels, preds):
+	cm = confusion_matrix(labels, preds)
+    print(cm)
+    tp = cm[1][1] + cm[2][2] + cm[3][3]
+    fp = cm[0][1] + cm[2][1] + cm[3][1] + cm[0][2] + cm[1][2] + cm[3][2] + cm[0][3] + cm[1][3] + cm[2][3]
+    fn = cm[1][0] + cm[1][2] + cm[1][3] + cm[2][0] + cm[2][1] + cm[2][3] + cm[3][0] + cm[3][1] + cm[3][2]
+    if tp+fp >0 and tp+fn >0:
+        precision = float(tp) / float((tp + fp))
+        recall = float(tp) / float((tp + fn))
+        f1 = float((2.0 * precision * recall) / (precision + recall))
+    return f1
 
 if __name__ == '__main__':
 
@@ -233,12 +243,12 @@ if __name__ == '__main__':
 
     print('Valid performance..')
     print('Loss {} fscore {}'.format(best_loss, round(best_f1,2)))
-    print(classification_report(best_test_label,best_test_pred,digits=4, labels=[1,2,3]))
+    print(classification_report(best_test_label,best_test_pred,digits=4))
     print(confusion_matrix(best_test_label,best_test_pred))
 
     print('Test performance..')
     print('Loss {} fscore {}'.format(best_loss, round(best_valid_f1,2)))
-    print(classification_report(best_valid_label,best_valid_pred,digits=4,labels=[1,2,3]))
+    print(classification_report(best_valid_label,best_valid_pred,digits=4))
     print(confusion_matrix(best_valid_label,best_valid_pred))
     #with open('./semeval19_emocon/test.txt','w') as f:
     #    f.write('id\tturn1\tturn2\tturn3\tlabel\n')
