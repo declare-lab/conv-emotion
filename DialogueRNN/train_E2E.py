@@ -14,7 +14,7 @@ import pickle
 from sklearn.metrics import f1_score, confusion_matrix, accuracy_score,\
                         classification_report, precision_recall_fscore_support
 
-from model import BiE2EModel
+from model import BiE2EModel,UnMaskedWeightedNLLLoss
 
 from torchtext import data
 from torchtext.data import TabularDataset
@@ -85,6 +85,8 @@ def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None
     alphas, alphas_f, alphas_b, vids = [], [], [], []
     embeddings.requires_grad = True
     # assert not train or optimizer!=None
+    #umask = torch.FloatTensor([[1,1,1]]).type(T1.type())
+    #umask = umask.expand( T1.size(1),-1)
     if train:
         model.train()
     else:
@@ -196,7 +198,7 @@ if __name__ == '__main__':
                         help='batch size')
     parser.add_argument('--epochs', type=int, default=15, metavar='E',
                         help='number of epochs')
-    parser.add_argument('--class-weight', action='store_true', default=True,
+    parser.add_argument('--class-weight', action='store_true', default=False,
                         help='class weight')
     parser.add_argument('--active-listener', action='store_true', default=False,
                         help='active listener')
@@ -223,11 +225,11 @@ if __name__ == '__main__':
     n_epochs   = args.epochs
 
     D_emb = 300
-    D_m   = 200
-    D_g   = 150
-    D_p   = 150
-    D_e   = 100
-    D_h   = 100
+    D_m   = 300
+    D_g   = 350
+    D_p   = 350
+    D_e   = 300
+    D_h   = 300
 
     D_a = 100 # concat attention
 
@@ -240,14 +242,12 @@ if __name__ == '__main__':
     if cuda:
         model.cuda()
     loss_weights = torch.FloatTensor([
-                                        1/0.086747,
-                                        1/0.144406,
-                                        1/0.227883,
-                                        1/0.160585,
-                                        1/0.127711,
-                                        1/0.252668,
+                                        2, 1, 1 , 1
                                         ])
-    loss_function = nn.NLLLoss()
+    if args.class_weight:
+        loss_function  = UnMaskedWeightedNLLLoss(loss_weights.cuda() if cuda else loss_weights)
+    else:
+        loss_function = UnMaskedWeightedNLLLoss()
     #optimizer = optim.Adam(model.parameters(),
     #                       lr=args.lr,
     #                       weight_decay=args.l2)
