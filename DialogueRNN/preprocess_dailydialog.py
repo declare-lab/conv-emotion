@@ -44,7 +44,7 @@ def create_utterances(filename, split):
 def load_pretrained_glove():
     print("Loading GloVe model, this can take some time...")
     glv_vector = {}
-    f = open('embeddings/glove/glove.6B.100d.txt', encoding='utf-8')
+    f = open('/media/backup/nlp-cic/glove.840B.300d.txt', encoding='utf-8')
 
     for line in f:
         values = line.split()

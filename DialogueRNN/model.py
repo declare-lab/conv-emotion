@@ -259,45 +259,6 @@ class BiModel(nn.Module):
         log_prob = F.log_softmax(self.smax_fc(hidden), 2) # seq_len, batch, n_classes
         return log_prob, alpha, alpha_f, alpha_b
 
-class CNNFeatureExtractor(nn.Module):
-
-    def __init__(self, vocab_size, embedding_dim, output_size, filters, kernel_sizes, dropout):
-        super(CNNFeatureExtractor, self).__init__()
-
-        self.embedding = nn.Embedding(vocab_size, embedding_dim)
-        self.convs = nn.ModuleList([nn.Conv1d(in_channels=embedding_dim, out_channels=filters, kernel_size=K) for K in kernel_sizes])
-        self.dropout = nn.Dropout(dropout)
-        self.fc = nn.Linear(len(kernel_sizes) * filters, output_size)
-        self.feature_dim = output_size
-
-
-    def init_pretrained_embeddings_from_numpy(self, pretrained_word_vectors, is_static):
-        self.embedding.weight = nn.Parameter(torch.from_numpy(pretrained_word_vectors).float())
-        if is_static:
-            self.embedding.weight.requires_grad = False
-
-
-    def forward(self, x, umask):
-
-        num_utt, batch, num_words = x.size()
-
-        x = x.type(LongTensor)  # (num_utt, batch, num_words)
-        x = x.view(-1, num_words) # (num_utt, batch, num_words) -> (num_utt * batch, num_words)
-        emb = self.embedding(x) # (num_utt * batch, num_words) -> (num_utt * batch, num_words, 300)
-        emb = emb.transpose(-2, -1).contiguous() # (num_utt * batch, num_words, 300)  -> (num_utt * batch, 300, num_words)
-
-        convoluted = [F.relu(conv(emb)) for conv in self.convs]
-        pooled = [F.max_pool1d(c, c.size(2)).squeeze() for c in convoluted]
-        concated = torch.cat(pooled, 1)
-        features = F.relu(self.fc(self.dropout(concated))) # (num_utt * batch, 150) -> (num_utt * batch, 100)
-        features = features.view(num_utt, batch, -1) # (num_utt * batch, 100) -> (num_utt, batch, 100)
-        mask = umask.unsqueeze(-1).type(FloatTensor) # (batch, num_utt) -> (batch, num_utt, 1)
-        mask = mask.transpose(0, 1) # (batch, num_utt, 1) -> (num_utt, batch, 1)
-        mask = mask.repeat(1, 1, self.feature_dim) #  (num_utt, batch, 1) -> (num_utt, batch, 100)
-        features = (features * mask) # (num_utt, batch, 100) -> (num_utt, batch, 100)
-
-        return features
-
 class BiE2EModel(nn.Module):
 
     def __init__(self, D_emb, D_m, D_g, D_p, D_e, D_h,
@@ -566,6 +527,139 @@ class MaskedMSELoss(nn.Module):
         """
         loss = self.loss(pred*mask, target)/torch.sum(mask)
         return loss
+
+if torch.cuda.is_available():
+    FloatTensor = torch.cuda.FloatTensor
+    LongTensor = torch.cuda.LongTensor
+    ByteTensor = torch.cuda.ByteTensor
+
+else:
+    FloatTensor = torch.FloatTensor
+    LongTensor = torch.LongTensor
+    ByteTensor = torch.ByteTensor
+
+class CNNFeatureExtractor(nn.Module):
+    
+    def __init__(self, vocab_size, embedding_dim, output_size, filters, kernel_sizes, dropout):
+        super(CNNFeatureExtractor, self).__init__()
+
+        self.embedding = nn.Embedding(vocab_size, embedding_dim)
+        self.convs = nn.ModuleList([nn.Conv1d(in_channels=embedding_dim, out_channels=filters, kernel_size=K) for K in kernel_sizes])
+        self.dropout = nn.Dropout(dropout)
+        self.fc = nn.Linear(len(kernel_sizes) * filters, output_size)
+        self.feature_dim = output_size
+
+
+    def init_pretrained_embeddings_from_numpy(self, pretrained_word_vectors):
+        self.embedding.weight = nn.Parameter(torch.from_numpy(pretrained_word_vectors).float())
+        # if is_static:
+        self.embedding.weight.requires_grad = False
+
+
+    def forward(self, x, umask):
+        
+        num_utt, batch, num_words = x.size()
+        
+        x = x.type(LongTensor)  # (num_utt, batch, num_words)
+        x = x.view(-1, num_words) # (num_utt, batch, num_words) -> (num_utt * batch, num_words)
+        emb = self.embedding(x) # (num_utt * batch, num_words) -> (num_utt * batch, num_words, 300) 
+        emb = emb.transpose(-2, -1).contiguous() # (num_utt * batch, num_words, 300)  -> (num_utt * batch, 300, num_words) 
+        
+        convoluted = [F.relu(conv(emb)) for conv in self.convs] 
+        pooled = [F.max_pool1d(c, c.size(2)).squeeze() for c in convoluted] 
+        concated = torch.cat(pooled, 1)
+        features = F.relu(self.fc(self.dropout(concated))) # (num_utt * batch, 150) -> (num_utt * batch, 100)
+        features = features.view(num_utt, batch, -1) # (num_utt * batch, 100) -> (num_utt, batch, 100)
+        mask = umask.unsqueeze(-1).type(FloatTensor) # (batch, num_utt) -> (batch, num_utt, 1)
+        mask = mask.transpose(0, 1) # (batch, num_utt, 1) -> (num_utt, batch, 1)
+        mask = mask.repeat(1, 1, self.feature_dim) #  (num_utt, batch, 1) -> (num_utt, batch, 100)
+        features = (features * mask) # (num_utt, batch, 100) -> (num_utt, batch, 100)
+
+        return features
+
+class DailyDialogueModel(nn.Module):
+
+    def __init__(self, D_m, D_g, D_p, D_e, D_h,
+                 vocab_size, n_classes=7, embedding_dim=300, 
+                 cnn_output_size=100, cnn_filters=50, cnn_kernel_sizes=(3,4,5), cnn_dropout=0.5,
+                 listener_state=False, context_attention='simple', D_a=100, dropout_rec=0.5,
+                 dropout=0.5, att2=True):
+        
+        super(DailyDialogueModel, self).__init__()
+
+        self.cnn_feat_extractor = CNNFeatureExtractor(vocab_size, embedding_dim, cnn_output_size, cnn_filters, cnn_kernel_sizes, cnn_dropout)
+                
+        self.D_m       = D_m
+        self.D_g       = D_g
+        self.D_p       = D_p
+        self.D_e       = D_e
+        self.D_h       = D_h
+        self.dropout   = nn.Dropout(dropout)
+        self.dropout_rec = nn.Dropout(dropout_rec)
+        self.dialog_rnn_f = DialogueRNN(D_m, D_g, D_p, D_e, listener_state,
+                                    context_attention, D_a, dropout_rec)
+        self.dialog_rnn_r = DialogueRNN(D_m, D_g, D_p, D_e, listener_state,
+                                    context_attention, D_a, dropout_rec)
+        self.linear     = nn.Linear(2*D_e, 2*D_h)
+        self.matchatt = MatchingAttention(2*D_e,2*D_e,att_type='general2')
+
+        self.n_classes = n_classes
+        self.smax_fc    = nn.Linear(2*D_h, n_classes)
+        self.att2 = att2
+
+        
+    
+    def init_pretrained_embeddings(self, pretrained_word_vectors):
+        self.cnn_feat_extractor.init_pretrained_embeddings_from_numpy(pretrained_word_vectors)
+
+
+    def _reverse_seq(self, X, mask):
+        """
+        X -> seq_len, batch, dim
+        mask -> batch, seq_len
+        """
+        X_ = X.transpose(0,1)
+        mask_sum = torch.sum(mask, 1).int()
+
+        xfs = []
+        for x, c in zip(X_, mask_sum):
+            xf = torch.flip(x[:c], [0])
+            xfs.append(xf)
+
+        return pad_sequence(xfs)
+
+
+    def forward(self, input_seq, qmask, umask):
+        """
+        U -> seq_len, batch, D_m
+        qmask -> seq_len, batch, party
+        """
+
+        U = self.cnn_feat_extractor(input_seq, umask)
+
+        emotions_f, alpha_f = self.dialog_rnn_f(U, qmask) # seq_len, batch, D_e
+        emotions_f = self.dropout_rec(emotions_f)
+        rev_U = self._reverse_seq(U, umask)
+        rev_qmask = self._reverse_seq(qmask, umask)
+        emotions_b, alpha_b = self.dialog_rnn_r(rev_U, rev_qmask)
+        emotions_b = self._reverse_seq(emotions_b, umask)
+        emotions_b = self.dropout_rec(emotions_b)
+        emotions = torch.cat([emotions_f, emotions_b], dim=-1)
+        if self.att2:
+            att_emotions = []
+            alpha = []
+            for t in emotions:
+                att_em, alpha_ = self.matchatt(emotions,t,mask=umask)
+                att_emotions.append(att_em.unsqueeze(0))
+                alpha.append(alpha_[:,0,:])
+            att_emotions = torch.cat(att_emotions,dim=0)
+            hidden = F.relu(self.linear(att_emotions))
+        else:
+            hidden = F.relu(self.linear(emotions))
+        # hidden = F.relu(self.linear(emotions))
+        hidden = self.dropout(hidden)
+        log_prob = F.log_softmax(self.smax_fc(hidden), 2) # seq_len, batch, n_classes
+        return log_prob, alpha, alpha_f, alpha_b
 
 class UnMaskedWeightedNLLLoss(nn.Module):
 

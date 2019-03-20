@@ -57,11 +57,12 @@ def train_or_eval_model(model, loss_function, dataloader, epoch, optimizer=None,
     assert not train or optimizer!=None
     if train:
         model.train()
-        optimizer.zero_grad()
     else:
         model.eval()
         
     for data in dataloader:
+        if train:
+            optimizer.zero_grad()
 
         input_sequence, qmask, umask, label = process_data_loader(data)
         log_prob, alpha, alpha_f, alpha_b = model(input_sequence, qmask, umask)
@@ -112,7 +113,7 @@ if __name__ == '__main__':
                         metavar='rec_dropout', help='rec_dropout rate')
     parser.add_argument('--dropout', type=float, default=0.5, metavar='dropout',
                         help='dropout rate')
-    parser.add_argument('--batch-size', type=int, default=30, metavar='BS',
+    parser.add_argument('--batch-size', type=int, default=10, metavar='BS',
                         help='batch size')
     parser.add_argument('--epochs', type=int, default=60, metavar='E',
                         help='number of epochs')
@@ -159,8 +160,8 @@ if __name__ == '__main__':
     
     glv_pretrained = np.load(open('dailydialog/glv_embedding_matrix', 'rb'))
     vocab_size, embedding_dim = glv_pretrained.shape
-    
-    model = DailyDialogueModel(D_m, D_g, D_p, D_e, D_h, vocab_size=20000, n_classes=7, 
+    # glv_pretrained[0, :] = np.random.rand(embedding_dim)
+    model = DailyDialogueModel(D_m, D_g, D_p, D_e, D_h, vocab_size=vocab_size, n_classes=7, 
                                embedding_dim=embedding_dim,
                                cnn_output_size=args.cnn_output_size,
                                cnn_filters=args.cnn_filters, 
@@ -170,7 +171,7 @@ if __name__ == '__main__':
                                context_attention=args.attention,
                                dropout_rec=args.rec_dropout,
                                dropout=args.dropout)
-    
+    model.init_pretrained_embeddings(glv_pretrained)    
     if cuda:
         model.cuda()
         
@@ -181,7 +182,7 @@ if __name__ == '__main__':
     else:
         loss_function = MaskedNLLLoss()
         
-    optimizer = optim.Adam(model.parameters(),
+    optimizer = optim.Adam(filter(lambda p: p.requires_grad, model.parameters()),
                            lr=args.lr,
                            weight_decay=args.l2)
     
