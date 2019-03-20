@@ -300,7 +300,7 @@ class CNNFeatureExtractor(nn.Module):
 
 class BiE2EModel(nn.Module):
 
-    def __init__(self, D_emb, D_m, D_g, D_p, D_e, D_h,
+    def __init__(self, D_emb, D_m, D_g, D_p, D_e, D_h, word_embeddings,
                  n_classes=7, listener_state=False, context_attention='simple', D_a=100, dropout_rec=0.5,
                  dropout=0.5):
         super(BiE2EModel, self).__init__()
@@ -320,11 +320,13 @@ class BiE2EModel(nn.Module):
                                     context_attention, D_a, dropout_rec)
         self.dialog_rnn_r = DialogueRNN(D_m, D_g, D_p, D_e,listener_state,
                                     context_attention, D_a, dropout_rec)
-        self.linear1     = nn.Linear(2*D_e, 2*D_h)
+        self.linear1     = nn.Linear(2*D_e, D_h)
         #self.linear2     = nn.Linear(D_h, D_h)
         #self.linear3     = nn.Linear(D_h, D_h)
-        self.smax_fc    = nn.Linear(2*D_h, n_classes)
-
+        self.smax_fc    = nn.Linear(D_h, n_classes)
+        self.embedding = nn.Embedding(word_embeddings.shape[0],word_embeddings.shape[1])
+        self.embedding.weight.data.copy_(word_embeddings)
+        self.embedding.weight.requires_grad = True
         self.matchatt = MatchingAttention(2*D_e,2*D_e,att_type='general2')
     def _reverse_seq(self, X, mask):
         """
@@ -341,11 +343,15 @@ class BiE2EModel(nn.Module):
 
         return pad_sequence(xfs)
 
-    def forward(self, data, word_embeddings, att2=False):
+    def forward(self, data, att2=False):
 
-        T1 = word_embeddings[data.turn1] # seq_len, batch, D_emb
-        T2 = word_embeddings[data.turn2] # seq_len, batch, D_emb
-        T3 = word_embeddings[data.turn3] # seq_len, batch, D_emb
+        #T1 = word_embeddings[data.turn1] # seq_len, batch, D_emb
+        #T2 = word_embeddings[data.turn2] # seq_len, batch, D_emb
+        #T3 = word_embeddings[data.turn3] # seq_len, batch, D_emb
+
+        T1 = (self.embedding(data.turn1))
+        T2 = (self.embedding(data.turn2))
+        T3 = (self.embedding(data.turn3))
 
         T1_, h_out1 = self.turn_rnn(T1,
                                     torch.zeros(1, T1.size(1), self.D_m).type(T1.type()))
@@ -368,20 +374,20 @@ class BiE2EModel(nn.Module):
         rev_qmask = self._reverse_seq(qmask, umask)
         emotions_b, alpha_b = self.dialog_rnn_r(rev_U, rev_qmask)
         emotions_b = self._reverse_seq(emotions_b, umask)
-        emotions_b = self.dropout_rec(emotions_b)
+        #emotions_b = self.dropout_rec(emotions_b)
         emotions = torch.cat([emotions_f,emotions_b],dim=-1)
         #print(emotions)
         emotions = self.dropout_rec(emotions)
 
         #emotions = emotions.unsqueeze(1)
         if att2:
-            att_emotion, _ = self.matchatt(emotions,emotions[-1])
+            att_emotion, _ = self.matchatt(emotions, emotions[-1])
             hidden = F.relu(self.linear1(att_emotion))
         else:
             hidden = F.relu(self.linear1(emotions[-1]))
         #hidden = F.relu(self.linear2(hidden))
         #hidden = F.relu(self.linear3(hidden))
-        hidden = self.dropout(hidden)
+       # hidden = self.dropout(hidden)
         log_prob = F.log_softmax(self.smax_fc(hidden), -1) # batch, n_classes
         return log_prob
 
@@ -581,7 +587,7 @@ class UnMaskedWeightedNLLLoss(nn.Module):
         target -> batch*seq_len
         """
         if type(self.weight)==type(None):
-            loss = self.loss(pred, target)/torch.sum(mask)
+            loss = self.loss(pred, target)
         else:
             loss = self.loss(pred, target)\
                             /torch.sum(self.weight[target])

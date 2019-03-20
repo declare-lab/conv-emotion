@@ -16,7 +16,7 @@ from sklearn.metrics import f1_score, confusion_matrix, accuracy_score,\
 
 from model import BiE2EModel,UnMaskedWeightedNLLLoss
 
-from torchtext import data
+from torchtext import data, vocab
 from torchtext.data import TabularDataset
 from torchtext.data import BucketIterator, Pipeline
 
@@ -57,8 +57,9 @@ def get_E2E_loaders(path, valid=0.1, batch_size=32):
                                 format='tsv',
                                 fields=fields,
                                 skip_header=True)
-
-    utterance.build_vocab(train, valid, test, vectors='glove.840B.300d')
+    vectors = vocab.Vectors(name='emojiplusglove.txt', cache='/media/backup/nlp-cic/DialogueRNN/')
+    utterance.build_vocab(train, valid, test, vectors=vectors)
+    #utterance.build_vocab(train, valid, test, vectors='glove.840B.300d')
     label.build_vocab(train)
     train_iter = BucketIterator(train,
                                   train=True,
@@ -83,7 +84,6 @@ def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None
     labels = []
     masks = []
     alphas, alphas_f, alphas_b, vids = [], [], [], []
-    embeddings.requires_grad = True
     # assert not train or optimizer!=None
     #umask = torch.FloatTensor([[1,1,1]]).type(T1.type())
     #umask = umask.expand( T1.size(1),-1)
@@ -95,7 +95,7 @@ def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None
         if train:
             optimizer.zero_grad()
 
-        log_prob = model(data, embeddings) # batch, n_classes
+        log_prob = model(data,True) # batch, n_classes
         lp_ = log_prob # batch, n_classes
         # import ipdb;ipdb.set_trace()
         if train or valid or test:
@@ -136,8 +136,8 @@ def train_or_eval_model(model, embeddings, dataloader, epoch, loss_function=None
         return masks, preds
 def get_metrics(discretePredictions, ground,n_classes=4):
     
-    discretePredictions = to_categorical(discretePredictions)
-    ground = to_categorical(ground)
+    discretePredictions = to_categorical(discretePredictions,4)
+    ground = to_categorical(ground,4)
     truePositives = np.sum(discretePredictions*ground, axis=0)
     falsePositives = np.sum(np.clip(discretePredictions - ground, 0, 1), axis=0)
     falseNegatives = np.sum(np.clip(ground-discretePredictions, 0, 1), axis=0)
@@ -186,7 +186,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--no-cuda', action='store_true', default=False,
                         help='does not use GPU')
-    parser.add_argument('--lr', type=float, default=0.005, metavar='LR',
+    parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
                         help='learning rate')
     parser.add_argument('--l2', type=float, default=0.00001, metavar='L2',
                         help='L2 regularization weight')
@@ -225,22 +225,22 @@ if __name__ == '__main__':
     n_epochs   = args.epochs
 
     D_emb = 300
-    D_m   = 300
-    D_g   = 350
-    D_p   = 350
-    D_e   = 300
-    D_h   = 300
+    D_m   = 200
+    D_g   = 150
+    D_p   = 150
+    D_e   = 100
+    D_h   = 100
 
     D_a = 100 # concat attention
 
-    model = BiE2EModel(D_emb, D_m, D_g, D_p, D_e, D_h,
-                     n_classes=n_classes,
-                     listener_state=args.active_listener,
-                     context_attention=args.attention,
-                     dropout_rec=args.rec_dropout,
-                     dropout=args.dropout)
-    if cuda:
-        model.cuda()
+    #model = BiE2EModel(D_emb, D_m, D_g, D_p, D_e, D_h,
+    #                 n_classes=n_classes,
+    #                 listener_state=args.active_listener,
+    #                 context_attention=args.attention,
+    #                 dropout_rec=args.rec_dropout,
+    #                 dropout=args.dropout)
+    #if cuda:
+    #    model.cuda()
     loss_weights = torch.FloatTensor([
                                         2, 1, 1 , 1
                                         ])
@@ -256,9 +256,21 @@ if __name__ == '__main__':
             get_E2E_loaders('./semeval19_emocon',
                             valid=0.1,
                             batch_size=batch_size)
-    optimizer = optim.Adam([x for x in model.parameters()]+[embeddings],
+    #optimizer = optim.Adam(model.parameters(),
+    #                       lr=args.lr,
+    #                       weight_decay=args.l2)
+
+    model = BiE2EModel(D_emb, D_m, D_g, D_p, D_e, D_h, embeddings,
+                     n_classes=n_classes,
+                     listener_state=args.active_listener,
+                     context_attention=args.attention,
+                     dropout_rec=args.rec_dropout,
+                     dropout=args.dropout)
+    optimizer = optim.Adam(model.parameters(),
                            lr=args.lr,
                            weight_decay=args.l2)
+    if cuda:
+        model.cuda()
 
     best_loss, best_f1, best_pred, best_val_pred, best_val_label, best_ids =\
             None, None, None, None, None, None
@@ -285,12 +297,12 @@ if __name__ == '__main__':
     if args.tensorboard:
         writer.close()
 
-    print('Valid performance..')
+    print('Test performance..')
     print('Loss {} fscore {}'.format(best_loss, round(best_f1,2)))
     print(classification_report(best_test_label,best_test_pred,digits=4))
     print(confusion_matrix(best_test_label,best_test_pred))
 
-    print('Test performance..')
+    print('Valid performance..')
     print('Loss {} fscore {}'.format(best_loss, round(best_valid_f1,2)))
     print(classification_report(best_valid_label,best_valid_pred,digits=4))
     print(confusion_matrix(best_valid_label,best_valid_pred))
