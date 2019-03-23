@@ -1,3 +1,4 @@
+id	turn1	turn2	turn3	label
 0	don't worry i'm girl 	 hmm how do i know if you are 	 what's ur name ?	others
 1	when did i ? 	 saw many times i think 😑 	 no . i never saw you	angry
 2	by 	 by google chrome 	 where you live	others

@@ -1,3 +1,4 @@
+id	turn1	turn2	turn3	label
 0	then dont ask me 	 youre a guy not as if you would understand 	 im not a guy fuck off	angry
 1	mixed things such as ? 	 the things you do . 	 have you seen minions ?	others
 2	today i'm very happy 	 and i'm happy for you ❤ 	 i will be marry	happy
