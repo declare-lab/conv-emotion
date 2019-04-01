@@ -135,8 +135,8 @@ Please extract the file `DialogueRNN_features.zip`.
 
 ### Execution
 
-1. _IEMOCAP_ dataset: `python train_IEMOCAP.py`
-2. _AVEC_ dataset: `python train_AVEC.py`
+1. _IEMOCAP_ dataset: `python train_IEMOCAP.py <command-line arguments>`
+2. _AVEC_ dataset: `python train_AVEC.py <command-line arguments>`
 
 ### Command-Line Arguments
 
