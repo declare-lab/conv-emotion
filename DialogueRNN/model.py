@@ -175,10 +175,10 @@ class DialogueRNN(nn.Module):
         qmask -> seq_len, batch, party
         """
 
-        g_hist = torch.zeros(0,0).type(U.type()) # 0-dimensional tensor
+        g_hist = torch.zeros(0).type(U.type()) # 0-dimensional tensor
         q_ = torch.zeros(qmask.size()[1], qmask.size()[2],
                                     self.D_p).type(U.type()) # batch, party, D_p
-        e_ = torch.zeros(0,0).type(U.type()) # batch, D_e
+        e_ = torch.zeros(0).type(U.type()) # batch, D_e
         e = e_
 
         alpha = []
