@@ -123,7 +123,7 @@ dialogue generation.
 ### Requirements
 
 - Python 3
-- PyTorch 0.4
+- PyTorch 1.0
 - Pandas 0.23
 - Scikit-Learn 0.20
 - TensorFlow (optional; required for tensorboard)
