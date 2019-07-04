@@ -118,7 +118,9 @@ Interactive COnversational memory Network (ICON) is a multimodal emotion detecti
 profiles each speaker in a conversation/dialogue on the fly, while models the
 context of the conversation at the same time. This model can easily be extended to
 multi-party scenario. Also, it can be used as a pretraining model for empathetic
-dialogue generation.
+dialogue generation. 
+
+__Note__: the default settings (hyperparameters and commandline arguments) in the code are meant for BiDialogueRNN+Att. The user needs to optimize the settings for other the variants and changes.
 
 ### Requirements
 
