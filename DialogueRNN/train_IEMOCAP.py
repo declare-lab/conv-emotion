@@ -112,7 +112,7 @@ if __name__ == '__main__':
                         help='L2 regularization weight')
     parser.add_argument('--rec-dropout', type=float, default=0.1,
                         metavar='rec_dropout', help='rec_dropout rate')
-    parser.add_argument('--dropout', type=float, default=0.5, metavar='dropout',
+    parser.add_argument('--dropout', type=float, default=0.1, metavar='dropout',
                         help='dropout rate')
     parser.add_argument('--batch-size', type=int, default=30, metavar='BS',
                         help='batch size')
