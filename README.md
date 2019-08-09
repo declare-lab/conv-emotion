@@ -130,7 +130,7 @@ multi-party scenario. Also, it can be used as a pretraining model for empathetic
 dialogue generation. 
 
 __Note__: the default settings (hyperparameters and commandline arguments) in the code are meant for BiDialogueRNN+Att. The user needs to optimize the settings for other the variants and changes.
-
+![Alt text](dialoguernn.jpg?raw=true "DialogueRNN framework")
 ### Requirements
 
 - Python 3
