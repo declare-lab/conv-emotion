@@ -2,6 +2,8 @@
 
 ### Updates
 
+09/08/2019: New paper on Emotion Recognition in Conversation (ERC) - https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8764449
+
 06/03/2019: Features and codes to train DialogueRNN on the MELD dataset have been released.
 
 20/11/2018: End-to-end version of ICON and DialogueRNN have been released.
@@ -24,6 +26,9 @@ represents interlocutor intent, E represents emotion and Topic represents
 topic of the conversation. This can easily be extended to multi-party
 conversations.")
 
+Emotion recognition can be very useful for empathetic and affective dialogue generation - 
+
+![Alt text](affective_dialogue.jpg?raw=true "Affective dialogue generation")
 
 ## Data Format
 
