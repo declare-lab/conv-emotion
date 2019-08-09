@@ -18,7 +18,7 @@ This repository contains implementations for three conversational emotion detect
 
 Unlike other emotion detection models, these techniques consider the party-states and inter-party dependencies for modeling conversational context relevant to emotion recognition. The primary purpose of all these techniques are to pretrain an emotion detection model for empathetic dialogue generation.
 
-![Alt text](bayesian_dialogue.jpg?raw=true "Factors influencing a conversation.")
+![Alt text](bayesian_dialogue.jpg?raw=true "Controlling variables in conversations.")
 
 *Fig. 1: Interaction among different controlling variables during a
 dyadic conversation between persons A and B. Grey and white circles
