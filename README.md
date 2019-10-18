@@ -1,8 +1,9 @@
 # Emotion Recognition in Conversations
 
 ### Updates
+11/10/2019: [New Paper](https://arxiv.org/pdf/1910.04980.pdf): ERC with Transfer Learning from Generative Dialogue Models. 
 
-09/08/2019: New paper on Emotion Recognition in Conversation (ERC) - https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8764449
+09/08/2019: [New paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8764449) on Emotion Recognition in Conversation (ERC).
 
 06/03/2019: Features and codes to train DialogueRNN on the MELD dataset have been released.
 
@@ -15,22 +16,29 @@ This repository contains implementations for three conversational emotion detect
 - CMN (tensorflow)
 - ICON (tensorflow)
 - DialogueRNN (PyTorch)
+- TL-ERC (PyTorch)
 
 Unlike other emotion detection models, these techniques consider the party-states and inter-party dependencies for modeling conversational context relevant to emotion recognition. The primary purpose of all these techniques are to pretrain an emotion detection model for empathetic dialogue generation.
 
-![Alt text](bayesian_dialogue.jpg?raw=true "Controlling variables in conversations.")
-
-*Fig. 1: Interaction among different controlling variables during a
+<p align="center">
+  <img src="bayesian_dialogue.jpg" alt="Controlling variables in conversation" width="600"/>
+  <figcaption stype="display:table-caption;"><em>Fig. 1: Interaction among different controlling variables during a
 dyadic conversation between persons A and B. Grey and white circles
 represent hidden and observed variables, respectively. P represents
 personality, U represents utterance, S represents interlocutor state, I
 represents interlocutor intent, E represents emotion and Topic represents
 topic of the conversation. This can easily be extended to multi-party
-conversations.*
+      conversations.</em></figcaption>
+</p>
+
+
 
 Emotion recognition can be very useful for empathetic and affective dialogue generation - 
 
-![Alt text](affective_dialogue.jpg?raw=true "Affective dialogue generation")
+<p align="center">
+  <img src="affective_dialogue.jpg" alt="Affective dialogue generation" width="500"/>
+</p>
+
 
 ## Data Format
 
