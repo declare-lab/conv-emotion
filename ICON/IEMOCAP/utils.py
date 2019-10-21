@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import pickle
-from sklearn import cross_validation, metrics
+from sklearn import model_selection, metrics
 
 TEXT_EMBEDDINGS = "./IEMOCAP/data/text/IEMOCAP_text_embeddings.pickle"
 VIDEO_EMBEDDINGS = "./IEMOCAP/data/video/IEMOCAP_video_features.pickle"
@@ -9,7 +9,7 @@ AUDIO_EMBEDDINGS = "./IEMOCAP/data/audio/IEMOCAP_audio_features.pickle"
 
 trainID = pickle.load(open("./IEMOCAP/data/trainID.pkl",'rb'), encoding="latin1")
 testID = pickle.load(open("./IEMOCAP/data/testID.pkl",'rb'), encoding="latin1")
-valID,_ = cross_validation.train_test_split(testID, test_size=.4, random_state=1227)
+valID,_ = model_selection.train_test_split(testID, test_size=.4, random_state=1227)
 # valID = testID
 
 transcripts, labels, own_historyID, other_historyID, own_historyID_rank, other_historyID_rank = pickle.load(open("./IEMOCAP/data/dataset.pkl",'rb'), encoding="latin1")
