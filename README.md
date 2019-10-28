@@ -187,3 +187,9 @@ Please extract the file `DialogueRNN_features.zip`.
 Please cite the following paper if you find this code useful in your work.
 
 `DialogueRNN: An Attentive RNN for Emotion Detection in Conversations. N. Majumder, S. Poria, D. Hazarika, R. Mihalcea, E. Cambria, and G. Alexander. AAAI (2019), Honolulu, Hawaii, USA`
+
+
+## TL-ERC: Emotion Recognition in Conversations with Transfer Learning from Generative Conversation Modeling
+
+[_TL-ERC_](https://arxiv.org/pdf/1910.04980.pdf) is a transfer learning-based framework for ERC. It pre-trains a generative dialogue model and transfers context-level weights that include affective knowledge into the target discriminative model for ERC.
+
