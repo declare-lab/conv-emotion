@@ -19,6 +19,7 @@ from sklearn.metrics import f1_score, confusion_matrix, accuracy_score,\
                         classification_report, precision_recall_fscore_support
 
 from model import BiModel, Model, MaskedNLLLoss
+from dataloader import MELDDataset
 np.random.seed(1234)
 
 def get_train_valid_sampler(trainset, valid=0.1):
@@ -118,7 +119,7 @@ if tensorboard:
 writer = SummaryWriter()
 
 
-data_path = '/MELD_features/'
+data_path = 'DialogueRNN_features/MELD_features/'
 batch_size = 30
 n_classes  = 3
 n_epochs   = 100
