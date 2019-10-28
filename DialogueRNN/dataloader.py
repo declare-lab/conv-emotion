@@ -65,9 +65,9 @@ class AVECDataset(Dataset):
 class MELDDataset(Dataset):
 
     def __init__(self, path, train=True):
-        self.videoIDs, self.videoSpeakers, self.videoLabels, self.videoText,\
+        self.videoIDs, self.videoSpeakers, _, self.videoText,\
         self.videoAudio, self.videoSentence, self.trainVid,\
-        self.testVid = pickle.load(open(path, 'rb'))
+        self.testVid, self.videoLabels = pickle.load(open(path, 'rb'))
         '''
         label index mapping = {'hap':0, 'sad':1, 'neu':2, 'ang':3, 'exc':4, 'fru':5}
         '''
