@@ -71,7 +71,7 @@ def train_or_eval_model(model, loss_function, dataloader, epoch, optimizer=None,
         textf, acouf, qmask, umask, label =\
                 [d.cuda() for d in data[:-1]] if cuda else data[:-1]
 #         log_prob, alpha, alpha_f, alpha_b = model(torch.cat((textf,acouf),dim=-1), qmask,umask) # seq_len, batch, n_classes
-        log_prob, alpha, alpha_f, alpha_b = model(acouf, qmask,umask) # seq_len, batch, n_classes
+        log_prob, alpha, alpha_f, alpha_b = model(textf, qmask,umask) # seq_len, batch, n_classes
         lp_ = log_prob.transpose(0,1).contiguous().view(-1,log_prob.size()[2]) # batch*seq_len, n_classes
         labels_ = label.view(-1) # batch*seq_len
         loss = loss_function(lp_, labels_, umask)
@@ -119,19 +119,19 @@ if tensorboard:
 writer = SummaryWriter()
 
 
-data_path = 'DialogueRNN_features/MELD_features/'
+data_path = './DialogueRNN_features/MELD_features/'
 batch_size = 30
-n_classes  = 3
+n_classes  = 7
 n_epochs   = 100
 active_listener = False
 attention = 'general'
-class_weight = True
+class_weight = False
 dropout = 0.1
 rec_dropout = 0.1
 l2 = 0.00001
 lr = 0.0005
 
-D_m = 300
+D_m = 600
 D_g = 150
 D_p = 150
 D_e = 100
