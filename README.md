@@ -62,7 +62,9 @@ Moreover, this code can also be molded to train the network in an end-to-end man
 
 ## bc-LSTM
 [_bc-LSTM_](http://www.aclweb.org/anthology/P17-1081) is a network for using context to detection emotion of an utterance in a dialogue. The model is simple but efficient which only uses a LSTM to model the temporal relation among the utterances. In this repo we gave the data of Semeval 2019 Task 3. We have used and provided the data released by Semeval 2019 Task 3 - "Emotion Recognition in Context" organizers. In this task only 3 utterances have been provided - utterance1 (user1), utterance2 (user2), utterance3 (user1) consecutively. The task is to predict the emotion label of utterance3. Emotion label of each utterance have not been provided. However, if your data contains emotion label of each utterance then you can still use this code and adapt it accordingly. Hence, this code is still aplicable for the datasets like MOSI, MOSEI, IEMOCAP, AVEC, DailyDialogue etc. bc-LSTM does not make use of speaker information like CMN, ICON and DialogueRNN.
-![Alt text](bclstm.jpg?raw=true "bc-LSTM framework")
+<p align="center">
+  <img src="bclstm.jpg" alt="bc-LSTM framework" width="500"/>
+</p>
 
 ### Requirements
 
@@ -117,7 +119,9 @@ Hazarika, D., Poria, S., Zadeh, A., Cambria, E., Morency, L.P. and Zimmermann, R
 ## ICON
 
 Interactive COnversational memory Network (ICON) is a multimodal emotion detection framework that extracts multimodal features from conversational videos and hierarchically models the \textit{self-} and \textit{inter-speaker} emotional influences into global memories. Such memories generate contextual summaries which aid in predicting the emotional orientation of utterance-videos.
-![Alt text](icon.jpg?raw=true "ICON framework")
+<p align="center">
+  <img src="icon.jpg" alt="ICON framework" width="400"/>
+</p>
 
 ### Requirements
 
@@ -193,7 +197,7 @@ Please cite the following paper if you find this code useful in your work.
 
 [_TL-ERC_](https://arxiv.org/pdf/1910.04980.pdf) is a transfer learning-based framework for ERC. It pre-trains a generative dialogue model and transfers context-level weights that include affective knowledge into the target discriminative model for ERC.
 
-# Setting up
+### Setting up
 
 1. Setup an environment with Conda:
 
@@ -209,9 +213,8 @@ Please cite the following paper if you find this code useful in your work.
 
 4. [Optional]: To train new generative weights from dialogue models, refer to https://github.com/ctr4si/A-Hierarchical-Latent-Structure-for-Variational-Conversation-Modeling . 
 
-# Run the code
 
-## Run the ERC classifier with pre-trained weights
+### Run the ERC classifier with pre-trained weights
 
 1. `cd bert_model`
 2. `python train.py --load_checkpoint=../generative_weights/cornell_weights.pkl --data=iemocap`.   
@@ -219,7 +222,7 @@ Please cite the following paper if you find this code useful in your work.
     -  Drop `load_checkpoint` to avoid initializing contextual weights.
     -  To modify hyperparameters, check `configs.py`
 
-## [Optional] Create ERC Dataset splits
+### [Optional] Create ERC Dataset splits
 
 1. `python iemocap_preprocess.py`. Similarly for `dailydialog`.
 
