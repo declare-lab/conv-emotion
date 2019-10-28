@@ -211,5 +211,27 @@ Please cite the following paper if you find this code useful in your work.
 
 # Run the code
 
-1. 
+## Run the ERC classifier with pre-trained weights
 
+1. `cd bert_model`
+2. `python train.py --load_checkpoint=../generative_weights/cornell_weights.pkl --data=iemocap`.   
+    -  Change `cornell` to `ubuntu` and `iemocap` to `dailydialog` for other dataset combinations.
+    -  Drop `load_checkpoint` to avoid initializing contextual weights.
+    -  To modify hyperparameters, check `configs.py`
+
+## [Optional] Create ERC Dataset splits
+
+1. `python iemocap_preprocess.py`. Similarly for `dailydialog`.
+
+### Citation
+
+Please cite the following paper if you find this code useful in your work.
+
+```bash
+@article{hazarika2019emotion,
+  title={Emotion Recognition in Conversations with Transfer Learning from Generative Conversation Modeling},
+  author={Hazarika, Devamanyu and Poria, Soujanya and Zimmermann, Roger and Mihalcea, Rada},
+  journal={arXiv preprint arXiv:1910.04980},
+  year={2019}
+}
+```
