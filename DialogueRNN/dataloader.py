@@ -64,10 +64,15 @@ class AVECDataset(Dataset):
         return [pad_sequence(dat[i]) if i<4 else pad_sequence(dat[i], True) for i in dat]
 class MELDDataset(Dataset):
 
-    def __init__(self, path, train=True):
-        self.videoIDs, self.videoSpeakers, self.videoLabels, self.videoText,\
-        self.videoAudio, self.videoSentence, self.trainVid,\
-        self.testVid, _ = pickle.load(open(path, 'rb'))
+    def __init__(self, path, n_classes, train=True):
+        if n_classes == 3:
+            self.videoIDs, self.videoSpeakers, _, self.videoText,\
+            self.videoAudio, self.videoSentence, self.trainVid,\
+            self.testVid, self.videoLabels = pickle.load(open(path, 'rb'))
+        elif n_classes == 7:
+            self.videoIDs, self.videoSpeakers, self.videoLabels, self.videoText,\
+            self.videoAudio, self.videoSentence, self.trainVid,\
+            self.testVid, _ = pickle.load(open(path, 'rb'))
         '''
         label index mapping = {'hap':0, 'sad':1, 'neu':2, 'ang':3, 'exc':4, 'fru':5}
         '''

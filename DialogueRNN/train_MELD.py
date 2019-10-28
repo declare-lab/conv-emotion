@@ -28,8 +28,8 @@ def get_train_valid_sampler(trainset, valid=0.1):
     split = int(valid*size)
     return SubsetRandomSampler(idx[split:]), SubsetRandomSampler(idx[:split])
 
-def get_MELD_loaders(path, batch_size=32, valid=0.1, num_workers=0, pin_memory=False):
-    trainset = MELDDataset(path=path)
+def get_MELD_loaders(path, n_classes, batch_size=32, valid=0.1, num_workers=0, pin_memory=False):
+    trainset = MELDDataset(path=path, n_classes=n_classes)
     train_sampler, valid_sampler = get_train_valid_sampler(trainset, valid)
     train_loader = DataLoader(trainset,
                               batch_size=batch_size,
@@ -44,7 +44,7 @@ def get_MELD_loaders(path, batch_size=32, valid=0.1, num_workers=0, pin_memory=F
                               num_workers=num_workers,
                               pin_memory=pin_memory)
 
-    testset = MELDDataset(path=path, train=False)
+    testset = MELDDataset(path=path, n_classes=n_classes, train=False)
     test_loader = DataLoader(testset,
                              batch_size=batch_size,
                              collate_fn=testset.collate_fn,
@@ -118,11 +118,13 @@ if tensorboard:
     from tensorboardX import SummaryWriter
 writer = SummaryWriter()
 
+# choose between 'sentiment' or 'emotion'
+classification_type = 'sentiment'
 
-data_path = './DialogueRNN_features/MELD_features/'
+data_path = 'DialogueRNN_features/MELD_features/'
 batch_size = 30
-n_classes  = 7
-n_epochs   = 100
+n_classes = 3
+n_epochs = 100
 active_listener = False
 attention = 'general'
 class_weight = False
@@ -139,15 +141,21 @@ D_h = 100
 
 D_a = 100 # concat attention
 
+loss_weights = torch.FloatTensor([1.0,1.0,1.0])
+
+if classification_type.strip().lower() == 'emotion':
+    n_classes = 7
+    loss_weights = torch.FloatTensor([1.0,1.0,1.0,1.0,1.0,1.0,1.0])
+
 model = BiModel(D_m, D_g, D_p, D_e, D_h,
                 n_classes=n_classes,
                 listener_state=active_listener,
                 context_attention=attention,
                 dropout_rec=rec_dropout,
                 dropout=dropout)
+
 if cuda:
     model.cuda()
-loss_weights = torch.FloatTensor([1.0,1.0,1.0])
 if class_weight:
     loss_function  = MaskedNLLLoss(loss_weights.cuda() if cuda else loss_weights)
 else:
@@ -157,7 +165,7 @@ optimizer = optim.Adam(model.parameters(),
                        weight_decay=l2)
 
 train_loader, valid_loader, test_loader =\
-        get_MELD_loaders(data_path + 'MELD_features_raw.pkl',
+        get_MELD_loaders(data_path + 'MELD_features_raw.pkl', n_classes,
                             valid=0.0,
                             batch_size=batch_size,
                             num_workers=0)
