@@ -193,3 +193,23 @@ Please cite the following paper if you find this code useful in your work.
 
 [_TL-ERC_](https://arxiv.org/pdf/1910.04980.pdf) is a transfer learning-based framework for ERC. It pre-trains a generative dialogue model and transfers context-level weights that include affective knowledge into the target discriminative model for ERC.
 
+# Setting up
+
+1. Setup an environment with Conda:
+
+    ```bash
+    conda env create -f environment.yml
+    conda activate TL_ERC
+    cd TL_ERC
+    python setup.py
+    ```
+2. Download dataset files [IEMOCAP](https://drive.google.com/file/d/1nufbrBJ-LtcROv1MviCHFI7tQE3JnqQR/view?usp=sharing), [DailyDialog](https://drive.google.com/file/d/13rHLtAMmDsiCP1hZwWqMNcrtkmZF_hK3/view?usp=sharing) and store them in `./datasets/`.
+
+3. Download the pre-trained weights of HRED on [Cornell](https://drive.google.com/file/d/1OXtnyJ5nDMmK75L9kEQvKPIyO0xzyeVC/view?usp=sharing) and [Ubuntu](https://drive.google.com/file/d/1T2HLfSvWr7CSrhBuE193XRRXwfLkO_aK/view?usp=sharing) datasets and store them in `./generative_weights/`
+
+4. [Optional]: To train new generative weights from dialogue models, refer to https://github.com/ctr4si/A-Hierarchical-Latent-Structure-for-Variational-Conversation-Modeling . 
+
+# Run the code
+
+1. 
+
