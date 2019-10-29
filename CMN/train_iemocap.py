@@ -5,7 +5,7 @@ import pandas as pd
 from IEMOCAP.utils_cmn import *
 from IEMOCAP.cmn import *
 import os
-from sklearn import cross_validation, metrics
+from sklearn import model_selection, metrics
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
