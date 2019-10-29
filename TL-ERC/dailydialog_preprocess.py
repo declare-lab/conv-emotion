@@ -19,7 +19,7 @@ dailydialog_dir = datasets_dir.joinpath('dailydialog/')
 
 # dailydialog_meta_dir = dailydialog_dir.joinpath('meta/')
 # dialogs_dir = dailydialog_dir.joinpath('dialogs/')
-GLOVE_DIR = "/home/devamanyu/"
+GLOVE_DIR = ""
 
 tokenizer = Tokenizer('spacy')
 
@@ -190,6 +190,7 @@ if __name__ == '__main__':
             print('Save Vocabulary...')
             vocab = Vocab(tokenizer)
             vocab.add_dataframe(conversations)
+            assert(GLOVE_DIR != "")
             vocab.update(GLOVE_DIR, max_size=max_vocab_size, min_freq=min_freq)
 
             print('Vocabulary size: ', len(vocab))
