@@ -224,7 +224,8 @@ Please cite the following paper if you find this code useful in your work.
 
 ### [Optional] Create ERC Dataset splits
 
-1. `python iemocap_preprocess.py`. Similarly for `dailydialog`.
+1. Set [glove](http://nlp.stanford.edu/data/glove.840B.300d.zip) path in the preprocessing files.
+2. `python iemocap_preprocess.py`. Similarly for `dailydialog`.
 
 ### Citation
 
