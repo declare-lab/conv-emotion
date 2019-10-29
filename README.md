@@ -197,6 +197,10 @@ Please cite the following paper if you find this code useful in your work.
 
 [_TL-ERC_](https://arxiv.org/pdf/1910.04980.pdf) is a transfer learning-based framework for ERC. It pre-trains a generative dialogue model and transfers context-level weights that include affective knowledge into the target discriminative model for ERC.
 
+<p align="center">
+  <img src="TL-ERC.jpg" alt="TL-ERC framework" width="600"/>
+</p>
+
 ### Setting up
 
 1. Setup an environment with Conda:
