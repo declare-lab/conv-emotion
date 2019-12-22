@@ -682,6 +682,7 @@ def batch_graphify(features, qmask, lengths, window_past, window_future, edge_ty
     for j in range(batch_size):
         edge_ind.append(edge_perms(lengths[j], window_past, window_future))
     
+    # scores are the edge weights
     scores = att_model(features, lengths, edge_ind)
 
     for j in range(batch_size):
@@ -690,7 +691,6 @@ def batch_graphify(features, qmask, lengths, window_past, window_future, edge_ty
         perms1 = edge_perms(lengths[j], window_past, window_future)
         perms2 = [(item[0]+length_sum, item[1]+length_sum) for item in perms1]
         length_sum += lengths[j]
-
 
         edge_index_lengths.append(len(perms1))
     
@@ -731,14 +731,16 @@ def attentive_node_features(emotions, seq_lengths, umask, matchatt_layer, no_cud
     """
     
     input_conversation_length = torch.tensor(seq_lengths)
+    start_zero = input_conversation_length.data.new(1).zero_()
+    
     #if torch.cuda.is_available():
     if not no_cuda:
         input_conversation_length = input_conversation_length.cuda()
+        start_zero = start_zero.cuda()
 
     max_len = max(seq_lengths)
 
-    start = torch.cumsum(torch.cat((to_var(input_conversation_length.data.new(1).zero_(), no_cuda),
-                                           input_conversation_length[:-1])), 0)
+    start = torch.cumsum(torch.cat((start_zero, input_conversation_length[:-1])), 0)
 
     emotions = torch.stack([pad(emotions.narrow(0, s, l), max_len, no_cuda) 
                                 for s, l in zip(start.data.tolist(),
