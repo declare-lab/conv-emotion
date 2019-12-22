@@ -516,6 +516,11 @@ class AVECDialogRNNModel(nn.Module):
 class MaskedEdgeAttention(nn.Module):
 
     def __init__(self, input_dim, max_seq_len, no_cuda):
+        """
+        Method to compute the edge weights, as in Equation 1. in the paper. 
+        attn_type = 'attn1' refers to the equation in the paper.
+        For slightly different attention mechanisms refer to attn_type = 'attn2' or attn_type = 'attn3'
+        """
 
         super(MaskedEdgeAttention, self).__init__()
         
@@ -635,6 +640,9 @@ def pad(tensor, length, no_cuda):
 
 
 def edge_perms(l, window_past, window_future):
+    """
+    Method to construct the edges considering the past and future window.
+    """
 
     all_perms = set()
     array = np.arange(l)
@@ -657,6 +665,13 @@ def edge_perms(l, window_past, window_future):
     
         
 def batch_graphify(features, qmask, lengths, window_past, window_future, edge_type_mapping, att_model, no_cuda):
+    """
+    Method to prepare the data format required for the GCN network. Pytorch geometric puts all nodes for classification 
+    in one single graph. Following this, we create a single graph for a mini-batch of dialogue instances. This method 
+    ensures that the various graph indexing is properly carried out so as to make sure that, utterances (nodes) from 
+    each dialogue instance will have edges with utterances in that same dialogue instance, but not with utternaces 
+    from any other dialogue instances in that mini-batch.
+    """
     
     edge_index, edge_norm, edge_type, node_features = [], [], [], []
     batch_size = features.size(1)
@@ -687,12 +702,12 @@ def batch_graphify(features, qmask, lengths, window_past, window_future, edge_ty
             speaker1 = (qmask[item1[1], j, :] == 1).nonzero()[0][0].tolist()
         
             if item1[0] < item1[1]:
-                # edge_type.append(0) # for ablation
-                # edge_type.append(edge_type_mapping[str(speaker0) + str(speaker1)]) # for ablation
+                # edge_type.append(0) # ablation by removing speaker dependency: only 2 relation types
+                # edge_type.append(edge_type_mapping[str(speaker0) + str(speaker1) + '0']) # ablation by removing temporal dependency: M^2 relation types
                 edge_type.append(edge_type_mapping[str(speaker0) + str(speaker1) + '0'])
             else:
-                # edge_type.append(1) # for ablation
-                # edge_type.append(edge_type_mapping[str(speaker0) + str(speaker1)]) # for ablation
+                # edge_type.append(1) # ablation by removing speaker dependency: only 2 relation types
+                # edge_type.append(edge_type_mapping[str(speaker0) + str(speaker1) + '0']) # ablation by removing temporal dependency: M^2 relation types
                 edge_type.append(edge_type_mapping[str(speaker0) + str(speaker1) + '1'])
     
     node_features = torch.cat(node_features, dim=0)
@@ -711,7 +726,10 @@ def batch_graphify(features, qmask, lengths, window_past, window_future, edge_ty
 
 
 def attentive_node_features(emotions, seq_lengths, umask, matchatt_layer, no_cuda):
-
+    """
+    Method to obtain attentive node features over the graph convoluted features, as in Equation 4, 5, 6. in the paper.
+    """
+    
     input_conversation_length = torch.tensor(seq_lengths)
     #if torch.cuda.is_available():
     if not no_cuda:
@@ -741,6 +759,9 @@ def attentive_node_features(emotions, seq_lengths, umask, matchatt_layer, no_cud
 
 
 def classify_node_features(emotions, seq_lengths, umask, matchatt_layer, linear_layer, dropout_layer, smax_fc_layer, nodal_attn, avec, no_cuda):
+    """
+    Function for the final classification, as in Equation 7, 8, 9. in the paper.
+    """
 
     if nodal_attn:
 
@@ -771,6 +792,9 @@ def classify_node_features(emotions, seq_lengths, umask, matchatt_layer, linear_
 
 class GraphNetwork(torch.nn.Module):
     def __init__(self, num_features, num_classes, num_relations, max_seq_len, hidden_size=64, dropout=0.5, no_cuda=False):
+        """
+        The Speaker-level context encoder in the form of a 2 layer GCN.
+        """
         super(GraphNetwork, self).__init__()
         
         self.conv1 = RGCNConv(num_features, hidden_size, num_relations, num_bases=30)
@@ -802,6 +826,7 @@ class DialogueGCNModel(nn.Module):
         self.avec = avec
         self.no_cuda = no_cuda
 
+        # The base model is the sequential context encoder.
         if self.base_model == 'DialogRNN':
             self.dialog_rnn_f = DialogueRNN(D_m, D_g, D_p, D_e, listener_state, context_attention, D_a, dropout_rec)
             self.dialog_rnn_r = DialogueRNN(D_m, D_g, D_p, D_e, listener_state, context_attention, D_a, dropout_rec)
