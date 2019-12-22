@@ -1,7 +1,7 @@
 # Emotion Recognition in Conversations
 
 ### Updates
-**22/12/2019: Code for DialogueGCN has been released.**
+**22/12/2019: [Code](DialogueGCN) for DialogueGCN has been released.**
 
 11/10/2019: [New Paper](https://arxiv.org/pdf/1910.04980.pdf): ERC with Transfer Learning from Generative Dialogue Models. 
 
