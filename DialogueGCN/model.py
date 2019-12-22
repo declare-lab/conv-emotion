@@ -611,12 +611,6 @@ class MaskedEdgeAttention(nn.Module):
         return scores
 
 
-def to_var(x, no_cuda=False):
-    if not no_cuda:
-        x = x.cuda()
-    return x
-
-
 def pad(tensor, length, no_cuda):
     if isinstance(tensor, Variable):
         var = tensor
