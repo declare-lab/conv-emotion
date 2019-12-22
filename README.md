@@ -1,6 +1,8 @@
 # Emotion Recognition in Conversations
 
 ### Updates
+22/12/2019: DialogueGCN code has been released.
+
 11/10/2019: [New Paper](https://arxiv.org/pdf/1910.04980.pdf): ERC with Transfer Learning from Generative Dialogue Models. 
 
 09/08/2019: [New paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8764449) on Emotion Recognition in Conversation (ERC).
@@ -16,6 +18,7 @@ This repository contains implementations for three conversational emotion detect
 - CMN (tensorflow)
 - ICON (tensorflow)
 - DialogueRNN (PyTorch)
+- DialogueGCN (PyTorch)
 - TL-ERC (PyTorch)
 
 Unlike other emotion detection models, these techniques consider the party-states and inter-party dependencies for modeling conversational context relevant to emotion recognition. The primary purpose of all these techniques are to pretrain an emotion detection model for empathetic dialogue generation.
@@ -191,6 +194,32 @@ Please extract the file `DialogueRNN_features.zip`.
 Please cite the following paper if you find this code useful in your work.
 
 `DialogueRNN: An Attentive RNN for Emotion Detection in Conversations. N. Majumder, S. Poria, D. Hazarika, R. Mihalcea, E. Cambria, and G. Alexander. AAAI (2019), Honolulu, Hawaii, USA`
+
+## DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation
+
+[_DialogueGCN_](https://arxiv.org/pdf/1908.11540.pdf) Dialogue Graph Convolutional Network (DialogueGCN), is a graph neural network based approach to ERC. We leverage self and inter-speaker dependency of the interlocutors to model conversational context for emotion recognition. Through the graph network, DialogueGCN addresses context propagation issues present in the current RNN-based methods. DialogueGCN is naturally suited for multi-party dialogues.
+
+__Note__: 
+![Alt text](DialogueGCN.jpg?raw=true "DialogueGCN framework")
+### Requirements
+
+- Python 3
+- PyTorch 1.0
+- PyTorch Geometric 1.3
+- Pandas 0.23
+- Scikit-Learn 0.20
+- TensorFlow (optional; required for tensorboard)
+- tensorboardX (optional; required for tensorboard)
+
+### Execution
+
+1. _IEMOCAP_ dataset: `python train_IEMOCAP.py --base-model 'LSTM' --graph-model --nodal-attention --dropout 0.4 --lr 0.0003 --batch-size 32 --class-weight --l2 0.0 --no-cuda`
+
+### Citation
+
+Please cite the following paper if you find this code useful in your work.
+
+`DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation. D. Ghosal, N. Majumder, S. Poria, N. Chhaya, & A. Gelbukh. EMNLP-IJCNLP (2019), Hong Kong, China.`
 
 
 ## TL-ERC: Emotion Recognition in Conversations with Transfer Learning from Generative Conversation Modeling
