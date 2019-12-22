@@ -197,7 +197,7 @@ Please cite the following paper if you find this code useful in your work.
 
 ## DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation
 
-[_DialogueGCN_](https://arxiv.org/pdf/1908.11540.pdf) Dialogue Graph Convolutional Network (DialogueGCN), is a graph neural network based approach to ERC. We leverage self and inter-speaker dependency of the interlocutors to model conversational context for emotion recognition. Through the graph network, DialogueGCN addresses context propagation issues present in the current RNN-based methods. DialogueGCN is naturally suited for multi-party dialogues.
+[_DialogueGCN_](https://arxiv.org/pdf/1908.11540.pdf) (Dialogue Graph Convolutional Network), is a graph neural network based approach to ERC. We leverage self and inter-speaker dependency of the interlocutors to model conversational context for emotion recognition. Through the graph network, DialogueGCN addresses context propagation issues present in the current RNN-based methods. DialogueGCN is naturally suited for multi-party dialogues.
 
 __Note__: 
 ![Alt text](DialogueGCN.jpg?raw=true "DialogueGCN framework")
