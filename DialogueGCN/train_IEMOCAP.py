@@ -8,6 +8,7 @@ from dataloader import IEMOCAPDataset
 from model import MaskedNLLLoss, LSTMModel, GRUModel, DialogRNNModel, DialogueGCNModel
 from sklearn.metrics import f1_score, confusion_matrix, accuracy_score, classification_report, precision_recall_fscore_support
 
+# We use seed = 100 for reproduction of the results reported in the paper.
 seed = 100
 
 def seed_everything(seed=seed):
