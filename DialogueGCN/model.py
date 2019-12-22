@@ -6,6 +6,7 @@ from torch.nn.utils.rnn import pad_sequence
 from torch_geometric.nn import RGCNConv, GraphConv
 import numpy as np, itertools, random, copy, math
 
+# For methods and models related to DialogueGCN jump to line 516
 
 class MaskedNLLLoss(nn.Module):
 
@@ -816,7 +817,7 @@ class DialogueGCNModel(nn.Module):
             self.base_linear = nn.Linear(D_m, 2*D_e)
 
         else:
-            print ('Base model must be one of DialogRNN/LSTM/GRU/Positional/Transformer')
+            print ('Base model must be one of DialogRNN/LSTM/GRU')
             raise NotImplementedError 
 
         n_relations = 2 * n_speakers ** 2
