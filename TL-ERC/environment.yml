@@ -1,8 +1,9 @@
-name: TL_ERC
+name: Test
 channels:
   - pytorch
   - defaults
 dependencies:
+  - pip=19.2.3
   - _libgcc_mutex=0.1=main
   - blas=1.0=mkl
   - ca-certificates=2019.5.15=1
