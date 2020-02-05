@@ -1,4 +1,4 @@
-name: Test
+name: TL_ERC
 channels:
   - pytorch
   - defaults
