@@ -17,6 +17,38 @@
 
 ---------------------------------------------------------------------------
 
+
+- [Emotion Recognition in Conversations](#emotion-recognition-in-conversations)
+  * [Data Format](#data-format)
+  * [TL-ERC: Emotion Recognition in Conversations with Transfer Learning from Generative Conversation Modeling](#tl-erc--emotion-recognition-in-conversations-with-transfer-learning-from-generative-conversation-modeling)
+    + [Setting up](#setting-up)
+    + [Run the ERC classifier with pre-trained weights](#run-the-erc-classifier-with-pre-trained-weights)
+    + [[Optional] Create ERC Dataset splits](#-optional--create-erc-dataset-splits)
+    + [Citation](#citation)
+  * [DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation](#dialoguegcn--a-graph-convolutional-neural-network-for-emotion-recognition-in-conversation)
+    + [Requirements](#requirements)
+    + [Execution](#execution)
+    + [Citation](#citation-1)
+  * [DialogueRNN: An Attentive RNN for Emotion Detection in Conversations](#dialoguernn--an-attentive-rnn-for-emotion-detection-in-conversations)
+    + [Requirements](#requirements-1)
+    + [Dataset Features](#dataset-features)
+    + [Execution](#execution-1)
+    + [Command-Line Arguments](#command-line-arguments)
+    + [Citation](#citation-2)
+  * [ICON](#icon)
+    + [Requirements](#requirements-2)
+    + [Execution](#execution-2)
+    + [Citation](#citation-3)
+  * [CMN](#cmn)
+    + [Requirements](#requirements-3)
+    + [Execution](#execution-3)
+    + [Citation](#citation-4)
+  * [bc-LSTM](#bc-lstm)
+    + [Requirements](#requirements-4)
+    + [Execution](#execution-4)
+    + [Citation](#citation-5)
+
+
 This repository contains implementations for three conversational emotion detection methods, namely:
 - bc-LSTM (keras)
 - CMN (tensorflow)
