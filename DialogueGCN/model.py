@@ -906,3 +906,157 @@ class DialogueGCNModel(nn.Module):
         log_prob = self.graph_net(features, edge_index, edge_norm, edge_type, seq_lengths, umask, self.nodal_attention, self.avec)
 
         return log_prob, edge_index, edge_norm, edge_type, edge_index_lengths
+
+
+class CNNFeatureExtractor(nn.Module):
+    """
+    Module from DialogueRNN
+    """
+    def __init__(self, vocab_size, embedding_dim, output_size, filters, kernel_sizes, dropout):
+        super(CNNFeatureExtractor, self).__init__()
+
+        self.embedding = nn.Embedding(vocab_size, embedding_dim)
+        self.convs = nn.ModuleList(
+            [nn.Conv1d(in_channels=embedding_dim, out_channels=filters, kernel_size=K) for K in kernel_sizes])
+        self.dropout = nn.Dropout(dropout)
+        self.fc = nn.Linear(len(kernel_sizes) * filters, output_size)
+        self.feature_dim = output_size
+
+    def init_pretrained_embeddings_from_numpy(self, pretrained_word_vectors):
+        self.embedding.weight = nn.Parameter(torch.from_numpy(pretrained_word_vectors).float())
+        # if is_static:
+        self.embedding.weight.requires_grad = False
+
+    def forward(self, x, umask):
+        num_utt, batch, num_words = x.size()
+
+        x = x.type(LongTensor)  # (num_utt, batch, num_words)
+        x = x.view(-1, num_words)  # (num_utt, batch, num_words) -> (num_utt * batch, num_words)
+        emb = self.embedding(x)  # (num_utt * batch, num_words) -> (num_utt * batch, num_words, 300)
+        emb = emb.transpose(-2,
+                            -1).contiguous()  # (num_utt * batch, num_words, 300)  -> (num_utt * batch, 300, num_words)
+
+        convoluted = [F.relu(conv(emb)) for conv in self.convs]
+        pooled = [F.max_pool1d(c, c.size(2)).squeeze() for c in convoluted]
+        concated = torch.cat(pooled, 1)
+        features = F.relu(self.fc(self.dropout(concated)))  # (num_utt * batch, 150) -> (num_utt * batch, 100)
+        features = features.view(num_utt, batch, -1)  # (num_utt * batch, 100) -> (num_utt, batch, 100)
+        mask = umask.unsqueeze(-1).type(FloatTensor)  # (batch, num_utt) -> (batch, num_utt, 1)
+        mask = mask.transpose(0, 1)  # (batch, num_utt, 1) -> (num_utt, batch, 1)
+        mask = mask.repeat(1, 1, self.feature_dim)  # (num_utt, batch, 1) -> (num_utt, batch, 100)
+        features = (features * mask)  # (num_utt, batch, 100) -> (num_utt, batch, 100)
+
+        return features
+
+
+class DialogueGCN_DailyModel(nn.Module):
+    """
+    Use CNN to extract features from 300-dimension vector to 100-dimension vector.
+    """
+    def __init__(self, base_model, D_m, D_g, D_p, D_e, D_h, D_a, graph_hidden_size, n_speakers, max_seq_len,
+                 window_past, window_future,
+                 vocab_size, embedding_dim=300,
+                 cnn_output_size=100, cnn_filters=50, cnn_kernel_sizes=(3, 4, 5), cnn_dropout=0.5,
+                 n_classes=7, listener_state=False, context_attention='simple', dropout_rec=0.5, dropout=0.5,
+                 nodal_attention=True, avec=False, no_cuda=False):
+
+        super(DialogueGCN_DailyModel, self).__init__()
+        self.cnn_feat_extractor = CNNFeatureExtractor(vocab_size, embedding_dim, cnn_output_size, cnn_filters,
+                                                      cnn_kernel_sizes, cnn_dropout)
+        self.base_model = base_model
+        self.avec = avec
+        self.no_cuda = no_cuda
+
+        # The base model is the sequential context encoder.
+        if self.base_model == 'DialogRNN':
+            self.dialog_rnn_f = DialogueRNN(D_m, D_g, D_p, D_e, listener_state, context_attention, D_a, dropout_rec)
+            self.dialog_rnn_r = DialogueRNN(D_m, D_g, D_p, D_e, listener_state, context_attention, D_a, dropout_rec)
+
+        elif self.base_model == 'LSTM':
+            self.lstm = nn.LSTM(input_size=D_m, hidden_size=D_e, num_layers=2, bidirectional=True, dropout=dropout)
+
+        elif self.base_model == 'GRU':
+            self.gru = nn.GRU(input_size=D_m, hidden_size=D_e, num_layers=2, bidirectional=True, dropout=dropout)
+
+
+        elif self.base_model == 'None':
+            self.base_linear = nn.Linear(D_m, 2 * D_e)
+
+        else:
+            print('Base model must be one of DialogRNN/LSTM/GRU')
+            raise NotImplementedError
+
+        n_relations = 2 * n_speakers ** 2
+        self.window_past = window_past
+        self.window_future = window_future
+
+        self.att_model = MaskedEdgeAttention(2 * D_e, max_seq_len, self.no_cuda)
+        self.nodal_attention = nodal_attention
+
+        self.graph_net = GraphNetwork(2 * D_e, n_classes, n_relations, max_seq_len, graph_hidden_size, dropout,
+                                      self.no_cuda)
+
+        edge_type_mapping = {}
+        for j in range(n_speakers):
+            for k in range(n_speakers):
+                edge_type_mapping[str(j) + str(k) + '0'] = len(edge_type_mapping)
+                edge_type_mapping[str(j) + str(k) + '1'] = len(edge_type_mapping)
+
+        self.edge_type_mapping = edge_type_mapping
+
+    def init_pretrained_embeddings(self, pretrained_word_vectors):
+        self.cnn_feat_extractor.init_pretrained_embeddings_from_numpy(pretrained_word_vectors)
+
+    def _reverse_seq(self, X, mask):
+        """
+        X -> seq_len, batch, dim
+        mask -> batch, seq_len
+        """
+        X_ = X.transpose(0, 1)
+        mask_sum = torch.sum(mask, 1).int()
+
+        xfs = []
+        for x, c in zip(X_, mask_sum):
+            xf = torch.flip(x[:c], [0])
+            xfs.append(xf)
+
+        return pad_sequence(xfs)
+
+    def forward(self, input_seq, qmask, umask, seq_lengths):
+        """
+        U -> seq_len, batch, D_m
+        qmask -> seq_len, batch, party
+        """
+        U = self.cnn_feat_extractor(input_seq, umask)
+
+        if self.base_model == "DialogRNN":
+
+            if self.avec:
+                emotions, _ = self.dialog_rnn_f(U, qmask)
+
+            else:
+                emotions_f, alpha_f = self.dialog_rnn_f(U, qmask)  # seq_len, batch, D_e
+                rev_U = self._reverse_seq(U, umask)
+                rev_qmask = self._reverse_seq(qmask, umask)
+                emotions_b, alpha_b = self.dialog_rnn_r(rev_U, rev_qmask)
+                emotions_b = self._reverse_seq(emotions_b, umask)
+                emotions = torch.cat([emotions_f, emotions_b], dim=-1)
+
+        elif self.base_model == 'LSTM':
+            emotions, hidden = self.lstm(U)
+
+        elif self.base_model == 'GRU':
+            emotions, hidden = self.gru(U)
+
+        elif self.base_model == 'None':
+            emotions = self.base_linear(U)
+
+        features, edge_index, edge_norm, edge_type, edge_index_lengths = batch_graphify(emotions, qmask, seq_lengths,
+                                                                                        self.window_past,
+                                                                                        self.window_future,
+                                                                                        self.edge_type_mapping,
+                                                                                        self.att_model, self.no_cuda)
+        log_prob = self.graph_net(features, edge_index, edge_norm, edge_type, seq_lengths, umask, self.nodal_attention,
+                                  self.avec)
+
+        return log_prob, edge_index, edge_norm, edge_type, edge_index_lengths
