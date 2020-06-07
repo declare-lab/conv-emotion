@@ -114,11 +114,11 @@ Moreover, this code can also be molded to train the network in an end-to-end man
 Please cite the following paper if you find this code useful in your work.
 
 ```bash
-@article{hazarika2019emotion,
-  title={Emotion Recognition in Conversations with Transfer Learning from Generative Conversation Modeling},
+@article{hazarika2020conversational,
+  title={Conversational Transfer Learning for Emotion Recognition},
   author={Hazarika, Devamanyu and Poria, Soujanya and Zimmermann, Roger and Mihalcea, Rada},
   journal={arXiv preprint arXiv:1910.04980},
-  year={2019}
+  year={2020}
 }
 ```
 ## DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation
