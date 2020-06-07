@@ -130,3 +130,38 @@ class DailyDialogueDataset(Dataset):
     def collate_fn(self, data):
         dat = pd.DataFrame(data)
         return [pad_sequence(dat[i]) if i<2 else pad_sequence(dat[i], True) if i<4 else dat[i].tolist() for i in dat]
+
+
+class DailyDialogueDataset2(Dataset):
+
+    def __init__(self, split, path):
+
+        self.Speakers, self.Features, _, \
+        self.ActLabels, self.EmotionLabels, self.trainId, self.testId, self.validId = pickle.load(open(path, 'rb'))
+
+        if split == 'train':
+            self.keys = [x for x in self.trainId]
+        elif split == 'test':
+            self.keys = [x for x in self.testId]
+        elif split == 'valid':
+            self.keys = [x for x in self.validId]
+
+        self.len = len(self.keys)
+
+    def __getitem__(self, index):
+        conv = self.keys[index]
+
+        return torch.FloatTensor(self.Features[conv]), \
+               torch.FloatTensor([[1, 0] if x == '0' else [0, 1] for x in self.Speakers[conv]]), \
+               torch.FloatTensor([1] * len(self.EmotionLabels[conv])), \
+               torch.LongTensor(self.EmotionLabels[conv]), \
+               conv
+
+    def __len__(self):
+        return self.len
+
+    def collate_fn(self, data):
+        dat = pd.DataFrame(data)
+
+        return [pad_sequence(dat[i]) if i < 2 else pad_sequence(dat[i], True) if i < 4 else dat[i].tolist() for i in
+                dat]
