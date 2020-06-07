@@ -76,7 +76,7 @@ class MELDDataset(Dataset):
         else:
             self.videoLabels = self.videoLabelsSentiment
         '''
-        label index mapping = {'hap':0, 'sad':1, 'neu':2, 'ang':3, 'exc':4, 'fru':5}
+        label index mapping = {'neutral': 0, 'surprise': 1, 'fear': 2, 'sadness': 3, 'joy': 4, 'disgust': 5, 'anger':6}
         '''
         self.keys = [x for x in (self.trainVid if train else self.testVid)]
 
