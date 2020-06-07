@@ -117,7 +117,7 @@ Please cite the following paper if you find this code useful in your work.
 @article{hazarika2020conversational,
   title={Conversational Transfer Learning for Emotion Recognition},
   author={Hazarika, Devamanyu and Poria, Soujanya and Zimmermann, Roger and Mihalcea, Rada},
-  journal={arXiv preprint arXiv:1910.04980},
+  journal={Information Fusion},
   year={2020}
 }
 ```
