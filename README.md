@@ -3,7 +3,7 @@
 ### Updates
 **07/06/2020: New state-of-the-art results for the ERC task will be released soon.**
 
-**07/06/2020: The conv-emotion repo will be maintained on https://github.com/declare-lab/ **
+**07/06/2020: The conv-emotion repo will be maintained on https://github.com/declare-lab/**
 
 **22/12/2019: [Code](DialogueGCN) for DialogueGCN has been released.**
 
