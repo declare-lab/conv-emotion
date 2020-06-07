@@ -1,19 +1,14 @@
 # Emotion Recognition in Conversations
 
 ### Updates
-**07/06/2020: New state-of-the-art results for the ERC task will be released soon.**
-
-**07/06/2020: The conv-emotion repo will be maintained on https://github.com/declare-lab/**
-
-**22/12/2019: [Code](DialogueGCN) for DialogueGCN has been released.**
-
-11/10/2019: [New Paper](https://arxiv.org/pdf/1910.04980.pdf): ERC with Transfer Learning from Generative Dialogue Models. 
-
-09/08/2019: [New paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8764449) on Emotion Recognition in Conversation (ERC).
-
-06/03/2019: Features and codes to train DialogueRNN on the MELD dataset have been released.
-
-20/11/2018: End-to-end version of ICON and DialogueRNN have been released.
+| 07/06/2020: | New state-of-the-art results for the ERC task will be released soon.                                                        |
+|-------------|-----------------------------------------------------------------------------------------------------------------------------|
+| 07/06/2020: | The conv-emotion repo will be maintained on https://github.com/declare-lab/                                                 |
+| 22/12/2019: | [Code](DialogueGCN) for DialogueGCN has been released.                                                                      |
+| 11/10/2019: | [New Paper](https://arxiv.org/pdf/1910.04980.pdf): Conversational Transfer Learning for Emotion Recognition.                |
+| 09/08/2019: | [New paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8764449) on Emotion Recognition in Conversation (ERC). |
+| 06/03/2019: | Features and codes to train DialogueRNN on the MELD dataset have been released.                                             |
+| 20/11/2018: | End-to-end version of ICON and DialogueRNN have been released.                                                              |
 
 ---------------------------------------------------------------------------
 
@@ -21,9 +16,9 @@ This repository contains implementations for three conversational emotion detect
 
 - [Emotion Recognition in Conversations](#emotion-recognition-in-conversations)
   * [Data Format](#data-format)
-  * [TL-ERC: Emotion Recognition in Conversations with Transfer Learning from Generative Conversation Modeling (PyTorch)](#tl-erc--emotion-recognition-in-conversations-with-transfer-learning-from-generative-conversation-modeling)
-  * [DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation (PyTorch)](#dialoguegcn--a-graph-convolutional-neural-network-for-emotion-recognition-in-conversation)
-  * [DialogueRNN: An Attentive RNN for Emotion Detection in Conversations (PyTorch)](#dialoguernn--an-attentive-rnn-for-emotion-detection-in-conversations)
+  * [TL-ERC (PyTorch)](#tl-erc--emotion-recognition-in-conversations-with-transfer-learning-from-generative-conversation-modeling)
+  * [DialogueGCN (PyTorch)](#dialoguegcn--a-graph-convolutional-neural-network-for-emotion-recognition-in-conversation)
+  * [DialogueRNN (PyTorch)](#dialoguernn--an-attentive-rnn-for-emotion-detection-in-conversations)
   * [ICON (tensorflow)](#icon)
   * [CMN (tensorflow)](#cmn)
   * [bc-LSTM (keras)](#bc-lstm)
