@@ -211,6 +211,6 @@ if __name__ == '__main__':
 
     print('Test performance..')
     print('Loss {} F1-score {}'.format(best_loss,
-                                     round(f1_score(best_label,best_pred,sample_weight=best_mask,labels=[0,2,3,4,5,6])*100,2)))
+                                     round(f1_score(best_label,best_pred,sample_weight=best_mask, average='micro', labels=[0,2,3,4,5,6])*100,2)))
     print(classification_report(best_label,best_pred,sample_weight=best_mask,labels=[0,2,3,4,5,6],digits=4))
     print(confusion_matrix(best_label,best_pred,sample_weight=best_mask))
