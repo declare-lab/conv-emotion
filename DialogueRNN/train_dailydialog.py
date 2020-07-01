@@ -113,11 +113,11 @@ if __name__ == '__main__':
                         metavar='rec_dropout', help='rec_dropout rate')
     parser.add_argument('--dropout', type=float, default=0.5, metavar='dropout',
                         help='dropout rate')
-    parser.add_argument('--batch-size', type=int, default=10, metavar='BS',
+    parser.add_argument('--batch-size', type=int, default=64, metavar='BS',
                         help='batch size')
     parser.add_argument('--epochs', type=int, default=60, metavar='E',
                         help='number of epochs')
-    parser.add_argument('--class-weight', action='store_true', default=False,
+    parser.add_argument('--class-weight', action='store_true', default=True,
                         help='class weight')
     parser.add_argument('--active-listener', action='store_true', default=False,
                         help='active listener')
