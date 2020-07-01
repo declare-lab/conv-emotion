@@ -156,7 +156,7 @@ if __name__ == '__main__':
     D_h = 100
     D_a = 100
     
-    kernel_sizes = [3,4,5]
+    kernel_sizes = [1,2,3]
     
     glv_pretrained = np.load(open('dailydialog/glv_embedding_matrix', 'rb'))
     vocab_size, embedding_dim = glv_pretrained.shape
@@ -176,7 +176,7 @@ if __name__ == '__main__':
         model.cuda()
         
         
-    loss_weights = torch.FloatTensor([1,1,1,1,1,1,1])
+    loss_weights = torch.FloatTensor([1.2959,0.7958,0.8276,1.4088,0.9560,1.0575,0.6585])
     if args.class_weight:
         loss_function  = MaskedNLLLoss(loss_weights.cuda() if cuda else loss_weights)
     else:
