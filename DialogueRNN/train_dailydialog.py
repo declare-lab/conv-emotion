@@ -105,7 +105,7 @@ def train_or_eval_model(model, loss_function, dataloader, epoch, optimizer=None,
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--lr', type=float, default=0.0001, metavar='LR',
+    parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
                         help='learning rate')
     parser.add_argument('--l2', type=float, default=0.00001, metavar='L2',
                         help='L2 regularization weight')
