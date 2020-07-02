@@ -1,6 +1,7 @@
 # Emotion Recognition in Conversations
 
 ### Updates
+| 02/07/2020: | Pytorch version of bc-lstm has been released                                                                                |
 | 07/06/2020: | New state-of-the-art results for the ERC task will be released soon.                                                        |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------|
 | 07/06/2020: | The conv-emotion repo will be maintained on https://github.com/declare-lab/                                                 |
@@ -21,6 +22,7 @@ This repository contains implementations for three conversational emotion detect
   * [DialogueRNN (PyTorch)](#dialoguernn-an-attentive-rnn-for-emotion-detection-in-conversations)
   * [ICON (tensorflow)](#icon)
   * [CMN (tensorflow)](#cmn)
+  * [bc-LSTM-pytorch (PyTorch)](#bc-lstm-pytorch)
   * [bc-LSTM (keras)](#bc-lstm)
 
 
@@ -248,6 +250,35 @@ Please cite the following paper if you find this code useful in your work.
 ```
 Hazarika, D., Poria, S., Zadeh, A., Cambria, E., Morency, L.P. and Zimmermann, R., 2018. Conversational Memory Network for Emotion Recognition in Dyadic Dialogue Videos. In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers) (Vol. 1, pp. 2122-2132).
 ```
+
+## bc-LSTM-pytorch
+[_bc-LSTM-pytorch_](http://www.aclweb.org/anthology/P17-1081) is a network for using context to detection emotion of an utterance in a dialogue. The model is simple but efficient which only uses a LSTM to model the temporal relation among the utterances. In this repo we gave the data of Semeval 2019 Task 3. We have used and provided the data released by Semeval 2019 Task 3 - "Emotion Recognition in Context" organizers. In this task only 3 utterances have been provided - utterance1 (user1), utterance2 (user2), utterance3 (user1) consecutively. The task is to predict the emotion label of utterance3. Emotion label of each utterance have not been provided. However, if your data contains emotion label of each utterance then you can still use this code and adapt it accordingly. Hence, this code is still aplicable for the datasets like MOSI, MOSEI, IEMOCAP, AVEC, DailyDialogue etc. bc-LSTM does not make use of speaker information like CMN, ICON and DialogueRNN.
+<p align="center">
+  <img src="bclstm.jpg" alt="bc-LSTM framework" width="500"/>
+</p>
+
+### Requirements
+
+- python 3.6.5
+- pandas==0.23.3
+- PyTorch 1.0
+- numpy==1.15.0
+- scikit_learn==0.20.0
+
+### Execution
+1. `cd bc-LSTM-pytorch`
+
+2. Train the bc-LSTM model:
+    - `python train_IEMOCAP.py` for IEMOCAP
+
+### Citation
+
+Please cite the following paper if you find this code useful in your work.
+
+```
+Poria, S., Cambria, E., Hazarika, D., Majumder, N., Zadeh, A. and Morency, L.P., 2017. Context-dependent sentiment analysis in user-generated videos. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) (Vol. 1, pp. 873-883).
+```
+
 ## bc-LSTM
 [_bc-LSTM_](http://www.aclweb.org/anthology/P17-1081) is a network for using context to detection emotion of an utterance in a dialogue. The model is simple but efficient which only uses a LSTM to model the temporal relation among the utterances. In this repo we gave the data of Semeval 2019 Task 3. We have used and provided the data released by Semeval 2019 Task 3 - "Emotion Recognition in Context" organizers. In this task only 3 utterances have been provided - utterance1 (user1), utterance2 (user2), utterance3 (user1) consecutively. The task is to predict the emotion label of utterance3. Emotion label of each utterance have not been provided. However, if your data contains emotion label of each utterance then you can still use this code and adapt it accordingly. Hence, this code is still aplicable for the datasets like MOSI, MOSEI, IEMOCAP, AVEC, DailyDialogue etc. bc-LSTM does not make use of speaker information like CMN, ICON and DialogueRNN.
 <p align="center">
@@ -276,5 +307,4 @@ Please cite the following paper if you find this code useful in your work.
 ```
 Poria, S., Cambria, E., Hazarika, D., Majumder, N., Zadeh, A. and Morency, L.P., 2017. Context-dependent sentiment analysis in user-generated videos. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) (Vol. 1, pp. 873-883).
 ```
-
 
