@@ -2,7 +2,6 @@
 
 ### Updates
 
-| 02/07/2020: | New state-of-the-art results for the ERC task will be released soon.                                                        |
 | 07/06/2020: | New state-of-the-art results for the ERC task will be released soon.                                                        |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------|
 | 07/06/2020: | The conv-emotion repo will be maintained on https://github.com/declare-lab/                                                 |
