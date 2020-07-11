@@ -2,15 +2,15 @@
 
 ### Updates
 
-| 07/06/2020: | New state-of-the-art results for the ERC task will be released soon.                                                        |
-|-------------|-----------------------------------------------------------------------------------------------------------------------------|
-| 07/06/2020: | The conv-emotion repo will be maintained on https://github.com/declare-lab/                                                 |
-| 22/12/2019: | [Code](DialogueGCN) for DialogueGCN has been released.                                                                      |
-| 11/10/2019: | [New Paper](https://arxiv.org/pdf/1910.04980.pdf): Conversational Transfer Learning for Emotion Recognition.                |
-| 09/08/2019: | [New paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8764449) on Emotion Recognition in Conversation (ERC). |
-| 06/03/2019: | Features and codes to train DialogueRNN on the MELD dataset have been released.                                             |
-| 20/11/2018: | End-to-end version of ICON and DialogueRNN have been released.                                                              |
-
+| 11/07/2020  | Interested in reading the papers on ERC or related tasks such as sarcasm detection in conversations? We have compiled a comprehensive reading list for papers. Please visit https://github.com/declare-lab/awesome-erc |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 07/06/2020: | New state-of-the-art results for the ERC task will be released soon.                                                                                                                                                   |
+| 07/06/2020: | The conv-emotion repo will be maintained on https://github.com/declare-lab/                                                                                                                                            |
+| 22/12/2019: | Code for DialogueGCN has been released.                                                                                                                                                                                |
+| 11/10/2019: | New Paper: Conversational Transfer Learning for Emotion Recognition.                                                                                                                                                   |
+| 09/08/2019: | New paper on Emotion Recognition in Conversation (ERC).                                                                                                                                                                |
+| 06/03/2019: | Features and codes to train DialogueRNN on the MELD dataset have been released.                                                                                                                                        |
+| 20/11/2018: | End-to-end version of ICON and DialogueRNN have been released.                                                                                                                                                         |
 ---------------------------------------------------------------------------
 
 This repository contains implementations for three conversational emotion detection methods, namely:
