@@ -20,7 +20,7 @@ This repository contains implementations for three conversational emotion detect
   * [TL-ERC (PyTorch)](#tl-erc-emotion-recognition-in-conversations-with-transfer-learning-from-generative-conversation-modeling)
   * [DialogueGCN (PyTorch)](#dialoguegcn-a-graph-convolutional-neural-network-for-emotion-recognition-in-conversation)
   * [DialogueRNN (PyTorch)](#dialoguernn-an-attentive-rnn-for-emotion-detection-in-conversations)
-  * [DialogueGCN_mianzhang (PyTorch)](#dialoguegcn_mianzhang-dialoguegcn-implementation-by-mian-zhan)
+  * [DialogueGCN_mianzhang (PyTorch)](#dialoguegcn-mianzhang-dialoguegcn-implementation-by-mian-zhan)
   * [ICON (tensorflow)](#icon)
   * [CMN (tensorflow)](#cmn)
   * [bc-LSTM-pytorch (PyTorch)](#bc-lstm-pytorch)
