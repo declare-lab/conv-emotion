@@ -20,6 +20,7 @@ This repository contains implementations for three conversational emotion detect
   * [TL-ERC (PyTorch)](#tl-erc-emotion-recognition-in-conversations-with-transfer-learning-from-generative-conversation-modeling)
   * [DialogueGCN (PyTorch)](#dialoguegcn-a-graph-convolutional-neural-network-for-emotion-recognition-in-conversation)
   * [DialogueRNN (PyTorch)](#dialoguernn-an-attentive-rnn-for-emotion-detection-in-conversations)
+  * [DialogueGCN_mianzhang (PyTorch)](#dialoguegcn_mianzhang-dialoguegcn-implementation-by-mian-zhan)
   * [ICON (tensorflow)](#icon)
   * [CMN (tensorflow)](#cmn)
   * [bc-LSTM-pytorch (PyTorch)](#bc-lstm-pytorch)
@@ -138,6 +139,47 @@ Please cite the following paper if you find this code useful in your work.
 __Note__: PyTorch Geometric makes heavy usage of CUDA atomic operations and is a source of non-determinism. To reproduce the results reported in the paper, we recommend to use the following execution command. Note that this script will execute in CPU. We obatined weighted average F1 scores of 64.67 in our machine and 64.44 in Google colaboratory for IEMOCAP dataset with the following command.
 
 1. _IEMOCAP_ dataset: `python train_IEMOCAP.py --base-model 'LSTM' --graph-model --nodal-attention --dropout 0.4 --lr 0.0003 --batch-size 32 --class-weight --l2 0.0 --no-cuda`
+
+### Citation
+
+Please cite the following paper if you find this code useful in your work.
+
+`DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation. D. Ghosal, N. Majumder, S. Poria, N. Chhaya, & A. Gelbukh. EMNLP-IJCNLP (2019), Hong Kong, China.`
+
+## DialogueGCN_mianzhang: DialogueGCN Implementation by Mian Zhang
+Pytorch implementation to paper "DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation". 
+
+### Running
+You can run the whole process very easily. Take the IEMOCAP corpus for example:
+
+### Step 1: Preprocess.
+```bash
+./scripts/iemocap.sh preprocess
+```
+
+### Step 2: Train.
+```bash
+./scripts/iemocap.sh train
+```
+
+### Requirements
+
+- Python 3
+- PyTorch 1.0
+- PyTorch Geometric 1.4.3
+- Pandas 0.23
+- Scikit-Learn 0.20
+
+### Performance Comparision
+
+-|Dataset|Weighted F1
+:-:|:-:|:-:
+Original|IEMOCAP|64.18%
+This Implementation|IEMOCAP|64.10%
+
+### Credits
+
+Mian Zhang (Github: mianzhang)
 
 ### Citation
 
