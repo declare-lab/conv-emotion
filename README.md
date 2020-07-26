@@ -1,9 +1,8 @@
 # Emotion Recognition in Conversations
 
 ### Updates
-
-| 26/07/2020 	| New DialogueGCN code has been released. Please visit https://github.com/declare-lab/conv-emotion/DialogueGCN-mianzhang. All the credit goes to the Mian Zhang (https://github.com/mianzhang/) 	|
 |-	|-	|
+| 26/07/2020 	| New DialogueGCN code has been released. Please visit https://github.com/declare-lab/conv-emotion/DialogueGCN-mianzhang. All the credit goes to the Mian Zhang (https://github.com/mianzhang/) 	|
 | 11/07/2020 	| Interested in reading the papers on ERC or related tasks such as sarcasm detection in conversations? We have compiled a comprehensive reading list for papers. Please visit https://github.com/declare-lab/awesome-erc 	|
 | 07/06/2020: 	| New state-of-the-art results for the ERC task will be released soon. 	|
 | 07/06/2020: 	| The conv-emotion repo will be maintained on https://github.com/declare-lab/ 	|
