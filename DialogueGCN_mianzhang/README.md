@@ -1,4 +1,4 @@
-# dialogue_gcn
+# DialogueGCN
 Pytorch implementation to paper "DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation". 
 
 ## Running
@@ -20,3 +20,7 @@ You can run the whole process very easily. Take the IEMOCAP corpus for example:
 :-:|:-:|:-:
 Original|IEMOCAP|64.18%
 This Implementation|IEMOCAP|64.10%
+
+## Credits
+
+Mian Zhang (Github: mianzhang)
