@@ -20,3 +20,7 @@ You can run the whole process very easily. Take the IEMOCAP corpus for example:
 :-:|:-:|:-:
 Original|IEMOCAP|64.18%
 This Implementation|IEMOCAP|64.10%
+
+## Credits
+
+Mian Zhang (Github: mianzhang)
