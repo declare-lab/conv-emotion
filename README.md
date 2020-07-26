@@ -146,7 +146,7 @@ Please cite the following paper if you find this code useful in your work.
 
 `DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation. D. Ghosal, N. Majumder, S. Poria, N. Chhaya, & A. Gelbukh. EMNLP-IJCNLP (2019), Hong Kong, China.`
 
-## DialogueGCN_mianzhang: DialogueGCN Implementation by Mian Zhang
+## DialogueGCN-mianzhang: DialogueGCN Implementation by Mian Zhang
 Pytorch implementation to paper "DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation". 
 
 ### Running
