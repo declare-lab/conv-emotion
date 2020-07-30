@@ -145,10 +145,10 @@ if __name__ == '__main__':
     n_epochs   = args.epochs
 
     D_m = 100
-    D_g = 150
-    D_p = 150
-    D_e = 100
-    D_h = 100
+    D_g = 500
+    D_p = 500
+    D_e = 500
+    D_h = 500
 
     D_a = 100 # concat attention
 
