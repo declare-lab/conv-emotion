@@ -257,7 +257,10 @@ class BiModel(nn.Module):
         #hidden = F.relu(self.linear(emotions))
         hidden = self.dropout(hidden)
         log_prob = F.log_softmax(self.smax_fc(hidden), 2) # seq_len, batch, n_classes
-        return log_prob, alpha, alpha_f, alpha_b
+        if att2:
+            return log_prob, alpha, alpha_f, alpha_b
+        else:
+            return log_prob, [], alpha_f, alpha_b
 
 class BiE2EModel(nn.Module):
 
