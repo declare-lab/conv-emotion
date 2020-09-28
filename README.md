@@ -226,7 +226,7 @@ Please extract the file `DialogueRNN_features.zip`.
 -  `--active-listener`: Explicit lisnener mode
 -  `--attention`: Attention type
 -  `--tensorboard`: Enables tensorboard log
--  `--attribute`: Attribute 1 to 4 (only for AVEC)
+-  `--attribute`: Attribute 1 to 4 (only for AVEC; 1 = valence, 2 = activation/arousal, 3 = power, 4 = anticipation/expectation)
 
 ### Citation
 
