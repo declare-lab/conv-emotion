@@ -206,7 +206,7 @@ __Note__: the default settings (hyperparameters and commandline arguments) in th
 
 ### Dataset Features
 
-Please extract the file `DialogueRNN_features.zip`.
+Please extract the contents of `DialogueRNN_features.zip`.
 
 ### Execution
 
