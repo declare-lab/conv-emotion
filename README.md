@@ -94,8 +94,9 @@ First download the RoBERTa and COMET features [here](https://drive.google.com/fi
 
 Please cite the following paper if you find this code useful in your work.
 
-`COSMIC: COmmonSense knowledge for eMotion Identification in Conversations. D. Ghosal, N. Majumder, A. Gelbukh, R. Mihalcea, & S. Poria.  Findings of EMNLP 2020.`
-
+```bash
+COSMIC: COmmonSense knowledge for eMotion Identification in Conversations. D. Ghosal, N. Majumder, A. Gelbukh, R. Mihalcea, & S. Poria.  Findings of EMNLP 2020.
+```
 
 
 ## TL-ERC: Emotion Recognition in Conversations with Transfer Learning from Generative Conversation Modeling
@@ -168,7 +169,10 @@ __Note__: PyTorch Geometric makes heavy usage of CUDA atomic operations and is a
 
 Please cite the following paper if you find this code useful in your work.
 
-`DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation. D. Ghosal, N. Majumder, S. Poria, N. Chhaya, & A. Gelbukh. EMNLP-IJCNLP (2019), Hong Kong, China.`
+```bash
+DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation. D. Ghosal, N. Majumder, S. Poria, N. Chhaya, & A. Gelbukh. EMNLP-IJCNLP (2019), Hong Kong, China.
+```
+
 
 ## DialogueGCN-mianzhang: DialogueGCN Implementation by Mian Zhang
 Pytorch implementation to paper "DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation". 
@@ -209,7 +213,9 @@ Mian Zhang (Github: mianzhang)
 
 Please cite the following paper if you find this code useful in your work.
 
-`DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation. D. Ghosal, N. Majumder, S. Poria, N. Chhaya, & A. Gelbukh. EMNLP-IJCNLP (2019), Hong Kong, China.`
+```bash
+DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation. D. Ghosal, N. Majumder, S. Poria, N. Chhaya, & A. Gelbukh. EMNLP-IJCNLP (2019), Hong Kong, China.
+```
 
 
 ## DialogueRNN: An Attentive RNN for Emotion Detection in Conversations
@@ -259,7 +265,9 @@ Please extract the contents of `DialogueRNN_features.zip`.
 
 Please cite the following paper if you find this code useful in your work.
 
-`DialogueRNN: An Attentive RNN for Emotion Detection in Conversations. N. Majumder, S. Poria, D. Hazarika, R. Mihalcea, E. Cambria, and G. Alexander. AAAI (2019), Honolulu, Hawaii, USA`
+```bash
+DialogueRNN: An Attentive RNN for Emotion Detection in Conversations. N. Majumder, S. Poria, D. Hazarika, R. Mihalcea, E. Cambria, and G. Alexander. AAAI (2019), Honolulu, Hawaii, USA
+```
 
 ## ICON
 
@@ -286,7 +294,9 @@ Interactive COnversational memory Network (ICON) is a multimodal emotion detecti
     - `python train_iemocap.py` for IEMOCAP
 
 ### Citation
-`ICON: Interactive Conversational Memory Networkfor Multimodal Emotion Detection. D. Hazarika, S. Poria, R. Mihalcea, E. Cambria, and R. Zimmermann. EMNLP (2018), Brussels, Belgium`
+```bash
+ICON: Interactive Conversational Memory Networkfor Multimodal Emotion Detection. D. Hazarika, S. Poria, R. Mihalcea, E. Cambria, and R. Zimmermann. EMNLP (2018), Brussels, Belgium
+```
 
 ## CMN
 [_CMN_](http://aclweb.org/anthology/N18-1193) is a neural framework for emotion detection in dyadic conversations. It leverages mutlimodal signals from text, audio and visual modalities. It specifically incorporates speaker-specific dependencies into its architecture for context modeling. Summaries are then generated from this context using multi-hop memory networks.
@@ -313,7 +323,7 @@ Interactive COnversational memory Network (ICON) is a multimodal emotion detecti
 
 Please cite the following paper if you find this code useful in your work.
 
-```
+```bash
 Hazarika, D., Poria, S., Zadeh, A., Cambria, E., Morency, L.P. and Zimmermann, R., 2018. Conversational Memory Network for Emotion Recognition in Dyadic Dialogue Videos. In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers) (Vol. 1, pp. 2122-2132).
 ```
 
@@ -341,7 +351,7 @@ Hazarika, D., Poria, S., Zadeh, A., Cambria, E., Morency, L.P. and Zimmermann, R
 
 Please cite the following paper if you find this code useful in your work.
 
-```
+```bash
 Poria, S., Cambria, E., Hazarika, D., Majumder, N., Zadeh, A. and Morency, L.P., 2017. Context-dependent sentiment analysis in user-generated videos. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) (Vol. 1, pp. 873-883).
 ```
 
@@ -367,7 +377,7 @@ Keras implementation of [_bc-LSTM_](http://www.aclweb.org/anthology/P17-1081).
 
 Please cite the following paper if you find this code useful in your work.
 
-```
+```bash
 Poria, S., Cambria, E., Hazarika, D., Majumder, N., Zadeh, A. and Morency, L.P., 2017. Context-dependent sentiment analysis in user-generated videos. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) (Vol. 1, pp. 873-883).
 ```
 
