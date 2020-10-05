@@ -82,12 +82,12 @@ Moreover, this code can also be molded to train the network in an end-to-end man
 
 First download the RoBERTa and COMET features [here](https://drive.google.com/file/d/1TQYQYCoPtdXN2rQ1mR2jisjUztmOzfZr/view?usp=sharing) and keep them in appropriate directories in `COSMIC/erc-training`. Then training and evaluation on the four datasets are to be done as follows:
 
-1. _IEMOCAP_: `python train_iemocap.py --active-listener`
-2. _DailyDialog_: `python train_dailydialog.py --active-listener --class-weight --residual`
-3. _MELD Emotion_: `python train_meld.py --active-listener --class-weight --residual`
-4. _MELD Sentiment_: `python train_meld.py --active-listener --class-weight --residual --classify sentiment`
-5. _EmoryNLP Emotion_: `python train_emorynlp.py --active-listener --class-weight --residual`
-6. _EmoryNLP Sentiment_: `python train_emorynlp.py --active-listener --class-weight --residual --classify sentiment`
+1. IEMOCAP: `python train_iemocap.py --active-listener`
+2. DailyDialog: `python train_dailydialog.py --active-listener --class-weight --residual`
+3. MELD Emotion: `python train_meld.py --active-listener --class-weight --residual`
+4. MELD Sentiment: `python train_meld.py --active-listener --class-weight --residual --classify sentiment`
+5. EmoryNLP Emotion: `python train_emorynlp.py --active-listener --class-weight --residual`
+6. EmoryNLP Sentiment: `python train_emorynlp.py --active-listener --class-weight --residual --classify sentiment`
 
 
 ### Citation
