@@ -72,6 +72,31 @@ Party 1: yes (angry)
 where the target emotion is _angry_.
 Moreover, this code can also be molded to train the network in an end-to-end manner. We will soon push these useful changes. 
 
+
+[_COSMIC_](), addresses the task of utterance level emotion recognition in conversations using commonsense knowledge. It is a new framework that incorporates different elements of commonsense such as mental states, events, and causal relations, and build upon them to learn interactions between interlocutors participating in a conversation. Current state-of-the-art methods often encounter difficulties in context propagation, emotion shift detection, and differentiating between related emotion classes. By learning distinct commonsense representations, COSMIC addresses these challenges and achieves new state-of-the-art results for emotion recognition on four different benchmark conversational datasets. 
+
+![Alt text](cosmic.jpg?raw=true "COSMIC framework")
+
+### Execution
+
+First download the RoBERTa and COMET features [here](https://drive.google.com/file/d/1TQYQYCoPtdXN2rQ1mR2jisjUztmOzfZr/view?usp=sharing) and keep them in appropriate directories in `COSMIC/erc-training`. Then training and evaluation on the four datasets are to be done as follows:
+
+1. _IEMOCAP_: `python train_iemocap.py --active-listener`
+2. _DailyDialog_: `python train_dailydialog.py --active-listener --class-weight --residual`
+3. _MELD Emotion_: `python train_meld.py --active-listener --class-weight --residual`
+4. _MELD Sentiment_: `python train_meld.py --active-listener --class-weight --residual --classify sentiment`
+5. _EmoryNLP Emotion_: `python train_emorynlp.py --active-listener --class-weight --residual`
+6. _EmoryNLP Sentiment_: `python train_emorynlp.py --active-listener --class-weight --residual --classify sentiment`
+
+
+### Citation
+
+Please cite the following paper if you find this code useful in your work.
+
+`COSMIC: COmmonSense knowledge for eMotion Identification in Conversations. D. Ghosal, N. Majumder, A. Gelbukh, R. Mihalcea, & S. Poria.  Findings of EMNLP 2020.`
+
+
+
 ## TL-ERC: Emotion Recognition in Conversations with Transfer Learning from Generative Conversation Modeling
 
 [_TL-ERC_](https://arxiv.org/pdf/1910.04980.pdf) is a transfer learning-based framework for ERC. It pre-trains a generative dialogue model and transfers context-level weights that include affective knowledge into the target discriminative model for ERC.
