@@ -116,14 +116,14 @@ Moreover, this code can also be molded to train the network in an end-to-end man
     <td class="tg-0pky">37.44</td>
   </tr>
   <tr>
-    <td class="tg-0pky">RoBERTa COSMIC</td>
-    <td class="tg-0pky">65.28</td>
-    <td class="tg-0pky">51.05</td>
-    <td class="tg-0pky">58.48</td>
-    <td class="tg-0pky">73.20</td>
-    <td class="tg-0pky">65.21</td>
-    <td class="tg-0pky">56.51</td>
-    <td class="tg-0pky">38.11</td>
+    <td class="tg-0pky"><span style="font-weight:bold">RoBERTa COSMIC</span></td>
+    <td class="tg-fymr">65.28</td>
+    <td class="tg-fymr">51.05</td>
+    <td class="tg-fymr">58.48</td>
+    <td class="tg-fymr">73.20</td>
+    <td class="tg-fymr">65.21</td>
+    <td class="tg-fymr">56.51</td>
+    <td class="tg-fymr">38.11</td>
   </tr>
 </tbody>
 </table>
