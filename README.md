@@ -116,7 +116,7 @@ Moreover, this code can also be molded to train the network in an end-to-end man
     <td class="tg-0pky">37.44</td>
   </tr>
   <tr>
-    <td class="tg-0pky"><p style="font-weight:bold">RoBERTa COSMIC</p></td>
+    <td class="tg-0pky"><b>RoBERTa COSMIC</b></td>
     <td class="tg-fymr">65.28</td>
     <td class="tg-fymr">51.05</td>
     <td class="tg-fymr">58.48</td>
