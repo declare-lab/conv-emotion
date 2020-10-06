@@ -117,13 +117,13 @@ Moreover, this code can also be molded to train the network in an end-to-end man
   </tr>
   <tr>
     <td class="tg-0pky"><b>RoBERTa COSMIC</b></td>
-    <td class="tg-fymr">65.28</td>
-    <td class="tg-fymr">51.05</td>
-    <td class="tg-fymr">58.48</td>
-    <td class="tg-fymr">73.20</td>
-    <td class="tg-fymr">65.21</td>
-    <td class="tg-fymr">56.51</td>
-    <td class="tg-fymr">38.11</td>
+   <td class="tg-fymr"><b>65.28</b></td>
+   <td class="tg-fymr"><b>51.05</b></td>
+   <td class="tg-fymr"><b>58.48</b></td>
+   <td class="tg-fymr"><b>73.20</b></td>
+   <td class="tg-fymr"><b>65.21</b></td>
+   <td class="tg-fymr"><b>56.51</b></td>
+   <td class="tg-fymr"><b>38.11</b></td>
   </tr>
 </tbody>
 </table>
