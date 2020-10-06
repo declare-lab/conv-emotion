@@ -74,13 +74,68 @@ where the target emotion is _angry_.
 Moreover, this code can also be molded to train the network in an end-to-end manner. We will soon push these useful changes.
 
 ## Present SOTA Results
-
-| Methods 	| IEMOCAP 	| DailyDialog  	| MELD 	| EmoryNLP  	|
-|-	|:-:	|:-:	-	|:-:	-	|:-:	-	|
-|  	| W-Avg F1 	| Macro F1 	| Micro F1 	| W-Avg F1 (3-cls) 	| W-Avg F1 (7-cls) 	| W-Avg F1 (3-cls) 	| W-Avg F1 (7-cls) 	|
-| RoBERTa 	| 54.55 	| 48.20 	| 55.16 	| 72.12 	| 62.02 	| 55.28 	| 37.29 	|
-| RoBERTa DialogueRNN 	| 64.76 	| 49.65 	| 57.32 	| 72.14 	| 63.61 	| 55.36 	| 37.44 	|
-| RoBERTa COSMIC 	| 65.28 	| 51.05 	| 58.48 	| 73.20 	| 65.21 	| 56.51 	| 38.11 	|
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky">Methods</th>
+    <th class="tg-c3ow">IEMOCAP</th>
+    <th class="tg-c3ow" colspan="2">DailyDialog</th>
+    <th class="tg-c3ow" colspan="2">MELD</th>
+    <th class="tg-c3ow" colspan="2">EmoryNLP</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky">W-Avg F1</td>
+    <td class="tg-0pky">Macro F1</td>
+    <td class="tg-0pky">Micro F1</td>
+    <td class="tg-0pky">W-Avg F1 (3-cls)</td>
+    <td class="tg-0pky">W-Avg F1 (7-cls)</td>
+    <td class="tg-0pky">W-Avg F1 (3-cls)</td>
+    <td class="tg-0pky">W-Avg F1 (7-cls)</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">RoBERTa</td>
+    <td class="tg-0pky">54.55</td>
+    <td class="tg-0pky">48.20</td>
+    <td class="tg-0pky">55.16</td>
+    <td class="tg-0pky">72.12</td>
+    <td class="tg-0pky">62.02</td>
+    <td class="tg-0pky">55.28</td>
+    <td class="tg-0pky">37.29</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">RoBERTa DialogueRNN</td>
+    <td class="tg-0pky">64.76</td>
+    <td class="tg-0pky">49.65</td>
+    <td class="tg-0pky">57.32</td>
+    <td class="tg-0pky">72.14</td>
+    <td class="tg-0pky">63.61</td>
+    <td class="tg-0pky">55.36</td>
+    <td class="tg-0pky">37.44</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">RoBERTa COSMIC</td>
+    <td class="tg-0pky">65.28</td>
+    <td class="tg-0pky">51.05</td>
+    <td class="tg-0pky">58.48</td>
+    <td class="tg-0pky">73.20</td>
+    <td class="tg-0pky">65.21</td>
+    <td class="tg-0pky">56.51</td>
+    <td class="tg-0pky">38.11</td>
+  </tr>
+</tbody>
+</table>
 
 ## COSMIC: COmmonSense knowledge for eMotion Identification in Conversations
 
