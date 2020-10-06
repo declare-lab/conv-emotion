@@ -76,7 +76,7 @@ Moreover, this code can also be molded to train the network in an end-to-end man
 ## Present SOTA Results
 
 | Methods 	| IEMOCAP 	| DailyDialog  	| MELD 	| EmoryNLP  	|
-|-	|:-:	|:-:	|-	|:-:	|-	|:-:	|-	|
+|-	|:-:	|:-:	-	|:-:	-	|:-:	-	|
 |  	| W-Avg F1 	| Macro F1 	| Micro F1 	| W-Avg F1 (3-cls) 	| W-Avg F1 (7-cls) 	| W-Avg F1 (3-cls) 	| W-Avg F1 (7-cls) 	|
 | RoBERTa 	| 54.55 	| 48.20 	| 55.16 	| 72.12 	| 62.02 	| 55.28 	| 37.29 	|
 | RoBERTa DialogueRNN 	| 64.76 	| 49.65 	| 57.32 	| 72.14 	| 63.61 	| 55.36 	| 37.44 	|
