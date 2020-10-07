@@ -15,6 +15,6 @@ bash roberta_train_iemocap.sh
 python roberta_feature_extract_iemocap.py
 ```
 
-The features will be saved in the `iemocap\` directory.
+The features will be saved in the `iemocap/` directory.
 
 Use the other corresponding scripts to extract the features for the other datasets. You can then use the COMET and RoBERTa features to train the models using the scripts in `COSMIC/erc-training`. For reproduction of our results, we provide the features that we used in our experimets [here](https://drive.google.com/file/d/1TQYQYCoPtdXN2rQ1mR2jisjUztmOzfZr/view?usp=sharing).
