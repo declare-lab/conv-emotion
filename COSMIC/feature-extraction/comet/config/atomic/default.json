@@ -1,0 +1,16 @@
+{
+    
+    "dataset": "atomic",
+    "categories": ["oReact", "oEffect", "oWant", "xAttr", "xEffect", "xIntent", "xNeed", "xReact", "xWant"],
+    "eval_categories": ["oReact", "oEffect", "oWant", "xAttr", "xEffect", "xIntent", "xNeed", "xReact", "xWant"],
+    "exp": "generation",
+    "labels": "individual",
+    "encoder_path": "model/encoder_bpe_40000.json",
+    "bpe_path": "model/vocab_40000.bpe",
+    "batch_size": 64,
+    "learning_rate_schedule": "warmup_linear",
+    "learning_rate_warmup": 0.002,
+    "l2": 0.01,
+    "vector_l2": "T",
+    "evaluate_sequences": 10000
+}

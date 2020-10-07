@@ -1,0 +1,25 @@
+{
+
+    "base": {
+        "0": {
+            "gpu_index": 0,
+            "generate_sequences": "full",
+            "evaluate_sequences": "full"
+        },
+        "1": {
+            "gpu_index": 1,
+            "generate_sequences": "full",
+            "evaluate_sequences": "full"
+        },
+        "2": {
+            "gpu_index": 2,
+            "generate_sequences": "full",
+            "evaluate_sequences": "full"
+        },
+        "3": {
+            "gpu_index": 3,
+            "generate_sequences": "full",
+            "evaluate_sequences": "full"
+        }
+    }
+}

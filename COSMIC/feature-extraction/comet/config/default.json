@@ -1,0 +1,54 @@
+{
+    "gpu_mode": "T",
+    "gpu_index": 0,
+    "gpu_indices": [0, 1],
+    "multigpu": "F",
+
+    "topk_size": 10,
+    "beam_size": 1,
+    "gen_seqlength": 40,
+    "eval_sampler": "greedy",
+    "num_sequences": 1,
+    "generate_sequences": 1000,
+    "evaluate_sequences": 10000,
+
+    "random_seed": 123,
+    "optimizer": "adam",
+    "batch_size": 64,
+    "learning_rate": 6.25e-5,
+
+    "clip": 1,
+    "loss": "nll",
+    "weight_decay": 0,
+
+    "adam": {
+        "b2": 0.999,
+        "b1": 0.9,
+        "e": 1e-8
+    },
+
+    "model": "transformer",
+    "pretrain": "gpt",
+    "hidden_dim": 768,
+    "num_layers": 12,
+    "num_heads": 12,
+    "embedding_dropout": 0.1,
+    "attention_dropout": 0.1,
+    "residual_dropout": 0.1,
+    "output_dropout": 0.1,
+    "activation": "gelu",
+    "init": "pt",
+
+    "trainer": "iteration",
+
+    "iterations": 50000,
+    "cycle": 500,
+
+    "save_strategy": "best",
+
+    "epochs": 20,
+    "toy": "F",
+    "do_gen": "F",
+    "save": "T",
+    "test_save": "F"
+}

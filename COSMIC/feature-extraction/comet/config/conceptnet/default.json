@@ -1,0 +1,23 @@
+{
+    
+    "dataset": "conceptnet",
+    "exp": "generation",
+    "do_gen": "T",
+    "encoder_path": "model/encoder_bpe_40000.json",
+    "bpe_path": "model/vocab_40000.bpe",
+    "batch_size": 64,
+    "learning_rate_schedule": "warmup_linear",
+    "learning_rate_warmup": 0.002,
+    "l2": 0.01,
+    "vector_l2": "T",
+    "generate_sequences": "full",
+    "evaluate_sequences": "full",
+    "relation_format": "language",
+    "training_set_size": 100,
+    "development_set_versions_to_use": "12",
+    "max_event_1_size": 10,
+    "max_event_2_size": 15,
+    "eval_sampler": "greedy",
+    "iterations": 100000,
+    "learning_rate": 1e-5
+}
