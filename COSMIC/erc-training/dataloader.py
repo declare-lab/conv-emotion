@@ -161,6 +161,10 @@ class DailyDialogueRobertaCometDataset(Dataset):
 class EmoryNLPRobertaCometDataset(Dataset):
 
     def __init__(self, split, classify='emotion'):
+
+        '''
+        label index mapping =  {'Joyful': 0, 'Mad': 1, 'Peaceful': 2, 'Neutral': 3, 'Sad': 4, 'Powerful': 5, 'Scared': 6}
+        '''
         
         self.speakers, self.emotion_labels, \
         self.roberta1, self.roberta2, self.roberta3, self.roberta4, \
