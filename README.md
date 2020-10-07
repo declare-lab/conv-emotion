@@ -71,7 +71,59 @@ the *target* is
 Party 1: yes (angry)
 ```
 where the target emotion is _angry_.
-Moreover, this code can also be molded to train the network in an end-to-end manner. We will soon push these useful changes. 
+Moreover, this code can also be molded to train the network in an end-to-end manner. We will soon push these useful changes.
+
+## Present SOTA Results
+<table>
+  <tr>
+    <th rowspan="2">Methods</th>
+    <th>IEMOCAP</th>
+    <th colspan="2">DailyDialog</th>
+    <th colspan="2">MELD</th>
+    <th colspan="2">EmoryNLP</th>
+  </tr>
+
+  <tr>
+    <td>W-Avg F1</td>
+    <td>Macro F1</td>
+    <td>Micro F1</td>
+    <td>W-Avg F1 (3-cls)</td>
+    <td>W-Avg F1 (7-cls)</td>
+    <td>W-Avg F1 (3-cls)</td>
+    <td>W-Avg F1 (7-cls)</td>
+  </tr>
+  <tr>
+    <td>RoBERTa</td>
+    <td>54.55</td>
+    <td>48.20</td>
+    <td>55.16</td>
+    <td>72.12</td>
+    <td>62.02</td>
+    <td>55.28</td>
+    <td>37.29</td>
+  </tr>
+  <tr>
+    <td>RoBERTa DialogueRNN</td>
+    <td>64.76</td>
+    <td>49.65</td>
+    <td>57.32</td>
+    <td>72.14</td>
+    <td>63.61</td>
+    <td>55.36</td>
+    <td>37.44</td>
+  </tr>
+  <tr>
+    <td><b>RoBERTa COSMIC</b></td>
+   <td><b>65.28</b></td>
+   <td><b>51.05</b></td>
+   <td><b>58.48</b></td>
+   <td><b>73.20</b></td>
+   <td><b>65.21</b></td>
+   <td><b>56.51</b></td>
+   <td><b>38.11</b></td>
+  </tr>
+
+</table>
 
 ## COSMIC: COmmonSense knowledge for eMotion Identification in Conversations
 
