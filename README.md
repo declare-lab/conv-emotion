@@ -7,7 +7,7 @@
 | 06/10/2020  | New paper and SOTA in Emotion Recognition in Conversations. Refer to the directory [COSMIC](./COSMIC) for the code. Read the paper -- [COSMIC: COmmonSense knowledge for eMotion Identification in Conversations](https://arxiv.org/pdf/2010.02795.pdf).  |
 | 30/09/2020 	| New paper and baselines in utterance-level dialogue understanding have been released. Read our paper [Utterance-level Dialogue Understanding: An Empirical Study](https://arxiv.org/pdf/2009.13902.pdf). Fork the [codes](https://github.com/declare-lab/dialogue-understanding). 	|
 | 26/07/2020 	| New DialogueGCN code has been released. Please visit https://github.com/declare-lab/conv-emotion/tree/master/DialogueGCN-mianzhang. All the credit goes to the Mian Zhang (https://github.com/mianzhang/) 	|
-| 11/07/2020 	| Interested in reading the papers on ERC or related tasks such as sarcasm detection in conversations? We have compiled a comprehensive reading list for papers. Please visit https://github.com/declare-lab/awesome-erc 	|
+| 11/07/2020 	| Interested in reading the papers on ERC or related tasks such as sarcasm detection in conversations? We have compiled a comprehensive reading list for papers. Please visit https://github.com/declare-lab/awesome-emotion-recognition-in-conversations 	|
 | 07/06/2020: 	| New state-of-the-art results for the ERC task will be released soon. 	|
 | 07/06/2020: 	| The conv-emotion repo will be maintained on https://github.com/declare-lab/ 	|
 | 22/12/2019: 	| Code for DialogueGCN has been released. 	|
