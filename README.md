@@ -35,12 +35,12 @@ This repository contains implementations for three conversational emotion detect
 Unlike other emotion detection models, these techniques consider the party-states and inter-party dependencies for modeling conversational context relevant to emotion recognition. The primary purpose of all these techniques are to pretrain an emotion detection model for empathetic dialogue generation.
 
 <p align="center">
-  <img src="bayesian_dialogue.jpg" alt="Controlling variables in conversation" width="600"/>
-  <figcaption stype="display:table-caption;"><em>Fig. 1: Interaction among different controlling variables during a
-dyadic conversation between persons A and B. Grey and white circles
+  <img src="controlling_vars_new.png" alt="Controlling variables in conversation" width="600"/>
+  <figcaption stype="display:table-caption;"><em>Interaction among different controlling variables during a
+dyadic conversation between persons X and Y. Grey and white circles
 represent hidden and observed variables, respectively. P represents
 personality, U represents utterance, S represents interlocutor state, I
-represents interlocutor intent, E represents emotion and Topic represents
+represents interlocutor intent, B represents background knowledge, Q represents external and sensory inputs, E represents emotion and Topic represents
 topic of the conversation. This can easily be extended to multi-party
       conversations.</em></figcaption>
 </p>
