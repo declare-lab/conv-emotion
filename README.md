@@ -33,6 +33,7 @@ This repository contains implementations for three conversational emotion detect
 
 - [Emotion Recognition in Conversations](#emotion-recognition-in-conversations)
   * [Data Format](#data-format)
+  * [COSMIC (PyTorch)](#cosmic-commonsense-knowledge-for-emotion-identification-in-conversations)
   * [TL-ERC (PyTorch)](#tl-erc-emotion-recognition-in-conversations-with-transfer-learning-from-generative-conversation-modeling)
   * [DialogueGCN (PyTorch)](#dialoguegcn-a-graph-convolutional-neural-network-for-emotion-recognition-in-conversation)
   * [DialogueRNN (PyTorch)](#dialoguernn-an-attentive-rnn-for-emotion-detection-in-conversations)
