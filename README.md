@@ -18,6 +18,14 @@
 | 20/11/2018: 	| End-to-end version of ICON and DialogueRNN have been released. 	|
 ---------------------------------------------------------------------------
 
+COSMIC is the best performing model in this repo and please visit the links below to compare the models on different ERC datasets.
+
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/cosmic-commonsense-knowledge-for-emotion/emotion-recognition-in-conversation-on-4)](https://paperswithcode.com/sota/emotion-recognition-in-conversation-on-4?p=cosmic-commonsense-knowledge-for-emotion)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/cosmic-commonsense-knowledge-for-emotion/emotion-recognition-in-conversation-on-meld)](https://paperswithcode.com/sota/emotion-recognition-in-conversation-on-meld?p=cosmic-commonsense-knowledge-for-emotion)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/cosmic-commonsense-knowledge-for-emotion/emotion-recognition-in-conversation-on-3)](https://paperswithcode.com/sota/emotion-recognition-in-conversation-on-3?p=cosmic-commonsense-knowledge-for-emotion)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/cosmic-commonsense-knowledge-for-emotion/emotion-recognition-in-conversation-on)](https://paperswithcode.com/sota/emotion-recognition-in-conversation-on?p=cosmic-commonsense-knowledge-for-emotion)
+
+
 This repository contains implementations for three conversational emotion detection methods, namely:
 
 - [Emotion Recognition in Conversations](#emotion-recognition-in-conversations)
