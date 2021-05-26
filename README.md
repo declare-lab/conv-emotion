@@ -454,12 +454,12 @@ Poria, S., Cambria, E., Hazarika, D., Majumder, N., Zadeh, A. and Morency, L.P.,
 This repository also contains implementations of different architectures to detect emotion cause in conversations.
 
 <p align="center">
-  <img src="images/cause_types1.png" alt="Emotion cause types in conversation" width="1000"/>
+  <img src="emotion-cause-extraction/images/cause_types1.png" alt="Emotion cause types in conversation" width="1000"/>
   <figcaption stype="display:table-caption;"><em> (a) No context. (b) Unmentioned Latent Cause. (c) Distinguishing emotion cause from emotional expressions.</em></figcaption>
 </p>
 
 <p align="center">
-  <img src="images/cause_types2.png" alt="Emotion cause types in conversation" width="1000"/>
+  <img src="emotion-cause-extraction/images/cause_types2.png" alt="Emotion cause types in conversation" width="1000"/>
   <figcaption stype="display:table-caption;"><em> (a) Self-contagion. (b) The cause of the emotion is primarily due to a stable mood of the speaker that was induced in the previous dialogue turns; (c) The hybrid type with both inter-personal emotional influence and self-contagion.</em></figcaption>
 </p>
 
@@ -478,7 +478,7 @@ This repository also contains implementations of different architectures to dete
 ## ECPE-2D on [RECCON](https://github.com/declare-lab/RECCON) dataset
 
 <p align="center">
-  <img src="images/ECPE-2D.png" alt="ECPE-2D" width="1000"/>
+  <img src="iemotion-cause-extraction/mages/ECPE-2D.png" alt="ECPE-2D" width="1000"/>
 </p>
 
 Citation:
@@ -489,7 +489,7 @@ Please cite the following papers if you use this code.
 ## Rank-Emotion-Cause on [RECCON](https://github.com/declare-lab/RECCON) dataset
 
 <p align="center">
-  <img src="images/rank-emotion-cause.png" alt="ECPE-2D" width="1000"/>
+  <img src="emotion-cause-extraction/images/rank-emotion-cause.png" alt="ECPE-2D" width="1000"/>
 </p>
 
 Citation:
@@ -502,7 +502,7 @@ Please cite the following papers if you use this code.
 
 
 <p align="center">
-  <img src="images/ECPE-MLL.png" alt="ECPE-2D" width="1000"/>
+  <img src="emotion-cause-extraction/images/ECPE-MLL.png" alt="ECPE-2D" width="1000"/>
 </p>
 
 Citation:
