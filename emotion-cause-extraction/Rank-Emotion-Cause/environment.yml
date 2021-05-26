@@ -1,0 +1,10 @@
+name: EmoCau
+channels:
+  - defaults
+dependencies:
+  - python=3.6
+  - pytorch=1.2.0
+  - scipy
+  - scikit-learn
+  - pip:
+    - transformers==2.2.0

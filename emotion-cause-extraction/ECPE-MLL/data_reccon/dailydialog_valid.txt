@@ -1,0 +1,587 @@
+1060 8
+ (5, 4), (5, 5), (6, 5), (7, 6), (8, 7),
+1,null,null,Mr . Bryant ? Hi . I'm Mike from Florence Incorporated . I'll glad you made it okay . How was your flight ?
+2,null,null,It was pretty bumpy . also a bit long . all together about 5 hours .
+3,null,null,That is a long flight . You had a layover too . is that right ? You must be tired .
+4,null,null,Actually I feel quite rested . I was able to sleep on the plane .
+5,happiness,fake_evidence,Good ! Here . let me help you with your bag . Is it your first time to Seattle ? I'd be happy to take you around this city and show you the sights tonight if you're up to it .
+6,happiness,fake_evidence,That will be very nice . You're too kind .
+7,happiness,fake_evidence,I've already made a hotel reservation for you . let's go to the hotel first and drop off your things . Then . I'd like to have a drink so that we can get better acquainted . I've booked a table at an exclusive restaurant downtown . Afterwards . I've made arrangements to take you to see the city lights . Seattle ' s nightlife can be really quite exciting . How does that schedule sound to you ?
+8,happiness,fake_evidence,Sounds great . Thank you for your hospitality .
+1061 10
+ (1, 1), (3, 1), (3, 3), (5, 5), (7, 7), (9, 8), (9, 9),
+1,anger,fake_evidence,I can't stand the stupid guy any longer . It ' s unbelievable !
+2,null,null,Oh . my dear lady . Take it easy . You should forgive a green hand like him .
+3,anger,fake_evidence,He does everything so mindlessly that he is going to drive me crazy .
+4,null,null,I suggest you talk with him and teach him how to deal with the problems .
+5,anger,fake_evidence,I have told him how to do it several times . but he's never listened to me .
+6,null,null,Maybe you should communicate with him just like a friend and not a boss .
+7,anger,fake_evidence,Oh . I always have difficulty in getting along with the staff .
+8,null,null,Just take them for your good friends and have a talk with them as we do . make sure you don't lose your temper .
+9,disgust,fake_evidence,I think that's a bad idea . I'd hate anyone here to think of me as a friend . How would they ever respect me as they can do whatever they want ?
+10,null,null,I disagree . All you have to do is respect the staff and their opinions .
+1062 14
+ (7, 3), (7, 6), (8, 7), (13, 12), (14, 13),
+1,null,null,Excuse me . is this the way to the Great Wall ?
+2,null,null,Oh . it is really far from here . You ' re going in the wrong direction actually .
+3,null,null,I must have taken a wrong turn .
+4,null,null,It doesn ' t matter . Go back the way you came . After about five kilometers . you ' ll see a hotel on the side of the road . It ' s a big one . You can ' t miss it .
+5,null,null,And then ?
+6,null,null,Take the next right . Drive about one click further . and you ' ll see the entrance of the highway to the Great Wall .
+7,happiness,fake_evidence,Thanks a lot .
+8,happiness,fake_evidence,You ' re welcome .
+9,null,null,By the way . how long does it take ?
+10,null,null,Without traffic . it takes about an hour .
+11,null,null,I heard the Great Wall closes early in the afternoon . Do you think I can make it before closing ?
+12,null,null,Yes . I think so . It doesn ' t close until 5 o ' clock . You still have plenty of time .
+13,happiness,fake_evidence,Great ! Thank you !
+14,happiness,fake_evidence,My pleasure . and have a good time !
+1063 13
+ (5, 5), (7, 5), (7, 6), (9, 5), (9, 6), (9, 8), (9, 9), (10, 9), (10, 10), (12, 9), (12, 10), (12, 12), (13, 12),
+1,null,null,Hello . ma ' am . Can I help you ?
+2,null,null,I ' m looking for a sweater .
+3,null,null,What size are you looking for ?
+4,null,null,Well . I ' m looking for size 10 but you don ' t have it .
+5,happiness,fake_evidence,How about this one ? I think it looks terrific on you .
+6,null,null,Yes . I like the color . Can I try it on ?
+7,happiness,fake_evidence,Sure . The fitting room is on your right .
+8,null,null,It fits well . I like it a lot . What do you think ?
+9,happiness,fake_evidence,You look pretty in red .
+10,happiness,fake_evidence,Oh . it ' s my favorite . How much is it ?
+11,null,null,$ 29 . 99 .
+12,happiness,fake_evidence,Okay . I ' ll take it . Thank you very much for your help .
+13,happiness,fake_evidence,You ' re welcome .
+1064 10
+ (3, 2), (4, 3), (4, 4), (5, 4),
+1,null,null,Yeah . I ' Ve just moved here . and I ' d like to activate my cell phone . and I ' m not sure if I should go with a prepaid plan . or a monthly rate plan .
+2,happiness,fake_evidence,I see . Well . can I have a look at your phone ? Unfortunately . this phone can ' t be used in the US . it ' s not compatible with our 3G network .
+3,surprise,fake_evidence,What ? Really ? I don ' t really want to have to buy a new phone .
+4,happiness,fake_evidence,Well . you ' re in luck ! You see . if you sign up for our three-year plan . we ' ll throw in a handset for free .
+5,surprise,fake_evidence,Really ? What ' s the catch ?
+6,null,null,There ' s no catch ! You just choose a plan . sign a three-year contract and . that ' s it ! Actually . we ' re running a special promotion right now . and we ' regiving away a Blackberry Curve with our special Mega Value forty dollar plan .
+7,null,null,So what does this plan include ?
+8,null,null,Well . you get nine hundred anytime minutes . and you can also enjoy free mobile to mobile calling to other Tel-Mobile clients . one thousand text messages per month . and unlimited evening and weekend minutes . Oh . and we also offer a rollover option .
+9,null,null,Wow . all this for forty dollars per month ?
+10,null,null,That ' s right . plus the activation fee . the emergency services fee . the monthly service fee . oh . and any charges for extra minutes . and ...
+1065 15
+ (5, 5), (6, 5), (6, 6), (7, 5), (7, 5), (7, 6), (8, 8), (11, 11), (14, 13), (14, 14), (15, 5), (15, 5), (15, 6), (15, 13), (15, 14),
+1,null,null,Ahem ... uh . sir . I beg your pardon ... Uh . mister . are you waiting to buy a ticket for the movie ?
+2,null,null,What's it look like . lady ? This is the ticket line I'm standing in . isn't it ?
+3,null,null,Well . yes . it is . but ...
+4,null,null,So . what's your beef anyway . lady ?
+5,anger,fake_evidence,You just cut into line . in front of me and everyone else . that's what ! Go take your place back at the end of the line . like every - one else !
+6,anger,fake_evidence,Oh sure . lady . and fat chance I'd get a ticket before they're sold out . I'm staying right here . understand ? So be a nice lady and butt out !
+7,anger,fake_evidence,Just what gives you the right ... ?
+8,anger,fake_evidence,Because I'm no sucker ; only suckers go to the end of the line . It's as simple as that . lady .
+9,null,null,Well . you're no gentleman . either .
+10,null,null,Okay . lady . just to show what a gentleman I really am . I'll let you go in front of me . Now . just buy your ticket and shut your trap . will you . lady ?
+11,happiness,fake_evidence,Whew ! I got the last one . This must be my lucky day !
+12,null,null,What was that you just said ? Last one ... ? Hey . they've closed the ticket window !
+13,null,null,Yes . I'm afraid I bought the last ticket . and to think . if you hadn't been such a gentleman . . .
+14,anger,fake_evidence,Lady ! This is unfair ! I've been cheated ! I was in line before you . That should have been my ticket ! Come on . hand it over . lady !
+15,anger,fake_evidence,Gentleman ! Hah ! Fat chance ! Hah ! Eat your heart out . sucker ! Hah !
+1066 12
+ (3, 2), (5, 5), (11, 10), (11, 11),
+1,null,null,What's wrong . officer ?
+2,null,null,You do realize that you ran a red light . don't you ?
+3,surprise,fake_evidence,I did ?
+4,null,null,You didn't see the red light ?
+5,sadness,fake_evidence,I'm sorry for running it . but I really didn't know .
+6,null,null,Didn't you learn that red means stop ?
+7,null,null,I know that .
+8,null,null,Then tell me why you sped up on the yellow light .
+9,null,null,I'm not sure .
+10,null,null,I'm giving you a ticket for this .
+11,sadness,fake_evidence,I'm sorry for the misunderstanding .
+12,null,null,Maybe you'll think about this before you decide to run another light .
+1067 15
+ (1, 1), (8, 7), (8, 8), (13, 12), (14, 14),
+1,happiness,fake_evidence,All the food smells tasty today and makes my mouth water .
+2,null,null,Let's line up here . This line seems a little shorter .
+3,null,null,What's on the menu today ?
+4,null,null,Fish . beef . pork . chicken . vegetables and beancurd . For staple food we have rice . steamed bread . stuffed buns and noodles .
+5,null,null,Oh . we're lucky today . aren't we ?
+6,null,null,I'd rather take stewed cabbage with beef .
+7,null,null,I think I'll take fried fish . because fish is one of my favorites .
+8,happiness,fake_evidence,That's good . we can share what we have . Here we are . You go ahead .
+9,null,null,( They get everything ready ) Here is a free table . Let's sit down . Help yourself to some fish please . Isn't it delicious and appetizing ?
+10,null,null,I'm sorry I don't like it's a little too salty .
+11,null,null,I see . You people from south prefer sweet . don't you ?
+12,null,null,Yes . I like the fish cooked in sweet and sour sauce best . Try some beef . please .
+13,happiness,fake_evidence,Thank you . I'm through with one steamed bread and I'd like a second helping .
+14,happiness,fake_evidence,Your appetite is good .
+15,null,null,I'm always feeling hungry .
+1068 10
+ (1, 1), (2, 1), (2, 1), (2, 2), (5, 4), (10, 10),
+1,happiness,fake_evidence,Hi ! Is that the new laptop you brought last week ? It looks very nice .
+2,happiness,fake_evidence,Yes . it is . Thanks . I ' m just surfing on the internet .
+3,null,null,Here ? In this cafe ? How can you do that ?
+4,null,null,This cafe offers a wireless internet connection . That means I can get on the net for free while I ' m here . Of course . I have to buy a cup of coffee !
+5,happiness,fake_evidence,That ' s great . Can you do it anywhere ?
+6,null,null,No . you can only do it when the cafe offers a wireless connection . There are only about 10 or 12 places that offer it in this city .
+7,null,null,So . what programs do you have on your laptop ?
+8,null,null,I ' Ve got all the usual ones for word processing and then I have a few for creating and editing photographs .
+9,null,null,I know you are keen on photography . It ' s very useful for you to be able to download photos from your digital camera . Then you attach the picture files to emails and send them to anyone . anywhere . at a
+10,happiness,fake_evidence,It ' s wonderful . isn ' t it ? Would you like to see some photos that I took recently ?
+1069 6
+ (3, 3), (4, 3), (5, 4), (6, 5),
+1,null,null,Good morning .
+2,null,null,Good morning . This is Mary . Can I speak to Anne please ?
+3,sadness,fake_evidence,I ' m sorry She isn ' t in at the momment . She will come back at half past nineCan I take a message for her ?
+4,happiness,fake_evidence,Thank you . But I will call her later
+5,happiness,fake_evidence,OK . Goodbye .
+6,happiness,fake_evidence,Goodbye .
+1070 11
+ (1, 1), (3, 3), (8, 8), (9, 8),
+1,disgust,fake_evidence,Honey . the house is such a mess ! I need you to help me tidy up a bit . My boss and her husband are coming over for dinner and the house needs to be spotless !
+2,null,null,I ' m in the middle of something right now . I ' ll be there in a second .
+3,fear,fake_evidence,This can ' t wait ! I need your help now !
+4,null,null,Alright . alright . I ' m coming .
+5,null,null,Ok . here ' s a list of chores we need to get done . I'll do the dishes and get all the groceries for tonight . You can sweep and mop the floors . Oh . and the furniture needs to be dusted .
+6,null,null,You know what . I have to pick something up at the mall . so why don ' t you clean the floors and I'll go to the supermarket and get all the groceries .
+7,null,null,Sure that ' s fine . Here is the list of all the things you need to get . Don't forget anything ! And can you pick up a bottle of wine on your way home ?
+8,happiness,fake_evidence,Hey . honey I ' m back . Wow . the house looks really good !
+9,happiness,fake_evidence,Great ! Can you set the table ?
+10,null,null,Just a sec I ' m just gonna vacuum this rug real fast .
+11,null,null,Wait ! Don ' t turn it on ...
+1071 10
+ (4, 4), (6, 4), (7, 6), (10, 4), (10, 10),
+1,null,null,Good morning . May . Good girl . you are reading English books again .
+2,null,null,Good morning . There is no reason to miss so beautiful a morning . Is that a new bird ?
+3,null,null,Oh . yes . my daughter bought it yesterday . We call her Lulu .
+4,happiness,fake_evidence,It looks so cute . Is it a parrot ?
+5,null,null,Yes . Just look at her colorful feathers . What else can it be ?
+6,happiness,fake_evidence,I see . It's interesting that there is also a parrot in my English book . His mane is Polly .
+7,surprise,fake_evidence,Really ? A foreign parrot !
+8,null,null,He can speak English . too .
+9,null,null,Maybe you can teach Lulu some English words .
+10,happiness,fake_evidence,Lulu . Lulu . Say hello . hello . Oh . she is so smart . Good bird .
+1072 7
+ (3, 3), (3, 3), (4, 3), (4, 4), (5, 3), (5, 3), (5, 5), (6, 3), (6, 4), (6, 5), (6, 6), (7, 3), (7, 3), (7, 5), (7, 7),
+1,null,null,Bob . can I talk to you for a minute ? There have been some developments for the Stewart case that I really need to talk to you about .
+2,null,null,Yeah . what's the matter now ? We've had so much trouble with this case already . Don't tell me there's more bad news .
+3,sadness,fake_evidence,Well . I'm afraid there is . I have some bad news for you about the results of the forensic tests ... there won't be any results .
+4,surprise,fake_evidence,What ? What does that mean ? Why won't there be any results ?
+5,sadness,fake_evidence,I hate to tell you this . but it seems that every shred of evidence that would help us to convict were destroyed in a laboratory fire . There's nothing left . I'm so sorry ...
+6,surprise,fake_evidence,Oh . no . you can't be serious . I never expect anything like this would happened . What are we going to do ?
+7,sadness,fake_evidence,There's nothing that can be done . Everything is gone . I wish I could tell you differently . but what has happened has happened . We will just have to figure out a way to move on .
+1073 7
+ (3, 2), (3, 3), (3, 3), (4, 4), (5, 2), (5, 3), (5, 3), (5, 5), (7, 2), (7, 3), (7, 3), (7, 5), (7, 7), (7, 7),
+1,null,null,So . Casey . how are things going with the photos for the press kit ?
+2,null,null,Yeah . I ' Ve been meaning to talk to you about that . I might need to ask for an extension on that deadline .
+3,anger,fake_evidence,You ' Ve had over a month to get this finalized ! Why are things delayed ?
+4,sadness,fake_evidence,Well . the thing is . we ran into a lot of problems . . .
+5,anger,fake_evidence,I ' m not looking for excuses here . I just want to get this finished on time !
+6,null,null,I know . and I apologize for the delay . But some things were just beyond my control . I had trouble booking the photographer . and then Michael was sick for three weeks . so I couldn ' t include him in the photos . and the design team lost all the files . so I had to re-do the pictures .
+7,anger,fake_evidence,I ' m not going to put this off any longer . Casey ! I want those photos ASAP !
+1074 11
+ (1, 1), (2, 1), (2, 2), (2, 2), (3, 1), (3, 2), (3, 3), (4, 1), (4, 2), (4, 2), (4, 3), (4, 3), (4, 4), (10, 10), (10, 10), (11, 11),
+1,happiness,fake_evidence,It's a beautiful day ! Let's play on those rides in the park .
+2,happiness,fake_evidence,Sounds like a good idea . I love to play on the jungle gym .
+3,happiness,fake_evidence,Me too . I love to play on the swing as well . Swing is my favorite .
+4,happiness,fake_evidence,That's great . Then we won't fight over taking the same ride .
+5,null,null,Look at the flowers over there . What are they ?
+6,null,null,They are morning glories . They are cute . aren't they ?
+7,null,null,They are . We can find many different kinds of flowers and insects in the park .
+8,null,null,I think so . Last time I saw dandelions and ladybugs near the pond .
+9,null,null,If you come to the park in the morning . you can find squirrels running on the lawn .
+10,happiness,fake_evidence,It's really healthy to do some exercise there . The air is fresher and it's romantic to watch the sunset with your lover .
+11,happiness,fake_evidence,Well . off we go . I am sure we can have a great time .
+1075 11
+ (2, 1), (4, 4), (6, 4), (6, 6), (7, 6), (7, 7), (9, 9),
+1,null,null,Won't you have some of this ?
+2,happiness,fake_evidence,Yes . thanks .
+3,null,null,It's my grandmother's favorite recipe for barbecue .
+4,happiness,fake_evidence,It's very good . How do you make it ?
+5,null,null,I use a special dressing and homemade catsup .
+6,happiness,fake_evidence,This salad looks so nice-just right for a hot day .
+7,happiness,fake_evidence,I'm glad you like it .
+8,null,null,You Americans usually have nutritious food .
+9,happiness,fake_evidence,Oh . but Chinese food is so delicious . I wish I knew how to cook Chinese food . Do you follow recipes ?
+10,null,null,We use different spices but few people use recipes . They learn to cook by experience .
+11,null,null,I always use a recipe but my grandmother never did . She was a great cook . She would make clam chowder and cornbread every Sunday night .
+1076 10
+ (2, 2), (3, 2), (3, 3), (4, 3), (4, 4), (5, 3), (5, 4), (5, 5), (6, 3), (6, 4), (6, 5), (6, 6), (7, 3), (7, 4), (7, 5), (7, 6), (7, 7),
+1,null,null,Oh hi . Linda . this is Todd .
+2,happiness,fake_evidence,Yes . Todd . how nice to hear your voice !
+3,happiness,fake_evidence,Linda . I just wanted to say that I had a wonderful evening with you last Friday .
+4,happiness,fake_evidence,I really enjoyed our evening together . Todd .
+5,happiness,fake_evidence,I had fun also and was wondering if you would like to go hiking with me in the mountains on Saturday .
+6,happiness,fake_evidence,Hiking would be perfect ! May I bring along a picnic lunch for us to share ?
+7,happiness,fake_evidence,A picnic lunch would be a nice thing to have along .
+8,null,null,I'll work on the lunch . and you can work out the details of where we will go . What time will you be at my house ?
+9,null,null,Nine would be good . don't you think ?
+10,null,null,Nine is good . See you on Saturday !
+1077 6
+ (3, 3), (4, 3), (5, 3), (5, 4), (6, 3),
+1,null,null,Good afternoon . madam . Is there anything I can do for you ?
+2,null,null,Yes . I spent so much time sightseeing here . It is already so late now . I am afraid I can't catch the last bus back to downtown .
+3,happiness,fake_evidence,Don't worry . I will try to get a taxi for you . You can take it to the bus station .
+4,happiness,fake_evidence,I am very grateful to your help .
+5,happiness,fake_evidence,Don't mention it . It is my duty .
+6,happiness,fake_evidence,Thanks again .
+1078 12
+ (4, 3), (4, 4), (6, 5), (6, 6), (10, 5), (10, 6), (10, 9), (12, 5), (12, 6), (12, 9),
+1,null,null,Hi . are you being helped ?
+2,null,null,No . I'm not . I am interested in some scarves .
+3,null,null,All our scarves are in this section . What do you think of this one here ? It's made of silk .
+4,happiness,fake_evidence,Hm . It looks nice . but I ' d like to have something warm for the winter .
+5,null,null,Maybe you would like a heavy wool scarves . How about this one ?
+6,happiness,fake_evidence,I think that's what I want . How much is it ?
+7,null,null,It's 75 dollars plus tax .
+8,null,null,It's a little expensive . Do you think it's possible to get a discount ?
+9,null,null,Since you like it so much . how about a 10 % discount ? That's the best I can offer .
+10,happiness,fake_evidence,That's good . Could you wrap it for me ?
+11,null,null,Sure . Is there anything else I can get for you ?
+12,happiness,fake_evidence,No . that should be it . Thank you !
+1079 4
+ (1, 1), (3, 1), (3, 3), (4, 3),
+1,anger,fake_evidence,Staying out all night . you frightened me to death .
+2,null,null,I stayed with my friends .
+3,anger,fake_evidence,You should at least give me a call .
+4,sadness,fake_evidence,I'm sorry . Mum .
+1080 10
+ (1, 1), (2, 1), (4, 1), (10, 9),
+1,anger,fake_evidence,We have been over this a hundred times ! We are not getting a pet !
+2,anger,fake_evidence,Why not ? Come on ! Just a cute little puppy or a kitty !
+3,null,null,Who is going to look after a dog or a cat ?
+4,anger,fake_evidence,I will ! I ' ll feed it . bathe it and walk it every day ! We can get a Labrador or a German Shepard !
+5,null,null,What if we want to take a vacation ? Who will we leave it with ? Plus . our apartment is too small for that breed of dog .
+6,null,null,Ok . How about we get a cat or a ferret ?
+7,null,null,We ' re planning on having children soon . I don ' t think those animals are a good idea with a baby in the house .
+8,null,null,Fine ! Let ' s get a bird then ! We can keep it in its cage and teach it to talk ! A parrot would be awesome !
+9,null,null,I ' ll tell you what . I can get you some hamsters and we ' ll take it from there .
+10,happiness,fake_evidence,Yay !
+1081 9
+ (1, 1), (2, 1), (2, 2), (3, 3), (5, 5), (5, 5), (7, 7), (7, 7), (9, 9),
+1,happiness,fake_evidence,Thank you for organizing this great baby shower for me ! I ' Ve always been to baby showers but never actually had one held for me ! Let ' s get started !
+2,happiness,fake_evidence,Ok . let ' s start opening some presents !
+3,happiness,fake_evidence,Oh look ! What a great little bib for the baby ! This will definitely come in handy ! Oh wow . you also got me a stroller ! That ' s so great ! Thank you !
+4,null,null,This next one is from Betty .
+5,happiness,fake_evidence,A highchair and car seat ! Wow Betty . thank you so much ! I really appreciate it !
+6,null,null,One more from Carla .
+7,happiness,fake_evidence,A playpen and crib ! Thanks Carla ! This is just what I needed !
+8,null,null,OK . that ' s all of them . No more gifts . Now who wants to guess when the baby is due ?
+9,fear,fake_evidence,Umm . I think my water just broke ! Get me to a hospital !
+1082 9
+ (6, 5), (6, 6), (7, 6), (7, 7), (8, 7), (8, 8), (9, 8), (9, 9),
+1,null,null,I ' m hungry . let ' s go grab a bite to eat .
+2,null,null,Yeah me too . Oh ! Can we stop at the shop really fast ? I lost my makeup bag at the airport and I want to pick up a few things .
+3,null,null,Will you take long ?
+4,null,null,No ! Five minutes I promise !
+5,null,null,Come on ! We have been here for almost an hour ! I thought you said you were only going to get a few things ! How long does it take you to pick out a lipstick and some nail polish !
+6,surprise,fake_evidence,Are you crazy ? You have no idea what you are talking about ! Just for my eyes I have to get eye-liner . an eyelash curler . eye shadow . an eyebrow pencil and mascara . Then I need to get foundation . liq
+7,anger,fake_evidence,Whoa whoa whoa ! Are you nuts ? How much is all this going to cost ? I ' m looking at the price at each one of these little things and it ' s outrageous ! This is basically a crayon !
+8,anger,fake_evidence,What about you ? You spend as much or more money on your razors . after shave . cologne and gel ! Not to mention how much you spend on clothes and ...
+9,anger,fake_evidence,Fine ! Get the stupid thirty dollar crayon !
+1083 7
+ (4, 1), (4, 2), (4, 3), (5, 4), (5, 5), (6, 1), (6, 2), (6, 3), (6, 5), (6, 6), (7, 4), (7, 5), (7, 6), (7, 7),
+1,null,null,Here's some flowers . love . Happy Valentine's Day .
+2,null,null,Those are beautiful . They smell lovely . Thank you .
+3,null,null,This is let you know that I still you after all this years . I knew there are some up and down when I married you . but through at all . you've always been may my Valentine .
+4,happiness,fake_evidence,Oh . sweet . You've always been my love too .
+5,happiness,fake_evidence,I don't think I say this enough . but I want to thank you for your kind listen patience . you ' Ve always been there for me .
+6,happiness,fake_evidence,I'll do everything for you . love . You know that . maybe you didn't realize . but you made everyday a enjoys moment and happy occasion .
+7,happiness,fake_evidence,I am so glad we met one another .
+1084 12
+ (1, 1), (2, 1), (2, 2), (5, 1), (5, 5), (6, 5), (6, 6), (7, 6),
+1,happiness,fake_evidence,I think that you look very cute today .
+2,happiness,fake_evidence,Is that right ? This is a brand new outfit .
+3,null,null,What store did you get it from ?
+4,null,null,I went to Macy's and picked it out .
+5,happiness,fake_evidence,I love your outfit right now .
+6,happiness,fake_evidence,Well . I think you look nice today too .
+7,happiness,fake_evidence,Thanks . I found these new shoes earlier at the store .
+8,null,null,I think that those are some really nice shoes . What kind are they ?
+9,null,null,These are Chucks .
+10,null,null,Your shoes look really nice . How much did you get them for ?
+11,null,null,They only cost me about forty dollars .
+12,null,null,I'm going to go get a pair for myself .
+1085 22
+ (1, 1), (5, 4), (9, 9), (13, 12), (13, 13),
+1,happiness,fake_evidence,Well . I'm glad you're finally back . I was wondering what happened .
+2,null,null,I feel kind of stupid .
+3,null,null,Why ?
+4,null,null,We got lost coming back . I guess I don't really know this town yet .
+5,surprise,fake_evidence,You got lost . You're kidding !
+6,null,null,No . We took a wrong turn somewhere . And Joseph doesn't know the town at all . So I started giving him directions . But I didn't really know where we were . So we got seriously lost .
+7,null,null,You could have called .
+8,null,null,I know I could have . But finally we asked someone where we were .
+9,surprise,fake_evidence,You've been gone for two hours . How could you get lost for so long ?
+10,null,null,Guess where we ended up .
+11,null,null,I don't know . Where ?
+12,null,null,When we finally decided to ask someone . they told us we were in Grangerfield .
+13,surprise,fake_evidence,Grangerfield ! You were in Grangerfield ? That's a completely different town ! How could you drive to a completely different town ?
+14,null,null,I don't know . The person we asked had to give us directions to the highway to get back here .
+15,null,null,Grangerfield is like a dozen miles away from here .
+16,null,null,I know it is . I don't know how it happened .
+17,null,null,Hmm . maybe I do .
+18,null,null,What ?
+19,null,null,Maybe I have an idea how it happened .
+20,null,null,How ?
+21,null,null,You were too busy looking at Joseph . and you weren't paying attention to the road .
+22,null,null,Oh . that's what you think . huh ?
+1086 13
+ (6, 3), (6, 6), (8, 7), (8, 8),
+1,anger,fake_evidence,Oh . come on . Ultraman !
+2,null,null,What's up . Bro ? What's in the bulletin ?
+3,null,null,It says that there will be a blackout from 5 p . m . to 7 p . m . in our neighborhood today .
+4,null,null,Blackout ? Even the TV has the limit .
+5,null,null,Don't you know you will look like a monster in the blackout ?
+6,anger,fake_evidence,Oops . no . Daddy can't watch American Idol . either !
+7,null,null,That's not the point . Come on . can you imagine that there will be no electricity on such a hot day ?
+8,fear,fake_evidence,Oh . my god ! No air-conditioner !
+9,null,null,OK . since you are the smart one . can you come up with a better plan ? So that we won't be baked like cookies here .
+10,null,null,How about playing Barbie out there in the neighborhood ?
+11,null,null,Barbie ? You know . I might be seven . but I'm not a girl .
+12,null,null,Do you have a better plan ?
+13,null,null,All right . all right .
+1087 9
+ (1, 1), (3, 1), (3, 3), (4, 3), (6, 3), (6, 5), (8, 3), (8, 5), (8, 7), (9, 9),
+1,happiness,fake_evidence,Hey ! I just bought one of those new Japanese cell phones ! It's loaded with extras .
+2,null,null,What does it do ?
+3,happiness,fake_evidence,It's got a built-in video camera so you can see the person you're talking to . It also takes stills and I can use the E-mail mode to send digital pictures straight to my friend's phone !
+4,happiness,fake_evidence,Wow ! What else does it do ?
+5,null,null,I can plug it into a folding keyboard to type in message mode . l can even surf the net .
+6,happiness,fake_evidence,Cool ! Anything else ?
+7,null,null,Yes . With the 600 - second digital memory . l can record my voice and send it using voice message mode .
+8,happiness,fake_evidence,Wow !
+9,happiness,fake_evidence,You'll love this ! I can use a stylus to draw a map on the touch screen and then use the fax mode to send it to another phone .
+1088 8
+ (3, 1), (3, 2), (3, 3), (4, 1), (4, 2), (4, 3), (6, 1), (6, 2), (6, 3), (6, 6),
+1,null,null,Hello . I sent out my laundry yesterday . Aren ' t they ready ?
+2,null,null,They'll be ready by this afternoon .
+3,surprise,fake_evidence,Oh . no ! I'm leaving for Japan at 11 this morning .
+4,sadness,fake_evidence,Is that right ? We're very sorry .
+5,null,null,I thought it was " the same day " service . Anyway . please do hurry .
+6,sadness,fake_evidence,I'm afraid we can't return it by 11 o'clock .
+7,null,null,Well . then . would you send it to Japan . please ?
+8,null,null,Yes . we'll do so .
+1089 8
+ (1, 1), (3, 1), (3, 3), (5, 4), (5, 5), (7, 7),
+1,sadness,fake_evidence,I'm very worried . doctor . I'm afraid that I'm very ill .
+2,null,null,Why do you think so ?
+3,sadness,fake_evidence,Because I feel tired all the time . even when I wake up in the morning . I find it very difficult to do any work . I have no appetite .
+4,null,null,How do you sleep ?
+5,sadness,fake_evidence,Very badly . doctor .
+6,null,null,Are you worried about anything ?
+7,sadness,fake_evidence,Well . yes . I am . I'm worried about my work . I've just taken a new job . I earn a lot of money but it's difficult work . I'm always afraid of making a mistake .
+8,null,null,Well . there's nothing much wrong with you . You're under too much pressure .
+1090 9
+ (2, 1), (2, 2), (6, 6), (8, 6), (8, 8),
+1,null,null,Hi . Francis . how was your business trip ?
+2,sadness,fake_evidence,It was a nightmare .
+3,null,null,What ' s up ?
+4,null,null,Actually . the business trip itself was very successful . We arrived on time . we had nice conversations and we settled some important issues for the next year .
+5,null,null,Sounds quite fruitful . why do you call it still a nightmare then ?
+6,sadness,fake_evidence,Well . the air line lost my luggage on the return flight and then I lost my carry on bag when I was tackling with the officers in charge . I left the airport three hours later than I expected and then I was caught in a traffic jam . When I finally got home . I was totally exhausted . But I found the elevator was out of service due to a blackout .
+7,null,null,This is really a sad story . Did they trace back your luggage ?
+8,sadness,fake_evidence,I am still waiting for their call .
+9,null,null,Take it easy . all sufferings have their reward .
+1091 6
+ (1, 1), (2, 1), (2, 2), (6, 5), (6, 6),
+1,anger,fake_evidence,How slowly you drive !
+2,sadness,fake_evidence,I'm sorry . Something is wrong with my taxi .
+3,null,null,Where does it go wrong ?
+4,null,null,Let me stop my car for check . Oh . my god . I got a flat tyre .
+5,null,null,Can it keep going ?
+6,sadness,fake_evidence,Sorry . You'd better get off for taking another taxi .
+1092 16
+ (5, 2), (5, 4), (9, 8), (12, 12), (14, 12), (14, 13), (16, 15),
+1,null,null,I am a student in Cambridge University . I read your ad . I want to know something more about your room . please ?
+2,null,null,It's a big bedroom with a drawing room . facing a beautiful wood .
+3,null,null,Is there a bathroom ?
+4,null,null,No . but there is one downstairs . which my daughter used some years ago .
+5,happiness,fake_evidence,It sounds good . Could I go and see it myself ?
+6,null,null,Certainly . you're welcome anytime .
+7,null,null,See you later !
+8,null,null,( after a while ) Good afternoon . Mrs . Smith . I called you just now .
+9,happiness,fake_evidence,Welcome ! Come in . please !
+10,null,null,Yes .
+11,null,null,This way please . Your room is upstairs ... Here it is .
+12,happiness,fake_evidence,Wonderful ! A modest . comfortable room . Ah . a beautiful window . through which I can see a beautiful scene . and hear the birds singing . How nice !
+13,null,null,Yes . if you want to wash something . there is a separate lavatory room outside .
+14,happiness,fake_evidence,Excellent ! I like it ! When can I move in ?
+15,null,null,Anytime you like .
+16,happiness,fake_evidence,OK .
+1093 14
+ (6, 6), (8, 8), (12, 11), (14, 13),
+1,null,null,What time is it ?
+2,null,null,Ten to nine .
+3,null,null,Your watch is ten minutes slow . So it's should be nine sharp . I'm gonna be late again . What will be my excuse this time ? It should be set the alarm for seven thirty .
+4,null,null,Don't cry over spilled milk . Fred ? Could you stay with me a few minutes ?
+5,null,null,What ? Why ? What's wrong with you ?
+6,sadness,fake_evidence,I just hate being alone at home with nothing to do about listen to the clock ticking . It ' s so lonely and boring . My sickness makes it worse . When will I recover ?
+7,null,null,You will be fine in the couple of month . just be patient . I've got to woke now . I'll be late .
+8,sadness,fake_evidence,You only care about your work .
+9,null,null,Sorry . baby . you are everything to me . all I do just for our family .
+10,null,null,Stay just a few minutes longer . OK ?
+11,null,null,OK . I'll leave at 9:15 . Is that all right ?
+12,happiness,fake_evidence,Yes .
+13,null,null,I'll spent more time with you in the future . Dina .
+14,happiness,fake_evidence,Thank you .
+1094 10
+ (2, 1), (2, 2), (4, 1), (4, 2), (4, 3), (7, 7), (10, 9),
+1,null,null,My name is Mary . and I will be your waitress tonight .
+2,happiness,fake_evidence,Thank you . Mary . We have been looking forward to trying out this restaurant .
+3,null,null,Before your main course . would you like to order an appetizer ?
+4,happiness,fake_evidence,Sure . that sounds great . Where are your appetizers listed ?
+5,null,null,There is a special appetizer menu right here in the center of the table .
+6,null,null,The chicken and cheese quesadilla looks good . Is that pretty good ?
+7,happiness,fake_evidence,You know . that is one of my favorites !
+8,null,null,OK . I'll take one order of that .
+9,null,null,You could choose another appetizer for half price to share .
+10,happiness,fake_evidence,Perfect ! Please add on an order of onion rings .
+1095 4
+ (1, 1), (2, 1), (2, 1), (3, 1), (4, 3),
+1,happiness,fake_evidence,I was really glad to hear about your award . Congratulations !
+2,happiness,fake_evidence,Thanks . Denise . Actually . I was really surprised . I mean . there were a lot of qualified people out there .
+3,happiness,fake_evidence,Sure . But the work you did was really exceptional ! You definitely deserved it !
+4,happiness,fake_evidence,Thanks a lot . I expect to see your name nominated pretty soon . too . You ' Ve been doing some great work !
+1096 7
+ (4, 3), (5, 4), (6, 3), (6, 5), (7, 4), (7, 7),
+1,null,null,What would you have ?
+2,null,null,I'll try Chinese wine .
+3,null,null,What about this dry red ? It's good indeed . it never goes to the head .
+4,happiness,fake_evidence,OK . Give me one . please .
+5,happiness,fake_evidence,Here it is .
+6,happiness,fake_evidence,Thank you .
+7,happiness,fake_evidence,I'm always at your service .
+1097 20
+ (1, 1), (3, 1), (3, 2), (3, 3), (15, 8), (15, 10), (15, 14), (19, 18),
+1,anger,fake_evidence,What are we going to do ? I can't get the car out of this ditch . I'm stuck !
+2,null,null,I'm worried . Tom . I haven't seen any other cars for almost an hour .
+3,anger,fake_evidence,I know . This is terrible . What can we do ? This snow doesn't stop falling !
+4,null,null,I told you we should have stayed in town today . The weather report said 100 percent chance of snow . Why did you want to come up here ?
+5,null,null,I wanted to show you the cabin . We only had another half-hour to go .
+6,null,null,Well . now we're stuck . What can we do ?
+7,null,null,I don't know .
+8,null,null,I've heard that when this happens . it's important to save energy .
+9,null,null,What do you mean ?
+10,null,null,We're stranded here . Tom . We may be here a long time . We need to conserve the gas in the car . The car's energy is what will keep us warm .
+11,null,null,I have plenty of gas .
+12,null,null,Yes . but the gas and the battery both have to stay working . We can't just let the car run and run . If we do . it will die soon . Then we'll freeze .
+13,null,null,So what can we do ?
+14,null,null,Turn the lights off . Then . run the car and the heater only about fifteen minutes every hour . That will conserve the heat as long as possible .
+15,happiness,fake_evidence,Alright . That's a good idea .
+16,null,null,I wish we hadn't come up here . Now we'll probably be here for days .
+17,null,null,Days ?
+18,null,null,Yes . it happens . That is what happens in big snowstorms . People get stranded for days .
+19,surprise,fake_evidence,Oh . my God ! It's good we have food .
+20,null,null,Probably we'll survive . But turn the car off for about forty-five minutes . Then we'll turn it on again .
+1098 13
+ (1, 1), (3, 2), (3, 3), (5, 2), (5, 3), (5, 4),
+1,surprise,fake_evidence,what happened ? Why didn't he win ?
+2,null,null,didn't you hear ? He was disqualified .
+3,surprise,fake_evidence,how did that happen ? He's so talented ! I thought he had a great chance of winning a gold medal !
+4,null,null,if he didn't have any drug problems . he would have won .
+5,surprise,fake_evidence,what ? What kind of drugs was he using ?
+6,null,null,he was taking steroids to make him stronger and faster .
+7,null,null,I thought that all athletes were supposed to be regularly tested for drugs .
+8,null,null,they are . The reason why they didn't disqualify him until after the race is because the results from the text only came back afterwards .
+9,null,null,that's so disappointing . I don't know why top athletes would feel the need to take drugs .
+10,null,null,I don't think it's right . but I can understand why they might . Imagine how much pressure there would be to win for your country !
+11,null,null,regardless of how much pressure you're under . there's never a good reason to take drugs .
+12,null,null,I agree . Hopefully with the new regulations . fewer athletes will try to cheat with drugs .
+13,null,null,let's hope so .
+1099 9
+ (1, 1), (5, 5), (9, 6), (9, 8),
+1,happiness,fake_evidence,Thank god you are open ! I have an emergency !
+2,null,null,Hello . Mr . Henderson what can I do for you ?
+3,null,null,I need this dress and this suit dry cleaned ASAP !
+4,null,null,OK . I can have it ready by the end of the week .
+5,fear,fake_evidence,No . you don ' t understand . I need this tomorrow morning ! I accidentally spilled beer all over my wife ' s dress and we have a wedding to attend tomorrow ! She ' s gonna kill me !
+6,null,null,OK . I can have it ready tomorrow afternoon . but this suit is also very stained . I can ' t guarantee we can remove it completely .
+7,null,null,Fine ! Can you also iron and starch this shirt ?
+8,happiness,fake_evidence,Certainly .
+9,happiness,fake_evidence,Great ! This is our secret ! If you see my wife . say nothing to her about this !
+1100 12
+ (3, 1), (3, 2), (3, 3), (5, 5), (7, 6), (7, 7), (8, 7), (12, 6), (12, 7), (12, 11),
+1,null,null,Hi . I'm looking for a gift for my niece .
+2,null,null,Well . little girls seem to love Barbie dolls .
+3,happiness,fake_evidence,That's perfect . I want to see one .
+4,null,null,Here you are -- she's called Digital Barbie .
+5,happiness,fake_evidence,Oh . I like Digital Barbie ! How much does she cost ?
+6,null,null,This Barbie is only $ 29 . 95 .
+7,happiness,fake_evidence,That's perfect . Let me have her .
+8,happiness,fake_evidence,Very good . Is there anything else you would like ?
+9,null,null,No . that'll do it for now .
+10,null,null,Including tax . your total will be $ 32 . 42 . Cash or charge ?
+11,null,null,Let me give you cash . please .
+12,happiness,fake_evidence,Here's your change and receipt . Thank you .
+1101 15
+ (1, 1), (3, 1), (3, 3), (3, 3),
+1,sadness,fake_evidence,I've been so tired recently . I've been trying . but I don't think I'm up to this job .
+2,null,null,You need to take a break . maybe a vacation .
+3,sadness,fake_evidence,Oh . yes . indeed . I've run out of steam . To be honest . I want to be in a different environment .
+4,surprise,fake_evidence,Is that so ?
+5,null,null,Yes . I don't want to be stuck in a rut . I want to move on .
+6,null,null,Have you decided ?
+7,null,null,Yes . I want to get a better job .
+8,null,null,Could you tell me why you want to quit ?
+9,null,null,I quit just because of the dissatisfying salary and the trouble in getting along with my colleagues .
+10,null,null,Oh . that's terrible . Do you want to get a higher salary in our company ?
+11,null,null,I'm afraid not . I've promised my girlfriend . We'll travel southwards to find a job that offers higher pay .
+12,null,null,OK . I'd like to say that I've really enjoyed working with you . However . I think you should work harder for your new job and then you can ask for higher pay .
+13,null,null,Thank you so much for your advice .
+14,null,null,And every best wish for your new job .
+15,null,null,Thank you .
+1102 8
+ (1, 1), (2, 1), (4, 3), (8, 5), (8, 7),
+1,happiness,fake_evidence,Guess what . Gilly ? I won both bids .
+2,happiness,fake_evidence,Good for you . Did you use Paypal ?
+3,null,null,Yeah . It was so easy and super-fast . once I figured it out .
+4,happiness,fake_evidence,That's the beauty of it . and the danger .
+5,null,null,I should get the items within a week . But in the meantime I'm bidding on a digital video camera .
+6,null,null,How much ?
+7,null,null,Thirty U . S . dollars ... and it's only been used for six months .
+8,happiness,fake_evidence,Mmmm . sounds like risky business . Good luck .
+1103 16
+ (1, 1), (2, 1), (2, 2), (2, 2), (3, 1), (3, 3), (10, 9), (10, 10), (15, 13), (15, 14),
+1,happiness,fake_evidence,Wow . this is amazing . I'm glad we've come here . So cool .
+2,happiness,fake_evidence,I always love skiing . You know . it's a cool game for cool people . Stay with me and you will be cool . too .
+3,happiness,fake_evidence,Hey . look over there . It seems that there is something interesting going on . Let's go and have a look .
+4,null,null,Sure . It's probably the skiing show . Adam told me there were many skiing clubs whose members put on shows to attract more visitors .
+5,null,null,See that . It's so dangerous . My mom would never allow me to do that .
+6,null,null,Hey . don't be so pathetic . It's a maximal sports show . What else can they do to attract more visitors ? Stop all this fuss and enjoy the show .
+7,null,null,You are right . But what if the avalanche happened ?
+8,null,null,They are all very experienced and great skiers . So I suppose the chance for them to be buried by an avalanche is slim .
+9,null,null,Anyway . the show is breathtaking . By the way . where did they get so much snow in here ?
+10,surprise,fake_evidence,Don't you know that ? Are you kidding me ?
+11,null,null,Hey . not everyone is as lucky as you to have a father who is a scientist .
+12,null,null,Sorry . Well . they have the most advanced snowmaking machine .
+13,null,null,Do you think the snowmaking may cause pollution ?
+14,null,null,It's possible . But the boss here said they were doing whatever they can .
+15,happiness,fake_evidence,It's a good thing . OK . let's go skiing .
+16,null,null,Here we go .
+1104 9
+ (5, 5), (6, 5), (7, 5), (7, 7), (8, 5), (8, 7),
+1,null,null,Am I ever hungry ? When will supper be ready ?
+2,null,null,It's almost ready . Can you set the table ?
+3,null,null,All right .
+4,null,null,Want to taste this dish ?
+5,happiness,fake_evidence,Yeah . Oh . it's delicious !
+6,surprise,fake_evidence,Really ?
+7,happiness,fake_evidence,Definitely . It's a wonderful meal . Thank you . Honey .
+8,happiness,fake_evidence,If you like to help me do the dishes . I'll be more dreadful .
+9,null,null,I wish I could . but I won't .
+1105 4
+ (1, 1), (2, 2), (3, 2), (3, 3), (4, 2), (4, 3),
+1,happiness,fake_evidence,Come on . fellows . Let's enjoy my wife's cooking !
+2,happiness,fake_evidence,Em . it's delicious !
+3,happiness,fake_evidence,Thank you ! My wife likes cooking very much .
+4,happiness,fake_evidence,You're lucky .
+1106 12
+ (1, 1), (2, 1), (4, 3), (12, 6), (12, 8), (12, 11),
+1,happiness,fake_evidence,Thank you for purchasing your new mattress with us .
+2,happiness,fake_evidence,No . thank you .
+3,null,null,Would you like us to deliver the mattress for you . sir ?
+4,happiness,fake_evidence,That would be great .
+5,null,null,When do you want it delivered ?
+6,null,null,I need it delivered tomorrow . Will that be possible ?
+7,null,null,What time exactly ?
+8,null,null,I need it delivered at 12 o'clock .
+9,null,null,We can have it to you at that time .
+10,null,null,That's not a problem ?
+11,null,null,We will deliver your mattress tomorrow at 12 o'clock .
+12,happiness,fake_evidence,That's great ! Thank you very much .

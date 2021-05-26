@@ -1,0 +1,697 @@
+1107 26
+ (1, 1), (2, 1), (2, 2), (3, 1), (4, 1), (4, 2), (5, 1), (6, 1), (6, 2), (9, 9), (11, 11), (14, 14), (16, 15), (18, 15), (18, 17), (18, 18), (20, 20), (23, 23), (24, 23), (24, 24), (25, 23), (25, 24), (25, 25), (26, 23), (26, 24), (26, 25),
+1,excited,fake_evidence,Ahh. It sent shivers up my spine.
+2,excited,fake_evidence,What shall we do if they suddenly walk in on us?
+3,excited,fake_evidence,Behave exquisitely.
+4,excited,fake_evidence,With the most perfect poise.
+5,excited,fake_evidence,Certainly I shall probably do a court curtsy.
+6,excited,fake_evidence,Things that ought to matter dreadfully don't matter at all when one's happy. do they?
+7,null,null,Don't say that. my darling.
+8,excited,fake_evidence,It's true the whole business is very poor joke.
+9,excited,fake_evidence,Don't laugh at me. I'm serious.
+10,null,null,Who's they?
+11,excited,fake_evidence,Oh. how long will it last. this ludicrous. over-bearing love of ours?
+12,null,null,Well who knows?
+13,null,null,What happens if one of us dies? Does the one that's left still laugh?
+14,excited,fake_evidence,Thank you. dear. The same applies to you except that if I catch you so much as looking at another woman. I'll kill you.
+15,null,null,Do you remember that awful scene in Venice?
+16,excited,fake_evidence,Which particular one?
+17,null,null,The one where you bought that little painted wooden snake and put it on my bed.
+18,excited,fake_evidence,Oh. Charles. That was his name. Charles he did wriggle so beautifully.
+19,null,null,Horrible thing. I hated it.
+20,excited,fake_evidence,Yes. I know you did. You threw him out of the window into the Grand Canal. I don't think I'll ever forgive you for that.
+21,null,null,How long did that row last?
+22,null,null,The worst one was in Cannes when your curling irons burnt holes in my dressing gown.
+23,excited,fake_evidence,It burnt my comb too and all the towels in the bathroom.
+24,excited,fake_evidence,Then the manager came in and found us rolling about on the floor biting and scratching like panthers.
+25,excited,fake_evidence,How ridiculous. How utterly. utterly ridiculous.
+26,excited,fake_evidence,And very much sillier.
+1108 37
+ (1, 1), (1, 1), (2, 1), (2, 1), (2, 2), (3, 1), (3, 1), (3, 2), (5, 1), (5, 1), (5, 2), (5, 5), (6, 1), (6, 1), (7, 1), (7, 1), (7, 2), (7, 7), (8, 1), (8, 1), (8, 2), (8, 7), (9, 7), (9, 9), (10, 10), (11, 10), (12, 1), (12, 1), (12, 2), (12, 7), (13, 13), (14, 14), (15, 15), (16, 16), (20, 16), (25, 16), (25, 20), (25, 23), (26, 16), (26, 20), (26, 26), (27, 16), (27, 20), (27, 26), (28, 28), (29, 28), (29, 29), (30, 28), (30, 29), (31, 1), (31, 1), (31, 2), (31, 31), (32, 32), (33, 33), (34, 34), (35, 35), (36, 36),
+1,excited,fake_evidence,Hey. what time is it? They're supposed to run around midnight. right? God. this is great. isn't it?
+2,excited,fake_evidence,Look at the night we got; couldn't be better.
+3,excited,fake_evidence,You know actually. I wanted to go a little further up the coast to get away from all the. the people and the lights. and uh- but I thought we'd miss it. Hey. how you doing?
+4,sad,fake_evidence,Fine.
+5,excited,fake_evidence,Oh. is that-is that-now. is that just foam. uhh. I can't even tell.
+6,excited,fake_evidence,Oh. though if I can't tell it probably isn't them. right? It probably would be unmistakable. wouldn't you think? Hey. how you doing?
+7,excited,fake_evidence,Oh. do you know what I forgot? I forgot my flashlight. How could I be so stupid. Oh. I-I should have brought my flashlight.
+8,excited,fake_evidence,Uh- you know. the flashlight. The silver one. There's only one. isn't there?
+9,angry,fake_evidence,I don't understand why you're always saying oh. it's mine. it's mine. It's not like it's just your flashlight. I mean. how do you think that makes me feel?
+10,excited,fake_evidence,We should have brought our flashlight. I can't believe we forgot to bring it.
+11,excited,fake_evidence,I hope the moon stays out.
+12,excited,fake_evidence,Hey. do they always run during a full moon? I can't remember if it was full last year. Do you remember?
+13,excited,fake_evidence,We should have brought the blanket. Oh. why didn't we bring the blanket? Our blanket.
+14,excited,fake_evidence,You know what would be good right now? A six-pack. Ah. I can't believe I forgot a six-pack. A six-pack would be just the ticket right about now.
+15,excited,fake_evidence,I'm so stupid. I'm like a little kid. I-it's amazing I get out of the house with my fly zipped. Oh- [LAUGHTER].
+16,excited,fake_evidence,I wonder if they can hear us talk. Or hear the vibrations in the sand when we move.
+17,null,null,Do you want my jacket?
+18,null,null,Right.
+19,null,null,Yeah. that's my point too.
+20,excited,fake_evidence,No. No. no. no. that's not my point. My point is there's no point in coming down here if we just turn around and leave.
+21,null,null,I mean. don't you want to see it?
+22,sad,fake_evidence,Not particularly.
+23,null,null,Why not?
+24,sad,fake_evidence,I don't know. I just don't.
+25,angry,fake_evidence,Pass up what? A bunch of fish. They swim up to the beach and they flop around and they swim away and then they die.
+26,frustrated,fake_evidence,I don't know why you're getting so excited. I mean. it's not like the landing of the moon or something. It's just fish. Fish that nobody eats.
+27,frustrated,fake_evidence,Oh. God. Augie.
+28,frustrated,fake_evidence,Yes. and if you also remember. I got sand in my panties. We got into an argument about nothing. You got a sore throat and we never saw the grunions.
+29,frustrated,fake_evidence,No. for God's sakes. we've never seen the grunions. We're not going to see them.
+30,frustrated,fake_evidence,We just weren't in a good spot. all right? This is a much better spot. I have a good instinct for these things. Look. is that-
+31,excited,fake_evidence,I wouldn't miss this for anything. I mean. think about this. Okay. I know you're not interested. but just think about this for a minute.
+32,excited,fake_evidence,And they all. all as one. turned as one and formed this line as big as the California coast and started swimming this way. Swimming as if that's the only thing that matters.
+33,excited,fake_evidence,You know. they didn't ask it a question. They didn't. they didn't take a vote. They didn't have an invitation or a map; they just started swimming as one.
+34,excited,fake_evidence,its single-mindedness with one mind. Urgency that's pure urge. You know. they don't give it a name.
+35,excited,fake_evidence,They don't ask it a question. They just. they just. they don't know what drives them. They just turn as one and start the swim that brings them to here
+36,excited,fake_evidence,where we stand for a massive celebration of sex and death. Oh. God. I'm giving myself goosebumps. Look. I'm all-all my hairs on my arms is sticking up.
+37,null,null,About what I just said.
+1109 26
+ (1, 1), (2, 2), (2, 2), (3, 3), (4, 3), (4, 4), (5, 2), (5, 2), (5, 4), (6, 3), (6, 4), (7, 2), (7, 2), (7, 4), (8, 3), (8, 4), (8, 8), (9, 8), (9, 9), (10, 3), (10, 4), (10, 8), (11, 3), (11, 4), (11, 8), (12, 3), (12, 4), (12, 8), (12, 12), (13, 2), (13, 2), (14, 3), (14, 4), (14, 8), (14, 12), (15, 2), (15, 2), (15, 15), (16, 2), (16, 2), (16, 15), (17, 3), (17, 4), (17, 8), (17, 12), (18, 3), (18, 4), (18, 8), (18, 12), (19, 19), (20, 2), (20, 2), (20, 20), (22, 3), (22, 4), (22, 8), (22, 12), (23, 3), (23, 4), (23, 8), (23, 12), (23, 23), (24, 2), (24, 2), (25, 2), (25, 2), (25, 25), (26, 3), (26, 4), (26, 8), (26, 12), (26, 26),
+1,sad,fake_evidence,I don't want you to go.
+2,sad,fake_evidence,I know. I know. I don't want to go either baby. I love you know. And I'm going to miss you a lot.
+3,sad,fake_evidence,I'm going to miss you too; I don't know what I'm going to do here without you. It's going to be so lonely. and so hard.
+4,sad,fake_evidence,I don't want to be a single mom.
+5,sad,fake_evidence,You won't be. I'll be back; I'll be back before you know it. All right. and
+6,sad,fake_evidence,but
+7,sad,fake_evidence,and
+8,sad,fake_evidence,It's dangerous; I mean how can you make sure that you'll
+9,frustrated,fake_evidence,It's- It's dangerous anywhere. honey. I mean this is -this- I'm just going to go and we'll get it over with.
+10,sad,fake_evidence,I hope so.
+11,sad,fake_evidence,I hope so.
+12,sad,fake_evidence,It's going to be really rough.
+13,sad,fake_evidence,You gotta take care of our baby for me. alright?
+14,sad,fake_evidence,I'll send you lots of pictures.
+15,sad,fake_evidence,I hope so. because I'm not going to be able to survive without all that. I don't know what I'm going to do.
+16,sad,fake_evidence,I've never been - I've never been away from you for two weeks let alone a year.
+17,sad,fake_evidence,Well. just promise me that you going to be safe.
+18,sad,fake_evidence,I mean can't they put you in like. you know kitchen work or something where you won't get
+19,frustrated,fake_evidence,It doesn't make any sense; I don't know why we have to be at war in the first place.
+20,sad,fake_evidence,there's people that thought it was the right thing to do so now we have to- we have to do what we have to do for our country
+21,null,null,and it'll work out you know. go there and do that. Yeah. I'll be back
+22,sad,fake_evidence,Will you write me letters. paper ones?
+23,sad,fake_evidence,Our baby needs a dad; you can't leave. Okay. you can't disappear.
+24,sad,fake_evidence,Our baby has a dad. alright. Daddy is going to be back soon.
+25,sad,fake_evidence,I want you to. you know. take lots of video; pictures and I can see you when I get back or while I'm there. I'm going to miss you.
+26,sad,fake_evidence,I'll miss you too.
+1110 53
+ (2, 2), (3, 2), (3, 3), (4, 2), (4, 3), (4, 4), (5, 2), (5, 3), (5, 4), (5, 5), (6, 2), (6, 3), (6, 4), (6, 5), (7, 2), (7, 3), (7, 4), (7, 5), (8, 8), (9, 8), (9, 9), (10, 8), (10, 9), (10, 10), (11, 8), (11, 9), (11, 10), (11, 11), (12, 8), (12, 9), (12, 10), (12, 11), (13, 12), (14, 14), (15, 14), (15, 15), (16, 14), (16, 15), (16, 16), (17, 14), (17, 15), (17, 16), (17, 17), (18, 14), (18, 15), (18, 16), (18, 17), (18, 18), (19, 14), (19, 15), (19, 16), (19, 17), (19, 18), (19, 19), (20, 14), (20, 15), (20, 16), (20, 17), (20, 18), (20, 19), (20, 20), (21, 20), (22, 20), (23, 20), (28, 20), (28, 27), (29, 20), (29, 27), (29, 28), (30, 20), (30, 27), (30, 29), (31, 20), (31, 27), (31, 29), (31, 31), (32, 14), (32, 15), (32, 16), (32, 17), (32, 31), (32, 32), (34, 14), (34, 15), (34, 16), (34, 17), (34, 31), (34, 32), (34, 33), (38, 14), (38, 15), (38, 16), (38, 17), (38, 31), (38, 32), (38, 37), (38, 38), (40, 14), (40, 15), (40, 16), (40, 17), (40, 31), (40, 32), (40, 39), (41, 14), (41, 15), (41, 16), (41, 17), (41, 31), (41, 32), (41, 39), (42, 20), (42, 27), (42, 30), (42, 31), (42, 42), (43, 20), (43, 27), (43, 30), (43, 31), (43, 42), (43, 43), (44, 20), (44, 27), (44, 30), (44, 31), (44, 42), (44, 43), (45, 20), (45, 27), (45, 30), (45, 31), (45, 42), (45, 43), (45, 45), (46, 45), (47, 20), (47, 27), (47, 30), (47, 31), (47, 42), (47, 43), (47, 45), (48, 45), (48, 47), (49, 45), (49, 47), (49, 49), (50, 49), (50, 50), (51, 50), (51, 51), (52, 50), (52, 51), (52, 52), (53, 50), (53, 51), (53, 52), (53, 32),
+1,sad,fake_evidence,What's he going to say? Maybe we should tell him before he sees it.
+2,sad,fake_evidence,He saw it.
+3,sad,fake_evidence,He was out here when it broke.
+4,sad,fake_evidence,Around Four this morning. and there was a crack and I looked out. We're standing right there when I cracked.
+5,sad,fake_evidence,I don't know. but When it cracked he ran back into the house and start to cry in the kitchen.
+6,sad,fake_evidence,Did you talk to him?
+7,sad,fake_evidence,No. I figured it was best to leave him alone.
+8,sad,fake_evidence,He cried hard.
+9,sad,fake_evidence,I could hear him right through the floor of my room.
+10,sad,fake_evidence,He is thinking about him again.
+11,sad,fake_evidence,It's getting just like after Larry died. he's having dreams. he's walking around at night.
+12,sad,fake_evidence,I guess. he is.
+13,sad,fake_evidence,What's the meaning of that?
+14,sad,fake_evidence,I don't know the meaning of it. But I know one thing mom did. We made a terrible mistake with dad.
+15,sad,fake_evidence,Being dishonest with him. It's the kind of thing that pays off and now it's paying off.
+16,sad,fake_evidence,You know that Larry's not coming back. and I know it. So why do we go on letting him think that we believe with him?
+17,frustrated,fake_evidence,No um. I don't want to argue with him. but it's time we realized that nobody else believes that Larry is alive.
+18,frustrated,fake_evidence,Why shouldn't he dream about him. walk around during the night. looking for him um. Do we contradict him? Do we say outright that we don't have any hope anymore. that we haven't had any for years now?
+19,frustrated,fake_evidence,We have to say it to him!
+20,angry,fake_evidence,For God's sake. mom. three years. Nobody comes back after three years! It's insane!
+21,frustrated,fake_evidence,To you it is. and to me. but not to your father. Now look. you can talk yourself blue in the face. but there's no body. and there's no grave. so where are you?
+22,frustrated,fake_evidence,Sit down. mom. I want to talk to you.
+23,frustrated,fake_evidence,All right. All right mom. Listen!
+24,sad,fake_evidence,You know why I asked Annie here. don't you?
+25,frustrated,fake_evidence,You know.
+26,null,null,Well I got an idea. But what's the story?
+27,null,null,I'm going to ask her to marry me.
+28,frustrated,fake_evidence,You know that's not just my business.
+29,frustrated,fake_evidence,So it's all right. I can go ahead with it then?
+30,frustrated,fake_evidence,I ignore what I got to ignore. The girl is Larry's girl.
+31,frustrated,fake_evidence,Now Chris you can go on from there. but I don't know what to do. I mean do you know what to do. because I don't.
+32,frustrated,fake_evidence,I don't know why it is. But every time I reach out for something I want. I have to pull back because other people will suffer. My whole bloody life. time after time. after time.
+33,null,null,Well you're a considerate fellow. there's nothing wrong with that.
+34,angry,fake_evidence,To hell with that!
+35,null,null,Have you asked Annie yet to marry you?
+36,null,null,Well how did you know that she will go along with it. I mean maybe she feels the same way as your father?
+37,null,null,The trouble is you don't see enough women. you never have
+38,frustrated,fake_evidence,So what. I'm not fast with women.
+39,null,null,Well I just don't see why it has to be Annie.
+40,frustrated,fake_evidence,Because it is.
+41,frustrated,fake_evidence,I can't help it. I know her best. I was brought up next door to here. the easiest. when I think of somebody for my wife. I think of Annie. Do you want a diagram?
+42,frustrated,fake_evidence,No. I don't want a diagram. but. Chris. your father thinks Larry's coming back.
+43,sad,fake_evidence,You marry his girl. and you're pronouncing him dead. Now what's going to happen to your father. do you know? I don't.
+44,frustrated,fake_evidence,All right. then. Mom.
+45,frustrated,fake_evidence,I've given it three years of thought. And hope by now that he wouldn't. Can you forget about Larry an-- and we can have a regular wedding and have everybody be happy. But that can't happen here. I'm set to get out.
+46,angry,fake_evidence,What the hell is this?
+47,frustrated,fake_evidence,I'll get out. I'll get married and live some place else. Maybe. maybe New York?
+48,angry,fake_evidence,Are you crazy?
+49,frustrated,fake_evidence,Wait a minute. Tell me this. Do you mean to say that you would leave the business?
+50,angry,fake_evidence,The business? The business? It doesn't inspire me?
+51,frustrated,fake_evidence,Don't- you. you can't think like that! Don't think like that!
+52,angry,fake_evidence,All right! But don't think like that. because I mean. what the hell did we do all this for. Chris? The whole business it's all for you! The whole shooting match is for you!
+53,frustrated,fake_evidence,I don't understand you. do I?
+1111 54
+ (4, 1), (4, 4), (5, 1), (5, 4), (6, 5), (6, 6), (7, 1), (7, 1), (7, 4), (8, 5), (8, 6), (8, 8), (9, 1), (9, 4), (9, 8), (9, 9), (10, 5), (10, 6), (10, 8), (11, 9), (11, 10), (12, 11), (13, 9), (13, 10), (13, 12), (14, 9), (14, 10), (14, 13), (15, 5), (15, 6), (15, 8), (15, 14), (16, 15), (16, 16), (17, 15), (17, 16), (17, 17), (18, 15), (18, 16), (18, 17), (19, 15), (19, 16), (19, 17), (20, 15), (20, 16), (20, 17), (21, 15), (21, 16), (21, 17), (27, 24), (29, 26), (30, 29), (31, 26), (32, 31), (33, 26), (34, 33), (35, 26), (36, 29), (36, 31), (36, 33), (36, 35), (37, 29), (37, 31), (37, 33), (37, 35), (38, 37), (38, 38), (39, 37), (39, 38), (40, 39), (41, 37), (41, 38), (42, 41), (42, 42), (43, 37), (43, 38), (43, 42), (44, 5), (44, 6), (44, 8), (44, 44), (45, 5), (45, 6), (45, 8), (46, 5), (46, 6), (46, 8), (47, 47), (48, 47), (49, 49), (50, 49), (51, 50), (51, 51), (52, 52), (53, 53), (54, 51), (54, 52), (54, 54),
+1,null,null,Look at this. goose bumps.
+2,null,null,Well so what'd you think?
+3,null,null,What I said.
+4,frustrated,fake_evidence,Certainly is not. It's slightly exaggerated scientific fact.
+5,frustrated,fake_evidence,Carla. can I ask you something? Don't take this the wrong way. but are you having your period?
+6,angry,fake_evidence,Goddamn it. Augie. don't ask me that. I hate it when you ask me that. You always ask me that. It's insulting.
+7,angry,fake_evidence,Well what's bugging you?
+8,angry,fake_evidence,We just have different ideas about what this evening is supposed to look like.
+9,angry,fake_evidence,There's nothing to it. We come down here. The grunions arrive. They do their little fish business. We go ooh. ah. look at the fish. They go home. We go home.
+10,angry,fake_evidence,We never do. do we? Have we ever?
+11,frustrated,fake_evidence,Twice is every time we've tried. That's ever.
+12,frustrated,fake_evidence,We'll see them this year.
+13,frustrated,fake_evidence,You don't have any idea what I'm saying.
+14,frustrated,fake_evidence,No. of course. not.
+15,angry,fake_evidence,I did want to see it. I always do. I keep thinking this time will be the time. but it never is.
+16,frustrated,fake_evidence,It's just fish; nothing to get traumatized over.
+17,frustrated,fake_evidence,I've been trying to work this backwards. but I can't seem to pinpoint the moment when we took a turn for the worse.
+18,frustrated,fake_evidence,You were fine during the phone call from Marge. Dinner was okay. Doing the dishes was no problem. Let's see. I took a shower. Uh. you watched the news. You said the grunions are running tonight. I said great. let's go. I feel lucky tonight.
+19,frustrated,fake_evidence,Uh.okay. So I'm putting on my jacket; putting out the animals;
+20,frustrated,fake_evidence,uh. taking the car out of the gara- out of the garage.
+21,frustrated,fake_evidence,Uh.
+22,sad,fake_evidence,It was about four years ago. right after we got married. We thought I was pregnant and we had a bottle of champagne but no glasses. You asked me to dance. So we took off our shoes and you popped the cork.
+23,null,null,Wait a minute. I've got it.
+24,sad,fake_evidence,Dancing barefoot in the sand; drinking champagne from the bottle.
+25,null,null,It was in the car. right? Driving past the Knickerbocker Liquor Locker? You said let's get some champagne and I said times a wasting or something like that. Right? That's it. right? You want this to be like the other time. That's it. Of course.
+26,sad,fake_evidence,I'd rather not remember some things. I'd rather not hope for some things.
+27,sad,fake_evidence,No.
+28,sad,fake_evidence,No.
+29,frustrated,fake_evidence,What. you want me to breathe in your ear?
+30,frustrated,fake_evidence,No.
+31,frustrated,fake_evidence,You want to get married again?
+32,frustrated,fake_evidence,No.
+33,frustrated,fake_evidence,What. you want a divorce?
+34,frustrated,fake_evidence,No.
+35,frustrated,fake_evidence,A vacation?
+36,angry,fake_evidence,No.
+37,angry,fake_evidence,I want something to turn out the way it's supposed to.
+38,angry,fake_evidence,Well welcome to the human race. You think this is what I had in mind? You think that when I proposed. I had this great fantasy going that four years down the line. we'd come to the beach and yell at each other over fish? No.
+39,angry,fake_evidence,And we'll have three fat rosy kids and ha. ha. ha. baby. the joke's on us. 'cause you know what you get. Carla? You know what you get? This.
+40,angry,fake_evidence,This what? What is this? This isn't even anything.
+41,frustrated,fake_evidence,Yes. it is.
+42,angry,fake_evidence,Oh. right. sure. This is standing on the beach. This is waiting. This is fighting.
+43,frustrated,fake_evidence,Right.
+44,angry,fake_evidence,But this isn't anything like I thought anything would be like.
+45,angry,fake_evidence,No. I know. me neither.
+46,frustrated,fake_evidence,I'm doing the best I can.
+47,frustrated,fake_evidence,I know you are. Augie. Really. I do. I know you meant for this to be special and nice and it's the full moon and the sand and everything. But I just couldn't help thinking about being somewhere else.
+48,sad,fake_evidence,I didn't say that.
+49,sad,fake_evidence,No. I know. But still. I know I don't make you happy.
+50,happy,fake_evidence,Actually. now that you mention it. no. I don't.
+51,happy,fake_evidence,Okay. fine. So we're in the wrong spot. but we're with the right person.
+52,happy,fake_evidence,I don't know. It seemed like a good spot to me. I mean. look at the view you've got of the moon from here.
+53,happy,fake_evidence,Yeah. I noticed that. Looks pretty on the water. doesn't it? Big ol' white moon. I'm sorry. Augie.
+54,happy,fake_evidence,Shh. If we're very quiet. the fish might come.
+1112 26
+ (1, 1), (2, 1), (3, 1), (3, 3), (5, 3), (6, 3), (6, 6), (9, 3), (9, 6), (10, 1), (10, 3), (10, 5), (12, 1), (12, 3), (13, 13), (14, 13), (14, 14), (15, 3), (15, 6), (15, 15), (16, 1), (16, 16), (17, 16), (18, 16), (19, 1), (19, 16), (19, 19), (20, 16), (21, 21), (22, 21), (23, 21), (24, 21), (25, 21), (26, 21), (26, 26),
+1,angry,fake_evidence,Why did he invite her here?
+2,frustrated,fake_evidence,Why does that bother you?
+3,angry,fake_evidence,Well she's been away for three and a half years in New York and suddenly she just shows up.
+4,null,null,Well maybe. maybe he just wanted to see her.
+5,frustrated,fake_evidence,uh-uh What do you mean? They grew up next to each other their entire lives. Why shouldn't he want to see her?
+6,frustrated,fake_evidence,Hey don't look at me like that. I don't know anymore than you.
+7,null,null,Who said he even thought about that?
+8,null,null,Well. so what?
+9,frustrated,fake_evidence,Now listen kid...
+10,angry,fake_evidence,No. She's not his girl Joe and she knows that.
+11,null,null,How do you know why she's waited? Hmmm?
+12,angry,fake_evidence,I mean. her faith is stronger than a rock.
+13,sad,fake_evidence,My worst times I think about her. you know. and I
+14,sad,fake_evidence,it's like I know as long as she's waiting I'm right again.
+15,frustrated,fake_evidence,Look at how nice the day is. What are we arguing for?
+16,angry,fake_evidence,No. Nobody in my house better dare and challenge her faith. You know and maybe strangers but not his father. not his brother.
+17,frustrated,fake_evidence,What do you want me to do? What do you want?
+18,frustrated,fake_evidence,But Kate...
+19,angry,fake_evidence,Laugh. laugh at me but I will. Because you know what happened when she came here? When she came back she slept in his room. the memorial broke into pieces. Joe. look. Look at it. You got to believe with me.
+20,frustrated,fake_evidence,Okay. Calm yourself. Just calm yourself.
+21,sad,fake_evidence,Look. it was just last week that Detroit. some boy came back he had been away longer than Larry. you can read it for yourself. You above all people have got to believe.
+22,angry,fake_evidence,Alright. alright. calm yourself okay? Calm yourself. Wait. wait. What do you mean. me above all?
+23,angry,fake_evidence,Wait. what does that mean? Me above all?
+24,angry,fake_evidence,Look at you. you're shaking.
+25,sad,fake_evidence,I can't help it.
+26,angry,fake_evidence,What do I got to hide? Huh? What the hell's the matter with you Kate?
+1113 54
+ (16, 6), (17, 17), (18, 17), (19, 17), (20, 17), (21, 17), (22, 17), (26, 23), (26, 26), (27, 23), (27, 26), (28, 23), (28, 26), (29, 17), (29, 23), (29, 26), (30, 17), (30, 23), (30, 26), (31, 17), (31, 23), (31, 26), (31, 31), (32, 32), (33, 32), (34, 34), (36, 33), (36, 36), (37, 36), (38, 36), (39, 36), (39, 39), (40, 39), (40, 40), (40, 40), (42, 40), (42, 42), (44, 42), (45, 42), (45, 44), (46, 46), (47, 46), (47, 47), (48, 48), (48, 48), (50, 50), (51, 50), (51, 51), (52, 51), (52, 52), (54, 53), (54, 54),
+1,null,null,You're the only one who still loves his parents.
+2,null,null,I know. It kind of went out of style. didn't it?
+3,null,null,It's not so bad; it's a good thing.
+4,null,null,[BREATHING] You know. it's lovely here. The air is sweet.
+5,null,null,You're not sorry you came.
+6,null,null,I'm not sorry. no. But I'm...I can't stay.
+7,null,null,For one thing. your mother much as told me to go.
+8,null,null,Well.
+9,null,null,And then. you. You've been kind of...
+10,null,null,What?
+11,null,null,Sort of embarrassed ever since I got here.
+12,null,null,Well I was kind of planning of sneaking up on you over the course of a week or so. They just take it for granted that we're all set.
+13,null,null,I knew they would.
+14,null,null,Well sure. from your mother's point of view. Why else would I come?
+15,null,null,I. umm. I guess. I guess that's kind of why I came.
+16,happy,fake_evidence,[BREATHING]
+17,happy,fake_evidence,I love you. Annie. I love you.
+18,happy,fake_evidence,[LAUGHTER]
+19,happy,fake_evidence,I don't really have any imagination. that's all I know how to say.
+20,happy,fake_evidence,[LAUGHTER]
+21,happy,fake_evidence,Am I embarrassing you? Are you - See. I didn't want to do it here with this yard. on this porch. I wanted it to be somewhere new. some place fresh for both of us.
+22,happy,fake_evidence,No. No
+23,null,null,Chris. I've been ready a long. long. time.
+24,null,null,I almost got married two years ago.
+25,null,null,You started to write me.
+26,happy,fake_evidence,Every day since.
+27,happy,fake_evidence,Why didn't you let me know?
+28,happy,fake_evidence,Give me a...
+29,happy,fake_evidence,Give me a kiss.
+30,happy,fake_evidence,beating around the bush.
+31,happy,fake_evidence,I will never forgive you. All I'd done was sit around wondering if I was crazy waiting so long. wondering if you were thinking about me.
+32,happy,fake_evidence,Oh Annie. we are going to live now. I am going to make you so happy.
+33,happy,fake_evidence,Not like that you're not.
+34,happy,fake_evidence,I kissed you.
+35,null,null,Like Larry's brother. Do it like you. Chris.
+36,sad,fake_evidence,Hey. let's drive some place. Huh? Let's get out of here.
+37,sad,fake_evidence,No it's nothing like that. It's-
+38,sad,fake_evidence,Yeah. I suppose I have been. But it's going from me.
+39,sad,fake_evidence,I don't even know how to start.
+40,sad,fake_evidence,It's just all mixed up with so many other things. you know? You know overseas I was in command of a company?
+41,null,null,Yeah. sure.
+42,sad,fake_evidence,Well I lost them.
+43,null,null,How many?
+44,sad,fake_evidence,Pretty much all.
+45,sad,fake_evidence,Aw. geez.
+46,sad,fake_evidence,You can't just toss off a thing like that because they weren't just men. You know?
+47,sad,fake_evidence,Like for instance. there was this one time it had been raining for several days and this kid he just came up to me and he gave me his last pair of dry socks. He just put them in my pocket. That's a little thing. you know. but that's what kind of guys I had.
+48,sad,fake_evidence,They didn't die. they killed themselves for each other. I mean that. exactly. Just a little more selfish and they would all be here today.
+49,null,null,Mmhmm.
+50,sad,fake_evidence,To bring that on to the earth again. you know. is like some kind of monument and I thought I would just make a difference to them.
+51,sad,fake_evidence,But then I came home and it was incredible. you know? The whole thing was just kind of this random bus accident. You know. I went back to the rat race again. I went to work.
+52,sad,fake_evidence,And I didn't want any of it. I guess that included you.
+53,null,null,I just want you to know Annie.
+54,happy,fake_evidence,What would I do with a fortune?
+1114 35
+ (1, 1), (2, 2), (2, 2), (3, 2), (4, 2), (5, 2), (6, 2), (7, 2), (7, 7), (8, 7), (8, 8), (8, 8), (9, 8), (11, 11), (12, 11), (13, 11), (14, 11), (14, 14), (15, 11), (15, 14), (15, 15), (16, 15), (17, 11), (17, 14), (17, 15), (17, 17), (18, 18), (19, 19), (20, 19), (20, 20), (21, 19), (21, 21), (22, 19), (22, 20), (23, 19), (23, 20), (24, 23), (24, 24), (25, 23), (25, 24), (25, 25), (26, 23), (26, 24), (26, 25), (27, 24), (27, 25), (27, 24), (28, 23), (28, 24), (28, 25), (29, 23), (29, 24), (29, 25), (30, 24), (30, 25), (30, 24), (31, 23), (31, 24), (31, 25), (32, 23), (32, 24), (32, 25), (32, 32), (33, 24), (33, 25), (33, 24), (33, 32), (34, 24), (34, 25), (34, 24), (34, 32), (35, 23), (35, 24), (35, 25),
+1,excited,fake_evidence,Oh. my God. look at that. Huh-oh. how many carats is that?
+2,happy,fake_evidence,I know. [LAUGHTER]. Dude. I don't know. It's- Probably. It's huge. I don't even know how to like wear it. My hand is like going down like really low. I can't believe it.
+3,excited,fake_evidence,Like eighteen? [LAUGHTER]
+4,excited,fake_evidence,Oh. Jesus.
+5,happy,fake_evidence,Is it-
+6,excited,fake_evidence,yeah [LAUGHTER]
+7,excited,fake_evidence,Yeah. The Lousy Chaperone. [LAUGHTER] Uh huh.
+8,happy,fake_evidence,Right. Right. Right. So. and there's like a whole like wedding scene in it. All right. not the--Drowsy. Drowsy [LAUGHTER] --not the Lousy. [LAUGHTER]. Um - So Drowsy. So I go to see this Drowsy Chaperone. And uh-
+9,excited,fake_evidence,[LAUGHTER] Uh- Drowsy.
+10,excited,fake_evidence,at the end of the performance. you know. like we're all clapping and stuff. And all of a sudden I look over and
+11,excited,fake_evidence,Joe's gone. -where did he go. you know?
+12,happy,fake_evidence,Uh huh. Oh-
+13,excited,fake_evidence,And I'm like oh. he went to the- -the bathroom. but he didn't tell me. I didn't even notice him leaving. And all of a sudden. I swear to God. I'm sitting there and-
+14,excited,fake_evidence,he comes up onstage-- And the entire cast everyone just like
+15,excited,fake_evidence,goes up there and everyone's clapping and he's standing there and they put a spotlight on him.
+16,excited,fake_evidence,Oh. my God.
+17,excited,fake_evidence,And I'm like freaking out. I'm like what the hell's going on. you know. I don't know what's going on. And so he's like standing there and then all of a sudden they give him a microphone-
+18,happy,fake_evidence,and he just starts doing like this little spiel about me and like
+19,excited,fake_evidence,he asked me to marry him. like- onstage. I was like. I couldn't believe--and I had to walk up there and I was. like I think I tripped or something.
+20,excited,fake_evidence,Yeah. I said yes. but I. yeah. I mean.
+21,excited,fake_evidence,I don't know- it just like took me. took me by surprise.
+22,happy,fake_evidence,He scored points.
+23,happy,fake_evidence,Did you get a standing ovation?
+24,happy,fake_evidence,Oh. yeah. Everyone--yeah. And people--friends of ours were in the audience. I didn't know about. like family members.
+25,excited,fake_evidence,Yeah. It was great.
+26,excited,fake_evidence,It was--I cried.
+27,happy,fake_evidence,No. you deserve to cry. I mean. tears of happiness.
+28,happy,fake_evidence,like a loser. I cried.
+29,happy,fake_evidence,But. I don't know. I--it's so weird to think I'm marrying somebody 'cause I feel so young. you know?
+30,happy,fake_evidence,So where- where- where is this--have you talked about where it's going to be?
+31,happy,fake_evidence,No. No plans. or any- and probably
+32,happy,fake_evidence,like I think I want to get married--I want to have two weddings. One here. then one in Europe.
+33,happy,fake_evidence,He's rich enough. Maybe you can rent out the Eiffel Tower for your--
+34,excited,fake_evidence,That's awesome. [LAUGHTER] Marriage.
+35,excited,fake_evidence,Yeah. I'm so excited. [LAUGHTER].
+1115 43
+ (2, 2), (3, 2), (5, 2), (5, 4), (5, 5), (6, 2), (6, 4), (6, 5), (7, 2), (7, 7), (8, 2), (8, 7), (8, 8), (9, 2), (9, 9), (10, 2), (10, 9), (10, 10), (11, 2), (11, 9), (11, 10), (11, 11), (12, 2), (12, 9), (12, 10), (12, 11), (12, 12), (13, 2), (13, 9), (13, 10), (13, 11), (13, 12), (14, 2), (14, 9), (14, 10), (14, 11), (14, 12), (14, 14), (15, 2), (15, 9), (15, 10), (15, 11), (15, 12), (15, 14), (15, 15), (17, 17), (19, 17), (19, 19), (20, 17), (20, 19), (20, 20), (22, 21), (22, 22), (24, 21), (24, 22), (26, 21), (26, 22), (26, 25), (26, 26), (27, 21), (27, 22), (27, 25), (27, 26), (27, 27), (28, 21), (28, 22), (28, 25), (28, 26), (28, 27), (28, 28), (29, 21), (29, 22), (29, 25), (29, 26), (29, 27), (29, 28), (29, 29), (31, 31), (32, 32), (33, 32), (33, 33), (34, 32), (34, 33), (34, 34), (35, 32), (35, 33), (35, 34), (35, 35), (36, 32), (36, 33), (36, 34), (36, 35), (37, 32), (37, 33), (37, 34), (37, 35), (37, 37), (38, 37), (38, 38), (39, 37), (39, 38), (39, 39), (40, 37), (40, 38), (40, 39), (40, 40), (41, 37), (41, 38), (41, 39), (41, 40), (41, 41), (42, 37), (42, 38), (42, 39), (42, 40), (42, 41), (42, 42),
+1,excited,fake_evidence,I wonder.
+2,excited,fake_evidence,what. Nobody knows we are here except Freda and she wouldn't ring up.
+3,excited,fake_evidence,What do we do?
+4,null,null,We're all right. aren't we. darling. whatever happens?
+5,excited,fake_evidence,Now and always. my sweet.
+6,excited,fake_evidence,I don't care then.
+7,excited,fake_evidence,It was bound to happen sooner or later.
+8,excited,fake_evidence,Oh. it sent shivers up my spine.
+9,excited,fake_evidence,Oh. what shall we do if they suddenly walk in on us.
+10,excited,fake_evidence,With the worst- with the most perfect poise?
+11,excited,fake_evidence,Uhh. It's amazing how once you feel--
+12,excited,fake_evidence,things that ought to matter most dreadfully don't matter at all when one's happy. do they?
+13,excited,fake_evidence,Uhh. You mustn't say that. my darling.
+14,excited,fake_evidence,Being that sacred and wonderful thing. love.
+15,excited,fake_evidence,Um What does it all mean? That's what I ask myself in my endless quest for ultimate truth. Dear God. what does it all mean?
+16,null,null,Don't laugh at me. I'm serious.
+17,excited,fake_evidence,You mustn't be serious. darling. That's just what they want.
+18,null,null,Who's they?
+19,excited,fake_evidence,All the futile mortals who try to make life unbearable. Laugh at them. Be flippant. Laugh at everything. all their sacred shibboleths.
+20,excited,fake_evidence,uh- the- Being flippant brings out the acid in their damned beauty and light.
+21,null,null,If I laugh at everything. then I must laugh at us too.
+22,excited,fake_evidence,Certainly you must. We are figures of fun all right.
+23,null,null,Well. will we always bicker and fight?
+24,excited,fake_evidence,No. That fire will fade along with our passion.
+25,null,null,What if one of us dies. does the other one laugh then?
+26,excited,fake_evidence,Yes. yes. with all his might.
+27,excited,fake_evidence,No. no that is quit laughable. The cutting little mystery all done with mirrors.
+28,excited,fake_evidence,So is everyone else in the long run. Let's be superficial and pity the poor philosophers. Let's blow trumpets and squeakers and enjoy the party as long as we can. like little quiet idiotic school children.
+29,excited,fake_evidence,[garbage] Darling. kiss me before your body rots and worms start popping in and out of your eye sockets.
+30,null,null,Elliott. worms don't pop.
+31,excited,fake_evidence,I don't care what you do. See. you could paint your body bright green and and run naked through the Place Vendome and run with every man in the world and I shan't say a word. As long as I know that you love me best.
+32,excited,fake_evidence,Do you remember that awful scene we had in Venice?
+33,excited,fake_evidence,The one where you bought that little painted wooden stake and you put it on my bed.
+34,excited,fake_evidence,Horrible thing. I hated it.
+35,excited,fake_evidence,I know you did. You threw it out the window into the Canal below. I don't think I'll ever forgive you for that.
+36,excited,fake_evidence,How long did that roue last?
+37,excited,fake_evidence,Oh. The worst one was in Cannes when your curling iron burnt a hole in my new dressing gown?
+38,excited,fake_evidence,Oh. It burnt my comb and all the towels in the bathroom.
+39,excited,fake_evidence,[LAUGHTER] That was quit a rouser. wasn't it?
+40,excited,fake_evidence,Oh. I didn't hit you very hard.
+41,excited,fake_evidence,I should never forget his face. [LAUGHTER]
+42,excited,fake_evidence,We were very much younger then.
+43,null,null,You knew there was nothing in that.
+1116 28
+ (2, 2), (3, 2), (4, 2), (5, 5), (5, 2), (6, 5), (6, 2), (7, 5), (7, 2), (8, 7), (8, 5), (8, 2), (9, 7), (9, 5), (9, 2), (10, 9), (10, 10), (11, 5), (11, 2), (11, 10), (11, 11), (12, 11), (13, 13), (14, 14), (15, 14), (16, 15), (16, 13), (17, 2), (19, 2), (19, 19), (21, 20), (22, 22), (23, 2), (24, 2), (25, 2), (25, 25), (27, 26), (27, 27), (27, 2), (28, 2),
+1,excited,fake_evidence,Did you get the letter?
+2,excited,fake_evidence,Yes. There's a big envelope it says. you're in. I know.
+3,excited,fake_evidence,Yeah. That is so awesome.
+4,excited,fake_evidence,Oh my God. What are you going to do? [LAUGHTER]
+5,excited,fake_evidence,Oh-Yeah. I bet you're really excited. Oh. That's what loans are for? Right? Exactly.
+6,excited,fake_evidence,I'm really excited. Yeah. I don't know how I'm going to pay for anything. but... I also- Yeah. Loans. too. yeah. I applied. though. for a bunch of grants and scholarships so I'm still waiting to hear on that.
+7,excited,fake_evidence,Oh. Good. good. That's awesome. Are you going to stay around here? Or are you going to like get a different neighborhood- you going to move to a different neighborhood?
+8,excited,fake_evidence,Oh- I know. I know. I know. I know.
+9,excited,fake_evidence,I don't know. I spend so much time commuting as it is. I'd rather.
+10,excited,fake_evidence,This is so- I am so happy that you're going to stay. You're not going to...We should totally throw a party.
+11,excited,fake_evidence,I know. We should throw a party.
+12,excited,fake_evidence,A rapper party ho. Yeah. Okay.
+13,excited,fake_evidence,I am just- Yeah. I'm sticking around. I'm just doing my thing. I'm living here. I'm so glad you're going to stay. I'm so glad you're going to be here. Yeah. Woo.
+14,happy,fake_evidence,It's a relief too. I mean I was thinking I was going to have to pack up all of my stuff but yeah. Hooray for U.S.C.
+15,excited,fake_evidence,Yeah. Big time.
+16,excited,fake_evidence,Mmhmm. Mmhmm. Yay. So what major? What are you doing?
+17,excited,fake_evidence,Yeah. I'm not sure.
+18,null,null,Is this a Masters or a P.h.D.? Or can you...? Nice
+19,excited,fake_evidence,Umm...P.h.D. [LAUGHTER]
+20,null,null,That's good. Don't you have to like teach a class. too. when you do that?
+21,excited,fake_evidence,Teacher. Mrs. Nash. I have a question.
+22,excited,fake_evidence,So I get to mold young minds. Mrs.? That's my mother.
+23,excited,fake_evidence,You have to get married. Well you are married to Chuck. You're Mrs. Nash. Not to be confused with Mrs. Dash which is the popular seasoning.
+24,excited,fake_evidence,I would be like- Oh. Right. right. right.
+25,excited,fake_evidence,Yay...School's fun.
+26,null,null,Of course. right. That's where the real money is. being a student.
+27,happy,fake_evidence,That's how you get the big bucks. Are you messing with the chair? Don't ruin it.
+28,excited,fake_evidence,I know. I made such a mess of it. the entire time. The last three things I've done. I've ruined everything. I think. Mm-hmm. Yeah.
+1117 26
+ (1, 1), (2, 2), (3, 1), (8, 8), (9, 8), (9, 9), (10, 8), (15, 15), (17, 17), (18, 17), (19, 19), (20, 20), (21, 20), (21, 21), (23, 23), (24, 23), (25, 23), (26, 23),
+1,excited,fake_evidence,I don't care then.
+2,happy,fake_evidence,No. Wrong number. [LAUGHTER]
+3,happy,fake_evidence,[LAUGHTER] That sent shivers up my spine.
+4,happy,fake_evidence,What shall we do if they suddenly walk in on us.[LAUGHTER]
+5,null,null,We'll behave exquisitely.
+6,null,null,With perfect poise.
+7,null,null,I think I shall do a curtsy.
+8,happy,fake_evidence,It's strange; things that ought to matter dreadfully. they just don't matter at all when one's happy. Do they?
+9,happy,fake_evidence,Yes. Meaning just that.
+10,happy,fake_evidence,Well what does it all mean? That's what I ask myself in my quest for ultimate truth. Dear God. what does it all mean?
+11,null,null,Don't laugh at me. I'm being serious.
+12,null,null,Who's they?
+13,null,null,Who knows?
+14,null,null,Yes. Yes with all of his might.
+15,excited,fake_evidence,Let's be superficial. and just pity those poor philosophers. huh? Let's blow trumpets and squeakers and enjoy the party for as long as we can. you know. like small. idiotic school children.
+16,null,null,[LAUGHTER]
+17,happy,fake_evidence,Oh Come and kiss me darling before your body rots and worms pop out of your eye sockets.
+18,happy,fake_evidence,Oh Elliott. worms don't pop.
+19,happy,fake_evidence,Oh See. I don't care what you do. see. You can paint yourself green and run naked through the Place Vendome and run off with all of the men of the world. I shan't say a word. just as long as you love me best.
+20,happy,fake_evidence,Aw. Thank you. darling. The same applies to you too. except that if you so much as look at another woman I'll kill you.
+21,excited,fake_evidence,Oh Charles. that was his name. He did wiggle so beautifully.
+22,null,null,That was a rouser. wasn't it?
+23,happy,fake_evidence,The manager came in. he found us rolling about the floor. biting and scratching like panthers. [LAUGHTER] How utterly. utterly ridiculous.
+24,happy,fake_evidence,[LAUGHTER] I'll never forget his face. [LAUGHTER]
+25,happy,fake_evidence,[LAUGHTER] We were very much younger then.
+26,happy,fake_evidence,[LAUGHTER] And very much sillier.
+1118 26
+ (7, 7), (9, 9), (9, 7), (10, 10), (10, 7), (11, 11), (11, 10), (12, 12), (13, 13), (14, 14), (14, 13), (15, 14), (16, 16), (17, 16), (18, 16), (18, 17), (19, 19), (19, 18), (20, 20), (21, 21), (21, 20), (22, 22), (22, 21), (23, 21), (23, 22), (25, 24), (26, 25),
+1,null,null,Excuse me.
+2,frustrated,fake_evidence,Do you have your forms?
+3,null,null,Yeah.
+4,frustrated,fake_evidence,Let me see them.
+5,null,null,Is there a problem?
+6,frustrated,fake_evidence,Who told you to get in this line?
+7,frustrated,fake_evidence,Okay. But I didn't tell you to get in this line if you are filling out this particular form.
+8,null,null,Well what's the problem? Let me change it.
+9,frustrated,fake_evidence,This form is a Z.X.four.
+10,frustrated,fake_evidence,You can't-- This is not the line for Z.X.four. If you're going to fill out the Z.X.four. you need to have a different form of ID.
+11,frustrated,fake_evidence,What? I'm getting an ID. This is why I'm here. My wallet was stolen.
+12,frustrated,fake_evidence,No. I need another set of ID to prove this is actually you.
+13,frustrated,fake_evidence,How am I supposed to get an ID without an ID? How does a person get an ID in the first place?
+14,frustrated,fake_evidence,I don't know. But I need an ID to pass this form along. I can't just send it along without an ID.
+15,frustrated,fake_evidence,I'm here to get an ID.
+16,frustrated,fake_evidence,No. I need another ID. a separate one.
+17,frustrated,fake_evidence,Like what? Like a birth certificate?
+18,frustrated,fake_evidence,A birth certificate. a passport...a student ID; didn't you go to school? Anything?
+19,frustrated,fake_evidence,Yes but my wallet was stolen. I don't have anything. I don't have any credit cards. I don't have my ID. Don't you have things on file here?
+20,frustrated,fake_evidence,Yeah. We keep it on file. but we need an ID to access that file.
+21,angry,fake_evidence,That's out of control.
+22,angry,fake_evidence,I don't understand why this is so complicated for people when they get here. It's just a simple form. I just need an ID.
+23,frustrated,fake_evidence,How long have you been working here?
+24,null,null,Clearly. You know. do you have like a supervisor or something?
+25,angry,fake_evidence,Yeah. Do you want to see my supervisor? Huh? Yeah. Do you want to see my supervisor? Fine. I'll be right back.
+26,frustrated,fake_evidence,That would - I would appreciate that. Yeah.
+1119 110
+ (2, 2), (3, 2), (4, 4), (5, 4), (6, 4), (7, 4), (8, 2), (9, 2), (9, 9), (10, 2), (10, 9), (10, 10), (11, 2), (11, 9), (12, 2), (12, 9), (13, 13), (14, 14), (16, 2), (16, 9), (16, 15), (17, 2), (17, 9), (17, 15), (18, 16), (19, 16), (21, 2), (21, 21), (22, 2), (22, 21), (23, 2), (23, 21), (23, 23), (26, 2), (26, 21), (26, 23), (28, 2), (28, 28), (32, 2), (32, 28), (34, 34), (36, 36), (38, 38), (39, 38), (40, 38), (40, 40), (41, 38), (41, 40), (42, 2), (42, 40), (45, 44), (45, 45), (47, 47), (48, 48), (49, 48), (51, 51), (52, 51), (53, 51), (54, 51), (55, 51), (56, 51), (57, 51), (58, 51), (59, 51), (60, 51), (60, 60), (61, 51), (61, 60), (62, 62), (63, 63), (65, 63), (66, 62), (67, 63), (68, 68), (69, 2), (70, 63), (70, 70), (71, 2), (71, 71), (72, 2), (72, 71), (74, 74), (75, 75), (76, 76), (77, 77), (78, 77), (84, 84), (86, 84), (88, 84), (90, 84), (91, 84), (93, 93), (95, 93), (96, 93), (97, 93), (98, 98), (102, 102), (106, 106), (109, 107), (110, 107),
+1,null,null,Hey. what's up?
+2,excited,fake_evidence,Guess what came today?
+3,excited,fake_evidence,What?
+4,excited,fake_evidence,My acceptance letter.
+5,excited,fake_evidence,From U.S.C..
+6,excited,fake_evidence,Yes. I am.
+7,excited,fake_evidence,Well yeah. that's the general idea. [LAUGHTER]
+8,excited,fake_evidence,That's awesome. Congratulations.
+9,excited,fake_evidence,Big bad acceptance packet with all the information. I'm going to U.S.C..
+10,excited,fake_evidence,That's amazing. Wow.
+11,excited,fake_evidence,I know. [LAUGHTER]
+12,excited,fake_evidence,[LAUGHTER] Yeah. uh. No.
+13,excited,fake_evidence,[LAUGHTER] It's safe around there.
+14,excited,fake_evidence,The campus is beautiful. I'm so excited.
+15,null,null,I know but you should get like a taser or something. I mean walking around the campus at night-
+16,excited,fake_evidence,Do you want to buy me some mace for my. you know. going away present?
+17,excited,fake_evidence,There we go. Perfect.
+18,excited,fake_evidence,And a taser. Excellent. Just make sure it's a big knife.
+19,excited,fake_evidence,I don't want any of those little puny ones.
+20,null,null,So. um- so what are you going to- what are you going to major in?
+21,excited,fake_evidence,Well I was thinking maybe underwater basket weaving.
+22,excited,fake_evidence,U.S.C. has a major in that. right.
+23,excited,fake_evidence,They have - U.S.C. has everything because U.S.C. is the best school ever.
+24,null,null,they have that as a major?
+25,null,null,That's ridiculous. I don't believe that.
+26,excited,fake_evidence,Okay. Well I'm lying but-
+27,null,null,Seriously. what's your major?
+28,excited,fake_evidence,Well. I haven't decided yet. I want to try some things out.
+29,null,null,So you're undecided?
+30,null,null,Hey. that's cool.
+31,null,null,No. no. It's totally cool. I mean. like. this friend of mine he was- he's been undecided now for. like. the past like eleven years of his life.
+32,excited,fake_evidence,okay. Well I'm not going to be undecided forever. [LAUGHTER]
+33,null,null,Uh. well-
+34,excited,fake_evidence,And it's so close so you can come visit me all the time.
+35,null,null,You- you- you'll find.
+36,excited,fake_evidence,So this works out perfectly. Because I was worried if I didn't get in to U.S.C.. then I would have to go somewhere far away and then-
+37,null,null,You'd have to. like go somewhere else. and. you know. we would be apart. and that would suck.
+38,excited,fake_evidence,Everything worked out perfectly.
+39,excited,fake_evidence,That's awesome.
+40,excited,fake_evidence,I know. We should have a party.
+41,excited,fake_evidence,An I got accepted to U.S.C. party.
+42,excited,fake_evidence,No. An I got accepted to U.S.C. party. [LAUGHTER]
+43,null,null,Oh. that's right. Okay. I see. Right. right. right.
+44,null,null,A party celebrating your acceptance.
+45,excited,fake_evidence,Right. Now you're with me.
+46,null,null,That's cool.
+47,excited,fake_evidence,That is why I got accepted.
+48,excited,fake_evidence,Well. that's really cool that you're going to be staying in the same city and everything. so umm
+49,excited,fake_evidence,I know.
+50,null,null,I don't know are you. like. I don't know. Are you. like. available or anything?
+51,excited,fake_evidence,Well I mean I don't know. It's like you know I kind of had a crush on you throughout high school and. like
+52,excited,fake_evidence,I don't know I just thought that. you know. maybe we could. you know. I don't know. It's like. you know. just test the waters anyway. I don't see what the problem is.
+53,excited,fake_evidence,What- what did you have in mind?
+54,excited,fake_evidence,Movies- movie. we'll go to a movie and a dinner and- and
+55,excited,fake_evidence,actually. you know. there's this- there's this really cool restaurant. um. I don't know if you- it's Red Lobster. It's like down on
+56,excited,fake_evidence,[LAUGHTER]
+57,excited,fake_evidence,Vermont.
+58,excited,fake_evidence,Wait. you've been there before?
+59,excited,fake_evidence,On occasion I've heard of it.
+60,excited,fake_evidence,Oh. so well then you know that it's awesome.
+61,excited,fake_evidence,Yeah. Totally.
+62,excited,fake_evidence,Right. so we'll go there and then- and then we'll get some ice cream and maybe we'll go putt-putt golfing.
+63,excited,fake_evidence,I am totally down with the ice cream.
+64,null,null,Okay. Putt-putt golfing?
+65,excited,fake_evidence,Eh. we can work that part out.
+66,excited,fake_evidence,Yeah. you want to go. No. you want to go. You want to go.
+67,excited,fake_evidence,Alright.
+68,excited,fake_evidence,I can see it in your eyes. You want to go.
+69,excited,fake_evidence,party.
+70,excited,fake_evidence,Good. Alright we're so happy.
+71,excited,fake_evidence,That's right. Um. so U.S.C. is a really nice school.
+72,excited,fake_evidence,I know.
+73,null,null,Are you going to take out loans or-
+74,excited,fake_evidence,Okay well that's not a happy part. We don't want to talk about that.
+75,excited,fake_evidence,Well no. I mean I have some scholarships and some financial aid and stuff but I'll have to. you know. I'll get a job
+76,excited,fake_evidence,while I'm in school. It'll be good.
+77,excited,fake_evidence,Yeah. It will work out. Maybe I could work at Red Lobster.
+78,excited,fake_evidence,I know. Right down the street.
+79,null,null,But. um-
+80,null,null,I mean. like. I don't know. I'm just saying if you need to make some extra cash. You can. you know
+81,null,null,Or library.
+82,null,null,I just said the library
+83,null,null,or. um. campus cruiser. You can drive people around.
+84,excited,fake_evidence,Excellent. Drive drunk people around because you know that's all campus cruisers for.
+85,null,null,Right or you can run for student counsel.
+86,excited,fake_evidence,Okay. No. that's dorky.
+87,null,null,Dorky?
+88,excited,fake_evidence,Yeah.
+89,null,null,It's important.
+90,excited,fake_evidence,Student counsel?
+91,excited,fake_evidence,No. it's dorky.
+92,null,null,Fine. It's dorky.
+93,excited,fake_evidence,Social life. Hello.
+94,null,null,But that'll fit you because you're a dork.
+95,excited,fake_evidence,[LAUGHTER].
+96,excited,fake_evidence,[LAUGHTER].
+97,excited,fake_evidence,I dork.
+98,excited,fake_evidence,No. But I'm thinking I might. you know. like audition for a play or something. I don't really want to do the sorority thing. I'm not really feeling that vibe with the
+99,null,null,Yeah. you don't want to do the sorority thing because you'll probably get used and abused by
+100,null,null,lots of drunk frat boys
+101,null,null,Yeah.
+102,excited,fake_evidence,What have you heard about the Greek system?
+103,null,null,I mean it's not really free because you have to pay for it. but yeah.
+104,null,null,Well do you think you're going to live on campus or off campus your first year?
+105,null,null,I hate to break this to you but you meet people by being cool. so-
+106,excited,fake_evidence,Oh. oh. I'm sorry. my bad. I'll have to. like. sign up for summer lessons from you before I go. You can teach me how to be cool before I go to college.
+107,null,null,No. no. no. You're right though. I mean. you know. dorms are definitely the way to meet people. I know that I was in an apartment off campus
+108,null,null,that happened. you know. that was going on.
+109,excited,fake_evidence,That's what you're saying. I'm right. [LAUGHTER]
+110,excited,fake_evidence,me.
+1120 42
+ (2, 2), (4, 2), (4, 4), (6, 2), (6, 4), (8, 8), (10, 2), (10, 4), (11, 2), (11, 4), (11, 9), (12, 12), (14, 12), (14, 14), (16, 12), (16, 14), (18, 12), (18, 14), (21, 12), (21, 14), (21, 19), (21, 20), (21, 21), (23, 12), (23, 14), (23, 21), (23, 23), (25, 12), (25, 14), (25, 21), (25, 23), (27, 12), (27, 14), (27, 21), (27, 23), (30, 29), (30, 30), (32, 29), (32, 30),
+1,null,null,Hello?
+2,frustrated,fake_evidence,Oh God I finally got...you know how long I've been waiting on line? You put on hold for like five hours. Geez.
+3,null,null,I'm sorry ma'am. What's the nature of your problem? But first can I get you to tell me your first and last name?
+4,frustrated,fake_evidence,I've already been through this five times with these people. I've been calling every single day.
+5,null,null,I know I just need to verify every time. I'm sorry.
+6,frustrated,fake_evidence,Olivia Brown.
+7,null,null,Alright Ms. Brown what's the nature of your problem?
+8,frustrated,fake_evidence,Well my phone isn't working and it hasn't been working for the last five days.
+9,null,null,Oh. I'm sorry. Um- Did you drop it in water?
+10,angry,fake_evidence,Yeah. yeah. yeah you better be sorry.
+11,angry,fake_evidence,No I did not drop my phone in water. I'm not five years old and just dropped my phone anywhere I see it. Okay this is my business.
+12,frustrated,fake_evidence,Okay? And it [GARBAGE]. My business is failing because my phone isn't working and I don't have a land line and I really can't handle this right now.
+13,null,null,Um- well it's probably easy. Can you any more symptoms either you're not receiving calls----ok. you're not receiving calls. not getting calls.
+14,frustrated,fake_evidence,the symptoms- This [GARBAGE] a doctor's office. I'm not receiving calls...I can't receive- no. it's. it cuts me off--
+15,null,null,Is the phone turned on?
+16,frustrated,fake_evidence,Yes the phone turns on. No I mean I'm using it not turning on the phone. Of course it turns on.
+17,null,null,Well. um- okay. Your sim card is in- didn't fall out-
+18,frustrated,fake_evidence,No- I don't have a sim card because it's Verizon and you guys don't use sim cards.
+19,null,null,Alright. Um- Well that could be the problem. cause--
+20,null,null,you might have an older phone where we would use sim cards but probably not.
+21,frustrated,fake_evidence,Okay no. Sir. this is the deal. My phone isn't working and I don't care what the problem is but it needs to work. That's why I'm paying you guys to fix it.
+22,null,null,Okay. How about this we'll send you a brand new camera phone with palm pilot-- and-
+23,frustrated,fake_evidence,I don't know even how to use that stuff it's too complicated. I just want my flip phone to work----that's all I need
+24,null,null,So we'll send it- And we'll give you. how about a free year's service?
+25,frustrated,fake_evidence,Look. I am on the road all the time. Do you understand how important? I'm a woman. a single mother by herself working...what?
+26,null,null,Tell them my name. My name is Brent Backersen.
+27,frustrated,fake_evidence,Brent Backersen. I am writing this down. Brent Backersen. Alright.
+28,null,null,Okay. Tell them my - my ID number is two one three five.
+29,null,null,Tell them that. You can go in. get a brand new phone. they'll hook you up with service even give you a free three months--
+30,frustrated,fake_evidence,I. I. I don't want a contract. Okay. I don't want any contracts.
+31,null,null,It will be free. No contract okay?
+32,frustrated,fake_evidence,Really? No contract?
+33,null,null,Go in there. yeah. go in there. Tell them Brent Backersen sent you.
+34,null,null,the top of the line camera phone. game boy. anything you want. For free. And palm pilot.
+35,null,null,They might only have orange.
+36,null,null,Okay. They can figure out pink for you. So go in there and just tell them that and they'll hook you up with other goodies. stuff like that free service. no contract. no nothing. Just for being a good customer
+37,null,null,and battling through with us.
+38,null,null,Alright. Well- I guess - I guess that's okay but.
+39,null,null,Yes. You just tell them Brent Backersen sent you.
+40,null,null,Okay.
+41,null,null,Alright? Great. Have a nice evening.
+42,null,null,Alright Thanks.
+1121 28
+ (5, 1), (5, 2), (5, 4), (5, 5), (6, 1), (6, 2), (6, 4), (6, 5), (7, 1), (7, 2), (7, 4), (7, 5), (8, 1), (8, 2), (8, 4), (8, 5), (9, 1), (9, 2), (9, 4), (9, 5), (9, 9), (10, 1), (10, 2), (10, 4), (10, 5), (10, 9), (10, 10), (11, 9), (11, 10), (11, 11), (12, 1), (12, 2), (12, 4), (12, 5), (12, 9), (12, 10), (12, 12), (13, 13), (14, 1), (14, 2), (14, 4), (14, 5), (14, 9), (14, 6), (14, 11), (14, 14), (15, 14), (15, 15), (16, 1), (16, 2), (16, 4), (16, 5), (16, 9), (16, 6), (16, 11), (16, 14), (16, 15), (16, 16), (17, 16), (18, 1), (18, 2), (18, 4), (18, 5), (18, 9), (18, 6), (18, 11), (18, 14), (19, 18), (20, 18), (20, 19), (20, 20), (21, 18), (21, 20), (22, 18), (22, 20), (23, 1), (23, 2), (23, 4), (23, 5), (23, 9), (23, 6), (23, 11), (23, 14), (23, 15), (23, 16), (23, 23), (24, 18), (24, 20), (24, 23), (25, 1), (25, 2), (25, 4), (25, 5), (25, 9), (25, 6), (25, 11), (25, 14), (25, 25), (26, 25), (26, 26), (27, 25), (27, 26), (27, 27), (28, 25), (28, 26), (28, 28),
+1,null,null,Why does that bother you?
+2,null,null,She's been in New York three and a half years. Why all of the sudden?
+3,null,null,Well maybe. Maybe she just wanted to see her again.
+4,null,null,What did you mean? He lived next door to the girl all of his life. why wouldn't he want to see her again? Don't look at me like that. he didn't tell me any more than he told you.
+5,frustrated,fake_evidence,How do you know he is even thinking about it?
+6,frustrated,fake_evidence,Well. so what.
+7,frustrated,fake_evidence,What's going on here. Joe?
+8,frustrated,fake_evidence,Now. listen. Kate. just-
+9,angry,fake_evidence,She's not his girl. She knows she's not.
+10,frustrated,fake_evidence,She's . . . Then why is she still single. New York is full of men. why isn't she married? Probably a hundred people told her she's foolish. but she's waited.
+11,frustrated,fake_evidence,How do you know why she's waited?
+12,frustrated,fake_evidence,Because she knows what I know - she's faithful as a rock and my worst moments I think of her waiting and I know again that I'm right.
+13,frustrated,fake_evidence,Look. It's a nice day. Why are we arguing?
+14,frustrated,fake_evidence,Nobody in her- this house dares shake her faith. Strangers might. but not his father. and not his brother.
+15,frustrated,fake_evidence,What do you want me to do? What do you want--
+16,angry,fake_evidence,I want you to pretend like he's coming back!
+17,frustrated,fake_evidence,But. Kate...
+18,angry,fake_evidence,Because if he's not coming back. then I'll kill myself.
+19,frustrated,fake_evidence,[LAUGHTER]
+20,angry,fake_evidence,Laugh. Laugh at me. but what happens the night that she goes to sleep in his bed. and his memorial breaks in pieces?
+21,frustrated,fake_evidence,Calm yourself.
+22,frustrated,fake_evidence,Calm yourself!
+23,angry,fake_evidence,Only last week. another boy turned up in Detroit. been missing longer than Larry. you read it yourself.
+24,frustrated,fake_evidence,All right. all right. Calm yourself.
+25,sad,fake_evidence,You've got to believe. You've got to--
+26,angry,fake_evidence,What do you mean me above all? Look at you. You're shaking!
+27,angry,fake_evidence,I can't help it!
+28,angry,fake_evidence,What have I got to hide? What the hell is the matter with you. Kate?
+1122 51
+ (4, 3), (4, 4), (6, 5), (7, 5), (7, 3), (7, 4), (8, 7), (10, 3), (11, 10), (12, 10), (13, 10), (14, 3), (14, 4), (14, 12), (15, 3), (15, 4), (15, 12), (16, 16), (17, 3), (17, 4), (17, 12), (18, 17), (18, 18), (19, 18), (20, 20), (21, 20), (22, 18), (22, 20), (22, 21), (23, 18), (23, 20), (23, 21), (24, 18), (24, 20), (24, 21), (25, 18), (25, 20), (25, 21), (26, 18), (26, 20), (26, 21), (27, 26), (27, 18), (27, 20), (27, 21), (28, 26), (28, 18), (28, 20), (28, 21), (29, 18), (29, 20), (29, 21), (30, 18), (30, 20), (30, 21), (31, 30), (31, 18), (31, 20), (31, 21),
+1,null,null,Well. what of it?
+2,null,null,No. thank you.
+3,null,null,I'll have a little. I think.
+4,angry,fake_evidence,I don't see why you want any you already had two glasses.
+5,null,null,Oh. you know no particular reason besides they are very small glasses.
+6,frustrated,fake_evidence,Really. Amanda.
+7,angry,fake_evidence,Don't be stupid. what?
+8,frustrated,fake_evidence,Nothing.
+9,null,null,Are you going out somewhere dear?
+10,angry,fake_evidence,Well it's a woman's duty to allure the man. Watch me a minute will you?
+11,angry,fake_evidence,You know. it's a pity you didn't have any more brandy. It would have made you just a little less disagreeable.
+12,angry,fake_evidence,You know what? You snap. you snap. you snap you're like a little adder.
+13,angry,fake_evidence,Nonsense. They have a bag of venom behind of fangs and they snap.
+14,angry,fake_evidence,They sting.
+15,angry,fake_evidence,I don't care. I don't care. do you understand? I don't mind if they bark and they roll about like hoops.
+16,angry,fake_evidence,Did you see much of Peter Burden after our divorce?
+17,angry,fake_evidence,Yes. I did quite a lot.
+18,angry,fake_evidence,I suppose you let him just kiss you or good deal more than too.
+19,angry,fake_evidence,Oh. mind you own business.
+20,angry,fake_evidence,I suppose you two had a riotous time. huh? No restrain at all. very enjoyable. he never had much any how.
+21,angry,fake_evidence,You're quite insufferable. I expect it's because you're drunk.
+22,angry,fake_evidence,I am not in the least bit drunk.
+23,angry,fake_evidence,You always had a weak head.
+24,angry,fake_evidence,I think I told you once before that I had three minute liquor glasses the whole evening long. A Child of two cannot get drunk on that.
+25,angry,fake_evidence,On the contrary. a child two could get violently drunk on only one glass of brandy.
+26,angry,fake_evidence,Oh very. very interesting Amanda. How about the child of uh... four. six or maybe nine---you know. we could work up a splendid little debate about it. you know? Intemperate tots.
+27,angry,fake_evidence,Shut up.
+28,angry,fake_evidence,Not very funny darling. Why don't you have some more brandy?
+29,angry,fake_evidence,That's a very good idea I think I will.
+30,angry,fake_evidence,Would you uh...turn that off please? You're going to wake the people upstairs.
+31,angry,fake_evidence,Why?
+32,null,null,Well then you'll wake the people downstairs.
+33,null,null,They are away in Tunis.
+34,null,null,This is no time a year for Tunis.
+35,null,null,Turn it on again. please.
+36,null,null,I will do no such thing.
+37,null,null,Very well if you insist on being boorish and idiotic.
+38,null,null,Turn it off. It's driving me mad.
+39,null,null,I won't.
+40,null,null,Turn it off.
+41,null,null,Stop it. No. Go away.
+42,null,null,Amanda listen. Listen.
+43,null,null,listen Oh I'm sick and tired of listening to you. you damn sadistic bully.
+44,null,null,That's very amusing indeed.
+45,null,null,Oh you're cruel you're...you're...I hate you. I hate you. Go away. You're conceited. You're overbearing. You're utterly impossible.
+46,null,null,You...You're an evil minded. self-centered little wench and I never want to see you again.
+47,null,null,This is the end do you hear me? Finally and forever.
+48,null,null,You're not going like this.
+49,null,null,Oh yes I am...Oh yes I am. Let go of me. You let go. You...urgh...You're a cruel friend. I loathe and I hate you. Marry you again...Ha...Never. never. never. never. I hope you die in torment. You beast.
+50,null,null,No you're not.
+51,null,null,Shut up. Shut up. I wouldn't marry you again if you came crawling back to me on a bended knee. You are an evil tempered little vampire and I never want to see you again as long as I live.
