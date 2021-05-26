@@ -478,7 +478,7 @@ This repository also contains implementations of different architectures to dete
 ## ECPE-2D on [RECCON](https://github.com/declare-lab/RECCON) dataset
 
 <p align="center">
-  <img src="iemotion-cause-extraction/mages/ECPE-2D.png" alt="ECPE-2D" width="1000"/>
+  <img src="emotion-cause-extraction/images/ECPE-2D.png" alt="ECPE-2D" width="1000"/>
 </p>
 
 Citation:
