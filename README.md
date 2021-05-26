@@ -30,7 +30,7 @@ COSMIC is the best performing model in this repo and please visit the links belo
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/cosmic-commonsense-knowledge-for-emotion/emotion-recognition-in-conversation-on)](https://paperswithcode.com/sota/emotion-recognition-in-conversation-on?p=cosmic-commonsense-knowledge-for-emotion)
 
 
-This repository contains implementations for three conversational emotion detection methods, namely:
+This repository contains implementations for several emotion recognition in conversations methods as well algorithms for recognizing emotion cause in conversations:
 
 - [Emotion Recognition in Conversations](#emotion-recognition-in-conversations)
   * [Data Format](#data-format)
@@ -44,6 +44,10 @@ This repository contains implementations for three conversational emotion detect
   * [bc-LSTM-pytorch (PyTorch)](#bc-lstm-pytorch)
   * [bc-LSTM (keras)](#bc-lstm)
 - [Recognizing Emotion Cause in Conversations](#recognizing-emotion-cause-in-conversations)
+  * [ECPE-2D on RECCON dataset](#ecpe-2d-on-reccon-dataset)
+  * [Rank-Emotion-Cause on RECCON dataset](#rank-emotion-cause-on-reccon-dataset)
+  * [ECPE-MLL on RECCON dataset](#ecpe-mll-on-reccon-dataset)
+  * [RoBERTa and SpanBERT Baselines on RECCON dataset](#roberta-and-spanbert-baselines-on-reccon-dataset)
 
 
 Unlike other emotion detection models, these techniques consider the party-states and inter-party dependencies for modeling conversational context relevant to emotion recognition. The primary purpose of all these techniques are to pretrain an emotion detection model for empathetic dialogue generation.
