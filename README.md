@@ -4,7 +4,7 @@
 
 | Date 	| Announcements 	|
 |-	|-	|
-| 18/05/2021  | We have released a new repo containing models to solve the problem of emotion cause recognition in conversations. Check it out: [https://github.com/declare-lab/conv-emotion-cause](https://github.com/declare-lab/conv-emotion-cause). |
+| 18/05/2021  | We have released a new repo containing models to solve the problem of emotion cause recognition in conversations. Check it out: [emotion-cause-extraction](https://github.com/declare-lab/conv-emotion/tree/master/emotion-cause-extraction). |
 | 24/12/2020  | Interested in the topic of recognizing emotion causes in conversations? We have just released a dataset for this. Head over to [https://github.com/declare-lab/RECCON](https://github.com/declare-lab/RECCON).  |
 | 06/10/2020  | New paper and SOTA in Emotion Recognition in Conversations. Refer to the directory [COSMIC](./COSMIC) for the code. Read the paper -- [COSMIC: COmmonSense knowledge for eMotion Identification in Conversations](https://arxiv.org/pdf/2010.02795.pdf).  |
 | 30/09/2020 	| New paper and baselines in utterance-level dialogue understanding have been released. Read our paper [Utterance-level Dialogue Understanding: An Empirical Study](https://arxiv.org/pdf/2009.13902.pdf). Fork the [codes](https://github.com/declare-lab/dialogue-understanding). 	|
