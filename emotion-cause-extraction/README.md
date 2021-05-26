@@ -48,7 +48,7 @@ Please cite the following papers if you use this code.
 - **Effective Inter-Clause Modeling for End-to-End Emotion-Cause Pair Extraction**. In *Proc. of ACL 2020: The 58th Annual Meeting of the Association for Computational Linguistics*, pages 3171--3181. [[pdf](https://www.aclweb.org/anthology/2020.acl-main.289/)] 
 
 
-## ECEP-MLL on [RECCON](https://github.com/declare-lab/RECCON) dataset
+## ECPE-MLL on [RECCON](https://github.com/declare-lab/RECCON) dataset
 
 
 <p align="center">
