@@ -1,7 +1,7 @@
 
 # Models for Recognizing Emotion Cause in Conversations
 
-This repository contains implementations of different architectures to detect emotion cause in conversations.
+This repository contains implementations of different architectures to detect emotion cause in conversations, mostly compiled by [Pengfei Hong](https://www.pengfei-hong.com/).
 
 <p align="center">
   <img src="images/cause_types1.png" alt="Emotion cause types in conversation" width="1000"/>
