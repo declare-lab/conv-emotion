@@ -1,0 +1,3 @@
+[submodule "generalized-dialogue-context-modeling"]
+	path = generalized-dialogue-context-modeling
+	url = https://github.com/declare-lab/dialogue-understanding
