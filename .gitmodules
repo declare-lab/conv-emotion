@@ -1,3 +1,6 @@
 [submodule "generalized-dialogue-context-modeling"]
 	path = generalized-dialogue-context-modeling
 	url = https://github.com/declare-lab/dialogue-understanding
+[submodule "RECCON-dataset"]
+	path = RECCON-dataset
+	url = https://github.com/declare-lab/RECCON
