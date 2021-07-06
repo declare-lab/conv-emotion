@@ -156,7 +156,7 @@ First download the RoBERTa and COMET features [here](https://drive.google.com/fi
 
 1. IEMOCAP: `python train_iemocap.py --active-listener`
 2. DailyDialog: `python train_dailydialog.py --active-listener --class-weight --residual`
-3. MELD Emotion: `python train_meld.py --active-listener --class-weight --residual`
+3. MELD Emotion: `python train_meld.py --active-listener --attention simple --dropout 0.5 --rec_dropout 0.3 --lr 0.0001 --mode1 2 --classify emotion --mu 0 --l2 0.00003 --epochs 60`
 4. MELD Sentiment: `python train_meld.py --active-listener --class-weight --residual --classify sentiment`
 5. EmoryNLP Emotion: `python train_emorynlp.py --active-listener --class-weight --residual`
 6. EmoryNLP Sentiment: `python train_emorynlp.py --active-listener --class-weight --residual --classify sentiment`
