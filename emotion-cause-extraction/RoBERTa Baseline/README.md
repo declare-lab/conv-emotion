@@ -95,4 +95,4 @@ Without context models can be trained and evaluated by removing `--context` from
 
 ## Citation
 
-Recognizing Emotion Cause in Conversations. Soujanya Poria, Navonil Majumder, Devamanyu Hazarika, Deepanway Ghosal, Rishabh Bhardwaj, Samson Yu Bai Jian, Romila Ghosh, Niyati Chhaya, Alexander Gelbukh, Rada Mihalcea. Arxiv (2020).
+Recognizing Emotion Cause in Conversations. Soujanya Poria, Navonil Majumder, Devamanyu Hazarika, Deepanway Ghosal, Rishabh Bhardwaj, Samson Yu Bai Jian, Pengfei Hong, Romila Ghosh, Abhinaba Roy, Niyati Chhaya, Alexander Gelbukh, Rada Mihalcea. Cognitive Computation (2021).
