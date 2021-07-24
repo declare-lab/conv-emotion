@@ -33,7 +33,7 @@ This repository contains implementations of different architectures to detect em
 
 Citation:
 Please cite the following papers if you use this code.
-- Recognizing Emotion Cause in Conversations. Soujanya Poria, Navonil Majumder, Devamanyu Hazarika, Deepanway Ghosal, Rishabh Bhardwaj, Samson Yu Bai Jian, Romila Ghosh, Niyati Chhaya, Alexander Gelbukh, Rada Mihalcea. Arxiv (2020). [[pdf](https://arxiv.org/pdf/2012.11820.pdf)]
+- Recognizing Emotion Cause in Conversations. Soujanya Poria, Navonil Majumder, Devamanyu Hazarika, Deepanway Ghosal, Rishabh Bhardwaj, Samson Yu Bai Jian, Pengfei Hong, Romila Ghosh, Abhinaba Roy, Niyati Chhaya, Alexander Gelbukh, Rada Mihalcea. Cognitive Computation (2021). [[pdf](https://arxiv.org/pdf/2012.11820.pdf)]
 - Zixiang Ding, Rui Xia, Jianfei Yu. ECPE-2D: Emotion-Cause Pair Extraction based on Joint Two-Dimensional Representation, Interaction and Prediction. ACL 2020. [[pdf](https://www.aclweb.org/anthology/2020.acl-main.288.pdf)]
 
 ## Rank-Emotion-Cause on [RECCON](https://github.com/declare-lab/RECCON) dataset
@@ -44,7 +44,7 @@ Please cite the following papers if you use this code.
 
 Citation:
 Please cite the following papers if you use this code.
-- Recognizing Emotion Cause in Conversations. Soujanya Poria, Navonil Majumder, Devamanyu Hazarika, Deepanway Ghosal, Rishabh Bhardwaj, Samson Yu Bai Jian, Romila Ghosh, Niyati Chhaya, Alexander Gelbukh, Rada Mihalcea. Arxiv (2020). [[pdf](https://arxiv.org/pdf/2012.11820.pdf)]
+- Recognizing Emotion Cause in Conversations. Soujanya Poria, Navonil Majumder, Devamanyu Hazarika, Deepanway Ghosal, Rishabh Bhardwaj, Samson Yu Bai Jian, Pengfei Hong, Romila Ghosh, Abhinaba Roy, Niyati Chhaya, Alexander Gelbukh, Rada Mihalcea. Cognitive Computation (2021). [[pdf](https://arxiv.org/pdf/2012.11820.pdf)]
 - **Effective Inter-Clause Modeling for End-to-End Emotion-Cause Pair Extraction**. In *Proc. of ACL 2020: The 58th Annual Meeting of the Association for Computational Linguistics*, pages 3171--3181. [[pdf](https://www.aclweb.org/anthology/2020.acl-main.289/)] 
 
 
@@ -57,7 +57,7 @@ Please cite the following papers if you use this code.
 
 Citation:
 Please cite the following papers if you use this code.
-- Recognizing Emotion Cause in Conversations. Soujanya Poria, Navonil Majumder, Devamanyu Hazarika, Deepanway Ghosal, Rishabh Bhardwaj, Samson Yu Bai Jian, Romila Ghosh, Niyati Chhaya, Alexander Gelbukh, Rada Mihalcea. Arxiv (2020). [[pdf](https://arxiv.org/pdf/2012.11820.pdf)]
+- Recognizing Emotion Cause in Conversations. Soujanya Poria, Navonil Majumder, Devamanyu Hazarika, Deepanway Ghosal, Rishabh Bhardwaj, Samson Yu Bai Jian, Pengfei Hong, Romila Ghosh, Abhinaba Roy, Niyati Chhaya, Alexander Gelbukh, Rada Mihalcea. Cognitive Computation (2021). [[pdf](https://arxiv.org/pdf/2012.11820.pdf)]
 - Zixiang Ding, Rui Xia, Jianfei Yu. End-to-End Emotion-Cause Pair Extraction based on SlidingWindow Multi-Label Learning. EMNLP 2020.[[pdf](https://www.aclweb.org/anthology/2020.emnlp-main.290.pdf)]
 
 ## RoBERTa and SpanBERT Baselines on [RECCON](https://github.com/declare-lab/RECCON) dataset
@@ -66,4 +66,4 @@ The RoBERTa and SpanBERT baselines as explained in the original RECCON paper. Re
 
 Citation:
 Please cite the following papers if you use this code.
-- Recognizing Emotion Cause in Conversations. Soujanya Poria, Navonil Majumder, Devamanyu Hazarika, Deepanway Ghosal, Rishabh Bhardwaj, Samson Yu Bai Jian, Romila Ghosh, Niyati Chhaya, Alexander Gelbukh, Rada Mihalcea. Arxiv (2020). [[pdf](https://arxiv.org/pdf/2012.11820.pdf)]
+- Recognizing Emotion Cause in Conversations. Soujanya Poria, Navonil Majumder, Devamanyu Hazarika, Deepanway Ghosal, Rishabh Bhardwaj, Samson Yu Bai Jian, Pengfei Hong, Romila Ghosh, Abhinaba Roy, Niyati Chhaya, Alexander Gelbukh, Rada Mihalcea. Cognitive Computation (2021). [[pdf](https://arxiv.org/pdf/2012.11820.pdf)]
