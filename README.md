@@ -1,10 +1,10 @@
 # Emotion Recognition in Conversations
 
-### Updates
+🔥 🔥 🔥 Updates
 
 | Date 	| Announcements 	|
 |-	|-	|
-| 03/08/2021  | We have released a new dataset M2H2: A Multimodal Multiparty Hindi Dataset For Humor Recognition in Conversations. Check it out: [M2H2](https://github.com/declare-lab/M2H2-dataset). The baselines for the M2H2 dataset are created based on DialogueRNN and bcLSTM. |
+| 03/08/2021  | 🎆 🎆 We have released a new dataset M2H2: A Multimodal Multiparty Hindi Dataset For Humor Recognition in Conversations. Check it out: [M2H2](https://github.com/declare-lab/M2H2-dataset). The baselines for the M2H2 dataset are created based on DialogueRNN and bcLSTM. |
 | 18/05/2021  | We have released a new repo containing models to solve the problem of emotion cause recognition in conversations. Check it out: [emotion-cause-extraction](https://github.com/declare-lab/conv-emotion/tree/master/emotion-cause-extraction). Thanks to [Pengfei Hong](https://www.pengfei-hong.com/) for compiling this. |
 | 24/12/2020  | Interested in the topic of recognizing emotion causes in conversations? We have just released a dataset for this. Head over to [https://github.com/declare-lab/RECCON](https://github.com/declare-lab/RECCON).  |
 | 06/10/2020  | New paper and SOTA in Emotion Recognition in Conversations. Refer to the directory [COSMIC](./COSMIC) for the code. Read the paper -- [COSMIC: COmmonSense knowledge for eMotion Identification in Conversations](https://arxiv.org/pdf/2010.02795.pdf).  |
