@@ -4,3 +4,6 @@
 [submodule "RECCON-dataset"]
 	path = RECCON-dataset
 	url = https://github.com/declare-lab/RECCON
+[submodule "M2H2-dataset"]
+	path = M2H2-dataset
+	url = https://github.com/declare-lab/M2H2-dataset
