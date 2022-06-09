@@ -1,6 +1,8 @@
 # Emotion Recognition in Conversations
 
+## Note
 
+``` For those enquiring about how to extract visual and audio features, please check this out: https://github.com/soujanyaporia/MUStARD```
 
 ## Updates 🔥 🔥 🔥 
 
