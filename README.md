@@ -8,6 +8,7 @@
 
 | Date 	| Announcements 	|
 |-	|-	|
+| 10/03/2024  | If you are interested in IQ testing LLMs, check out our new work: [PuzzleVQA](https://github.com/declare-lab/puzzle-reasoning)
 | 03/08/2021  | 🎆 🎆 We have released a new dataset M2H2: A Multimodal Multiparty Hindi Dataset For Humor Recognition in Conversations. Check it out: [M2H2](https://github.com/declare-lab/M2H2-dataset). The baselines for the M2H2 dataset are created based on DialogueRNN and bcLSTM. |
 | 18/05/2021  | 🎆 🎆 We have released a new repo containing models to solve the problem of emotion cause recognition in conversations. Check it out: [emotion-cause-extraction](https://github.com/declare-lab/conv-emotion/tree/master/emotion-cause-extraction). Thanks to [Pengfei Hong](https://www.pengfei-hong.com/) for compiling this. |
 | 24/12/2020  | 🎆 🎆 Interested in the topic of recognizing emotion causes in conversations? We have just released a dataset for this. Head over to [https://github.com/declare-lab/RECCON](https://github.com/declare-lab/RECCON).  |
